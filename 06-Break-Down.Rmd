@@ -1,0 +1,350 @@
+# Break-down Plots for Additive Attributions {#breakDown}
+
+Probably the most common question related to the explanation of model prediction for a single instance is: *which variables contributed to this result the most?*
+
+Unfortunately, there is no silver bullet. 
+Fortunately, there are some bullets. 
+In this chapter we introduce Break-down (BD) plots, which offer a solution to this problem. Next two chapters are related to extensions of BD plot. Finally, Chapter \@ref(LIME) offer a different approach to this problem. 
+The goal for BD plots is to show "variables attributions" i.e., the decomposition of the model prediction among explanatory variables. 
+
+
+## Intuition {#BDIntuition}
+
+The underlying idea is to calculate contribution of an explanatory variable $x^i$ to model's prediction $f(x)$ as a shift in the expected model response after conditioning on other variables. 
+
+This idea is illustrated in Figure \@ref(fig:BDPrice4). Consider an example related to the prediction for the random-forest model `model_rf_v6` for Titanic data (see Section \@ref(model-titanic-rf)). We are interested in chances of survival for `johny_d` - an 8-years old passenger from first class. Panel A shows distribution of model predictions for all 2207 instances from dataset $X$. The row `all data` shows the vioplot of the predictions for the entire dataset. The red dot indicates the average and it is an estimate of the expected model prediction $E_X[f(X)]$ over the distribution of all explanatory variables. In this example the average model response is 23.5%.
+
+To evaluate the contribution of the explanatory variables to the particular instance prediction, we trace changes in model predictions when fixing the values of consecutive variables. For instance, the row `class=1st` in Panel A of Figure \@ref(fig:BDPrice4) presents the distribution of the predictions obtained when the value of the `class` variable has been fixed to the `1st` class. Again, the red dot indicates the average of the predictions. The next row `age=8` shows the distribution and the average predictions with the value of variable `class` set to `1st` and `age` set to `8`, and so on. With this procedure after $p$ steps every row in $X$ will be filled up with variable values of `johny_d`. All predictions for these rows will be equal, so the last row in the Figure corresponds to the prediction for `model response` for `johny_d`.
+
+The thin black lines in Panel A show how the individual prediction for a single person changes after the value of the $j$-th variable has been replaced by the value indicated in the name of the row. 
+
+As we see from lines between first and the second row, the conditioning over `class=1st` has different effect on different instances. For some the model prediction has not changes (probably these passengers were already in the 1st class). For some the model prediction increase (probably they were in 2nd or 3rd class) while for other passenger the model prediction decreases (probably these were desk crew members).
+
+Eventually, however, we may be interested in the average predictions, as indicated in Panel B of Figure \@ref(fig:BDPrice4), or even only in the changes of the averages, as shown in Panel C. In Panel C, positive changes are presented with green bars, while negative differences are marked with red bar. 
+The changes sum up to the final  prediction, which is illustrated by the violet bar at the bottom of Panel C.
+
+What can be learned from Break-down plots? In this case we have concise summary of effects of particular variables on expected model response. 
+First, we see that average model response is 23.5 percent. These are odds of survival averaged over all people on Titanic. Note that it is not the fraction of people that survived, but the average model response, so for different models one can get different averages.
+The model prediction for Johny D is 42.2 percent. It is much higher than an average prediction. Two variables that influence this prediction the most are class (=1st) and age (=8). Setting these two variables increase average model prediction by 33.5 percent points. Values in all other variables have rather negative effect. Low fare and being a male diminish odds of survival predicted by the model. Other variables do not change model predictions that much.
+Note that value of variable attribution depends on the value not only a variable itself. In this example the `embarked = Southampton` has small effect on average model prediction. It may be because the variable `embarked` is not important or it is possible that variable `embarked` is important but `Southampton` has an average effect out of all other possible values of the `embarked` variable.
+
+
+```{r BDPrice4, echo=FALSE, fig.cap="Break-down plots show how the contribution of individual explanatory variables change the average model prediction to the prediction for a single instance (observation). Panel A) The first row shows the distribution and the average (red dot) of model predictions for all data. The next rows show the distribution and the average of the predictions when fixing values of subsequent explanatory variables. The last row shows the prediction for a particular instance of interest. B) Red dots indicate the average predictions from Panel A. C) The green and red bars indicate, respectively, positive and negative changes in the average predictions (variable contributions). ", out.width = '70%', fig.align='center'}
+knitr::include_graphics("figure/break_down_distr.png")
+```
+
+## Method {#BDMethod}
+
+First, let's see how variable attribution works for linear models. Because of the simple and additive structure of linear models it will be easier to build some intuitions.
+
+### Break-down for linear models
+
+Assume a classical linear model for response $y$ with $p$ explanatory variables collected in the vector $X = (X^1, X^2, \ldots, X^p)$ and coefficients $\beta = (\beta^0, \beta^1, .., \beta^p)$, where $\beta^0$ is the intercept. The prediction for $y$ at point $x=(x^1, x^2, \ldots, x^p)$ is given by the expected value of $Y$ conditional on $X=x$. For a linear model, the expected value is given by the following linear combination:  
+
+$$
+E_Y(y | x) = f(x) = \beta^0 + x^1 \beta^1 + \ldots + x^p \beta^p.
+$$  
+
+Now assume that we selected a single point from the input space $x_* \in \mathcal R^p$.
+We are interested in the contribution of the $i$-th explanatory variable to model prediction $f(x_*)$ for a single observation described by $x_*$. Because of additive structure of the linear model we expect that this contribution will be somehow linked to $x_*^i\beta^i$, because the $i$-th variable occurs only in this term. As it will become clear in the sequel, it is easier to interpret the variable's contribution if $x^i$ is centered by subtracting a constant $\hat x^i$ (usually, the mean of $x^i$). This leads the following, proposition for the variable attribution:
+
+\begin{equation}
+v(i, x_*) = \beta^i (x^i_* - \bar x^i).
+(\#eq:singleBreakDownContribution)
+\end{equation}
+
+
+Here $v(x_*, i)$ is the contribution of the $i$-th explanatory variable to the prediction of model $f()$ at point $x_*$. Assume that $E_Y(y | x_*) \approx f(x_*)$, where $f(x_*)$ is the value of the model at $x_*$. A possible approach to define $v(x_*, i)$ is to measure how much the expected model response changes after conditioning on $x^i_*$:
+
+\begin{equation}
+v(i, x_*) = E_Y(y | x_*) - E_{X^i}\{E_Y[y | (x^1_*,\ldots,x^{i-1}_*,X^i,x^{i+1}_*,x^p_*)]\}\approx f(x_*) - E_{X^i}[f(x^{-i}_*)],
+\end{equation}
+
+where $x^{-i}_*$ indicates that variable $X^i$ in vector $x_*$ is treated as random. For the classical linear model, if the explanatory variables are independent, $v(x_*, i)$ can be expressed as follows:
+
+\begin{equation}
+v(i, x_*) = f(x_*) - E_{X^i}[f(x^{-i}_*)] = \beta^0 + x^1_* \beta^1 + \ldots + x^p_* \beta^p - E_{X^i}[\beta^0 + x^1_* \beta^1 + \ldots +\beta^i X^i \ldots + x^p_* \beta^p] = ...
+\end{equation}
+\begin{equation}
+... = \beta^i[x_*^i - E_{X^i}(X^i)].
+\end{equation}
+
+In practice, given a dataset, the expected value of $X^i$ can be estimated by the sample mean $\bar x^i$. This leads to  
+
+\begin{equation}
+v(i, x_*) = \beta^i (x_*^i - \bar x^i).
+\end{equation}
+
+Note that the linear-model-based prediction may be re-expressed in the following way:
+$$
+f(x_*) = [\beta^0 + \bar x^1 \beta^1 + ... + \bar x^p \beta^p] + [(x^1_* - \bar x^1) \beta^1 + ... + (x^p_* - \bar x^p) \beta^p] 
+$$
+\begin{equation}
+ \equiv [average \ prediction] + \sum_{j=1}^p v(i, x_*).
+(\#eq:singleBreakDownResult)
+\end{equation}
+
+Thus, the contributions of the explanatory variables $v(i, x_*)$ sum up to the  difference between the model prediction for $x_*$ and the average model prediction.
+
+**NOTE for careful readers**
+
+Obviously, sample mean $\bar x^i$ is an estimator of the expected value $E_{X^i}(X^i)$, calculated using a training data. For the sake of simplicity we do not emphasize these differences in the notation. Also, we ignore the fact that, in practice, we never know the true model coefficients and we work with an estimated coefficients. 
+
+
+### Break-down for a general case
+
+Note that the method is similar to the `EXPLAIN` algorithm introduced in ,,Explaining Classifications for Individual Instances'' [@explainPaper] and implemented in the `ExplainPrediction` package [@explainPackage].
+
+Again, let $v(j, x_*)$ denote the variable-importance measure of the $j$-th variable and instance $x_*$, i.e., the contribution of the $j$-th variable to prediction at $x_*$. 
+
+We would like the sum of the $v(j, x_*)$ for all explanatory variables to be equal to the instance prediction (property called *local accuracy*), so that
+
+\begin{equation}
+f(x_*) = v_0 + \sum_{j=1}^p v(j, x_*),
+(\#eq:generalBreakDownLocalAccuracy)
+\end{equation}
+
+where $v_0$ denotes the average model response. If we rewrite the equation above as follows:
+
+\begin{equation}
+E_X[f(X)|X^1 = x^1_*, \ldots, X^p = x^p_*] = E_X[f(X)] + \sum_{j=1}^p v(j, x_*),
+\end{equation}
+
+then a natural proposal for $v(j, x_*)$ is
+
+\begin{equation}
+v(j, x_*) = E_X[f(X) | X^1 = x^1_*, \ldots, X^j = x^j_*] - E_X[f(X) | X^1 = x^1_*, \ldots, X^{j-1} = x^{j-1}_*]. 
+(\#eq:generalBreakDownProposition)
+\end{equation}
+
+In other words, the contribution of the $j$-th variable is the difference between the expected value of the prediction conditional on setting the values of the first $j$ variables equal to their values in $x_*$ and the expected value conditional on setting the values of the first $j-1$ variables equal to their values in $x_*$. 
+
+Note that the definition does imply the dependence of $v(j, x_*)$  on the order of the explanatory variables that is reflected in their indices. 
+
+To consider more general cases, let $J$ denote a subset of $K$ ($K\leq p$) indices from $\{1,2,\ldots,p\}$, i.e., $J=\{j_1,j_2,\ldots,j_K\}$ where each $j_k \in \{1,2,\ldots,p\}$. Furthermore, let $L$ denote another subset of $M$ ($M \leq p-K$) indices from ${1,2,\ldots,p}$ distinct from $J$. That is, $L=\{l_1,l_2,\ldots,l_M\}$ where each $l_m \in \{1,2,\ldots,p\}$ and $J \cap L = \emptyset$. Let us define now    
+
+\begin{eqnarray}
+\Delta^{L|J}(x_*) &\equiv& E_X[f(X) | X^{l_1} = x_*^{l_1},\ldots,X^{l_M} = x_*^{l_M},X^{j_1} = x_*^{j_1},\ldots,X^{j_K} = x_*^{j_K}]\\
+&-& E_X[f(X) | X^{j_1} = x_*^{j_1},\ldots,X^{j_K} = x_*^{j_K}].
+\end{eqnarray}
+
+In other words, $\Delta^{L|J}(x_*)$ is the change between the expected model prediction when setting the values of the explanatory variables with indices from the set $J \cup L$ equal to their values in $x_*$ and the expected prediction conditional on setting the values of the explanatory variables with indices from the set $J$ equal to their values in $x_*$. 
+
+In particular, for the $l$-th explanatory variable, let
+\begin{eqnarray}
+\Delta^{l|J}(x_*) \equiv \Delta^{\{l\}|J}(x_*) &=& E_X[f(X) | X^{j_1} = x_*^{j_1},\ldots,X^{j_K} = x_*^{j_K}, X^{l} = x_*^{l}]\\
+&-& E_X[f(X) | X^{j_1} = x_*^{j_1},\ldots,X^{j_K} = x_*^{j_K}].
+\end{eqnarray}
+
+Thus, $\Delta^{l|J}$ is the change between the expected prediction when setting the values of the explanatory variables with indices from the set $J \cup \{l\}$ equal to their values in $x_*$ and the expected prediction conditional on setting the values of the explanatory variables with indices from the set $J$ equal to their values in $x_*$. Note that, if $J=\emptyset$, then 
+
+\begin{equation}
+\Delta^{l|\emptyset}(x_*) = E_X[f(X) | X^{l} = x_*^{l}] - E_X[f(X)].
+(\#eq:deltaBreakDownAdditive)
+\end{equation}
+
+It follows that
+
+\begin{equation}
+v(j, x_*) = \Delta^{j|\{1,  ..., j-1\}}(x_*).
+\end{equation}
+
+Unfortunately, for non-additive models (that include interactions), the value of so-defined variable-importance measure depends on the order, in which one sets the values of the explanatory variables. Figure \@ref(fig:ordering) presents an example.
+We fit the random forest model to predict whether a passenger survived or not, then, we explain the model's prediction for a 2-year old boy that travels in the second class. The model predicts survival with a probability of $0.964$. We would like to explain this probability and understand which factors drive this prediction. Consider two explanations.
+
+**Explanation 1:**
+The passenger is a boy, and this feature alone decreases the chances of survival. He traveled in the second class which also lower survival probability.
+Yet, he is very young, which makes odds higher. The reasoning behind such an explanation on this level is that most passengers in the second class are adults, therefore a kid from the second class has high chances of survival.
+
+**Explanation 2:**
+The passenger is a boy, and this feature alone decreases survival probability.
+However, he is very young, therefore odds are higher than adult men. Explanation in the last step says that he traveled in the second class, which make odds of survival even more higher. The interpretation of this explanation is that most kids are from the third class and being a child in the second class should increase chances of survival.
+
+Note that the effect of *the second class* is negative in explanations for scenario 1 but positive in explanations for scenario 2.
+
+```{r ordering, echo=FALSE, fig.cap="An illustration of the order-dependence of the variable-contribution values. Two *Break-down* explanations for the same observation from Titanic data set. The underlying model is a random forest. Scenarios differ due to the order of variables in *Break-down* algorithm. Last bar indicates the difference between the model's prediction for a particular observation and an average model prediction. Other bars show contributions of variables. Red color means a negative effect on the survival probability, while green color means a positive effect. Order of variables on the y-axis corresponds to their sequence used in *Break-down* algorithm.", out.width = '50%', fig.align='center'}
+knitr::include_graphics("figure/ordering.png")
+```
+
+
+There are three approaches that can be used to address the issue of the dependence of $v(j, x_*)$ on the order, in which one sets the values of the explanatory variables.
+
+In the first approach, one chooses an ordering according to which the variables with the largest contributions are selected first. In this chapter, we describe a heuristic behind this approach.
+
+In the second approach, one identifies the interactions that cause a difference in variable-importance measure for different orderings and focuses on those interactions. This approach is discussed in Chapter \@ref(iBreakDown).
+
+Finally, one can calculate an average value of the variance-importance measure across all possible orderings. This approach is presented in Chapter \@ref(shapley).
+
+To choose an ordering according to which the variables with the largest contributions are selected first, one can apply a two-step procedure. In the first step, the explanatory variables are ordered. In the second step, the conditioning is applied according to the chosen order of variables.
+
+In the first step, the ordering is chosen based on the decreasing value of the scores equal to $|\Delta^{k|\emptyset}|$. Note that the absolute value is needed, because the variable contributions can be positive or negative. In the second step, the variable-importance measure for the $j$-th variable is calculated as 
+$$
+v(j, x_*) = \Delta ^{j|J},
+$$
+where
+$$
+J = \{k: |\Delta^{k|\emptyset}| < |\Delta^{j|\emptyset}|\},
+$$
+that is, $J$ is the set of indices of explanatory variables that have scores $|\Delta^{k|\emptyset}|$ smaller than the corresponding score for variable $j$.
+
+The time complexity of each of the two steps of the procedure is $O(p)$, where $p$ is the number of explanatory variables.
+
+## Example: Titanic data {#BDExample} 
+
+Let us consider the random-forest model `titanic_rf_v6` (see Section \@ref(model-titanic-rf) and passenger `johny_d` (see Section \@ref(predictions-titanic)) as the instance of interest in the Titanic data. 
+
+The average of model predictions for all passengers is equal to $v_0 = 0.2353095$. Table \@ref(tab:titanicBreakDownDeltas) presents the scores $|\Delta^{j|\emptyset}|$ and the expected values $E[f(X | X^j = x^j_*)]$. Note that $\Delta^{j|\emptyset}=E[f(X) | X^j = x^j_*]-v_0$ and, since for all variables $E[f(X) | X^j = x^j_*]>v_0$, we have got $E[f(X | X^j = x^j_*)]=|\Delta^{j|\emptyset}|+v_0$. 
+
+Table: (\#tab:titanicBreakDownDeltas) Expected values $E[f(X) | X^j = x^j_*]$ and scores $|\Delta^{j|\emptyset}|$ for the random-forest model `titanic_rf_v6` for the Titanic data and `johny_d`. The scores are sorted in the decreasing order.
+
+|variable $j$ | $E[f(X) | X^j = x^j_*]$ | $|\Delta^{j|\emptyset}|$  |
+|:--------|---------:|---------:|
+|age      | 0.7407795| 0.5051210|
+|class    | 0.6561034| 0.4204449|
+|fare     | 0.6141968| 0.3785383|
+|sibsp    | 0.4786182| 0.2429597|
+|parch    | 0.4679240| 0.2322655|
+|embarked | 0.4602620| 0.2246035|
+|gender   | 0.3459458| 0.1102873|
+
+```{r, echo=FALSE, eval=FALSE}
+library("iBreakDown")
+avg = mean(predict(explain_rf_v6$model, type = "prob")[,2])
+
+deltas <- iBreakDown:::calculate_1d_changes(explain_rf_v6$model, 
+                                  johny_d, 
+                                  explain_rf_v6$data[,colnames(johny_d)], 
+                                  predict_function = explain_rf_v6$predict_function)
+dftmp <- data.frame(variable = names(deltas), E = unlist(deltas) + 0.2356585, delta = unlist(deltas))
+library("dplyr")
+dftmp %>% arrange(-delta) %>% knitr::kable()
+
+tmp <- break_down(explain_rf_v6, johny_d)
+plot(tmp)
+as.data.frame(tmp)[,c(1,5,2)] %>% knitr::kable()
+```
+
+Based on the ordering defined by the scores $|\Delta^{j|\emptyset}|$ from Table \@ref(tab:titanicBreakDownDeltas), we can compute the variable-importance measures based on the sequential contributions $\Delta^{j|J}$. The computed values are presented in Table \@ref(tab:titanicBreakDownDeltasConseq).
+
+Table: (\#tab:titanicBreakDownDeltasConseq) Variable-importance measures $\Delta^{j|\{1,\ldots,j\}}$ for the random-forest model `titanic_rf_v6` for the Titanic data and `johny_d` computed by using the ordering of variables defined in Table \@ref(tab:titanicBreakDownDeltas).
+
+
+|variable $j$           |  $E[f(X) | X^{\{1,\ldots,j\}} = x^{\{1,\ldots,j\}}_*)]$ |  $\Delta^{j|\{1,\ldots,j\}}$ |
+|:----------------------|-----------:|------------:|
+|intercept              |   0.2353095|    0.2353095|
+|age = 8                |   0.5051210|    0.2698115|
+|class = 1st            |   0.5906969|    0.0855759|
+|fare = 72              |   0.5443561|   -0.0463407|
+|gender = male          |   0.4611518|   -0.0832043|
+|embarked = Southampton |   0.4584422|   -0.0027096|
+|sibsp = 0              |   0.4523398|   -0.0061024|
+|parch = 0              |   0.4220000|   -0.0303398|
+|prediction             |   0.4220000|    0.4220000|
+
+
+Results from Table \@ref(tab:titanicBreakDownDeltasConseq) are presented as a waterfall plot in Figure \@ref(fig:BDjohnyExample).
+
+(ref:BDjohnyExampleDesc) Break-down plot for the `titanic_rf_v6` model and `johny_d` for the Titanic data.
+
+```{r BDjohnyExample, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='(ref:BDjohnyExampleDesc)', out.width = '70%', fig.align='center'}
+library("randomForest")
+library("DALEX")
+library("ggplot2")
+load("models/explain_rf_v6.rda")
+load("models/johny_d.rda")
+bd_rf <- variable_attribution(explain_rf_v6,
+                 new_observation = johny_d,
+                 type = "break_down")
+
+plot(bd_rf) + ggtitle("Break-down plot for `titanic_rf_v6`")
+```
+
+
+## Pros and cons {#BDProsCons}
+
+Break-down plots offer a model-agnostic approach that can be applied to any predictive model that returns a single number for a single instance. The approach offers several advantages. The plots are easy to understand. They are compact; results for many variables may be presented in a small space. The approach reduces to an intuitive interpretation for the generalized-linear models. Numerical complexity of the Break-down algorithm is linear in the number of explanatory variables.
+
+Break-down plots for non-additive models may be misleading, as they show only the additive contributions. An important issue is the choice of the ordering of the explanatory variables that is used in the calculation of the variable-importance measures. Also, for models with a large number of variables, the Break-down plot may be complex and include many variables with small contributions to the instance prediction.
+
+## Code snippets for R {#BDR}
+
+In this section, we use an `DALEX::variable_attribution()` function which is a wrapper for `iBreakDown` R package [@iBreakDownRPackage]. The  package covers all methods presented in this chapter. It is available on CRAN and GitHub. 
+
+For illustration purposes, we use the `titanic_rf_v6` random-forest model for the Titanic data developed in Section \@ref(model-titanic-rf). Recall that it is developed to predict the probability of survival from sinking of Titanic. Instance-level explanations are calculated for a single observation: `henry` - a 47-year-old passenger that travelled in the 1st class.
+
+`DALEX` explainers for the model and the `henry` data are retrieved via `archivist` hooks as listed in Section \@ref(ListOfModelsTitanic). 
+
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+library("randomForest")
+explain_rf_v6 <- archivist::aread("pbiecek/models/6ed54")
+
+library("DALEX")
+henry <- archivist::aread("pbiecek/models/a6538")
+henry
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+library("randomForest")
+library("DALEX")
+load("models/explain_rf_v6.rda")
+load("models/henry.rda")
+henry
+```
+
+### Basic use of the `variable_attribution()` function
+
+The `DALEX::variable_attribution()` function calculates the variable-importance measures for a selected model and the instance of interest. 
+The result of applying the `variable_attribution()` function is a data frame containing the calculated measures. In the simplest call, the function requires only three arguments: the model explainer, the data frame for the instance of interest and the method for calculation of variable attribution, here `break_down`. The call below essentially re-creates the variable-importance values ($\Delta^{j|\{1,\ldots,j\}}$) presented in Table \@ref(tab:titanicBreakDownDeltasConseq).
+
+```{r, warning=FALSE, message=FALSE}
+bd_rf <- variable_attribution(explain_rf_v6,
+                 new_observation = henry,
+                 type = "break_down")
+```
+
+Applying the generic `plot()` function to the object resulting from the application of the `variable_attribution()` function creates a BD plot. In this case, it is the plot from Figure \@ref(fig:BDhenryExample).
+
+(ref:BDhenryExampleDesc) Generic plot() function for the BreakDown method calculated for `henry`.
+
+```{r BDhenryExample, warning=FALSE, message=FALSE,  fig.cap='(ref:BDhenryExampleDesc)', out.width = '70%', fig.align='center', fig.width=8, fig.height=5}
+plot(bd_rf) 
+```
+
+Now we can compare contributions calculated for `johny_d` presented in Figure \@ref(fig:BDjohnyExample) with contributions calculated for `henry` presented in \@ref(fig:BDhenryExample). 
+Both explanations refer to the same model `model_rf_v6`. In both cases the `class=1st` increases chances of survival. For `johny_d` young age increases chances of survival while for `henry` the `age=47` decreases chances of survival.
+
+
+### Advanced use of the `variable_attribution()` function
+
+The function `variable_attribution()` allows more arguments. The most commonly used are:
+
+* `x` - a wrapper over a model created with function `DALEX::explain()`, 
+* `new_observation` - an observation to be explained is should be a data frame with structure that matches the training data, 
+* `order` - a vector of characters (column names) or integers (column indexes) that specify order of explanatory variables that is used for computing the variable-importance measures. If not specified (default), then a one-step heuristic is used to determine the order, 
+* `keep_distributions` - a logical value; if `TRUE`, then additional diagnostic information about conditional distributions is stored in the resulting object and can be plotted with the generic `plot()` function.
+
+In what follows we illustrate the use of the arguments.
+
+First, we will specify the ordering of the explanatory variables. Toward this end we can use integer indexes or variable names. The latter option is prerferable in most cases because of transparency. Additionally, to reduce clutter in the plot, we set `max_features = 3` argument in the `plot()` function. 
+
+```{r, warning=FALSE, message=FALSE,  fig.cap="Break Down plot for top three variables.", out.width = '70%', fig.align='center', fig.width=8, fig.height=5}
+bd_rf_order <- variable_attribution(explain_rf_v6,
+         new_observation = henry, type = "break_down",
+         order = c("class", "age", "gender", "fare", "parch", 
+                           "sibsp", "embarked"))
+
+plot(bd_rf_order, max_features = 3) 
+```
+
+We can use the`keep_distributions = TRUE` argument to enrich the resulting object with additional information about conditional distributions. Subsequently, we can apply the `plot_distributions = TRUE` argument in the `plot()` function to present the distributions as violin plots. Red dots in the plots indicate the average model predictions.  Thin black lines between violin plots correspond to predictions for individual observations. They can be used to  trace how model predictions change after consecutive conditionings.
+
+```{r, warning=FALSE, message=FALSE,  fig.cap="Break Down plot with distributions for a defined order of variables.", out.width = '70%', fig.align='center', fig.width=8, fig.height=5}
+bd_rf_distr <- variable_attribution(explain_rf_v6,
+          new_observation = henry, type = "break_down",
+          order = c("class", "age", "gender", "fare", 
+                           "parch", "sibsp", "embarked"),
+          keep_distributions = TRUE)
+
+plot(bd_rf_distr, plot_distributions = TRUE) 
+```
+
