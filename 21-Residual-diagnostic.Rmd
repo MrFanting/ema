@@ -141,8 +141,10 @@ library("DALEX")
 library("ggplot2")
 library("randomForest")
 
-explainer_apartments_lr <- archivist:: aread("pbiecek/models/f49ea")
-explainer_apartments_rf <- archivist:: aread("pbiecek/models/569b0")
+explainer_apartments_lr <- loadFromLocalRepo(md5hash = "f49ea", 
+                                             repoDir = "./RData", value = TRUE)
+explainer_apartments_rf <- loadFromLocalRepo(md5hash = "569b0", 
+                                             repoDir = "./RData", value = TRUE)
 
 explainer_apartments_lr <- explain(explainer_apartments_lr$model,
     explainer_apartments_lr$data,
@@ -262,8 +264,10 @@ First, we load explainers for the linear-regression model `apartments_lm_v5` and
 library("DALEX")
 library("randomForest")
 
-explainer_apartments_lr <- archivist:: aread("pbiecek/models/f49ea")
-explainer_apartments_rf <- archivist:: aread("pbiecek/models/569b0")
+explainer_apartments_lr <- loadFromLocalRepo(md5hash = "f49ea", 
+                                             repoDir = "./RData", value = TRUE)
+explainer_apartments_rf <- loadFromLocalRepo(md5hash = "569b0", 
+                                             repoDir = "./RData", value = TRUE)
 ```
 
 There are two functions that will be used for exploration of residuals.

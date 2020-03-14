@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Break-down Plots for Interactions (iBreak-down Plots) | Explanatory Model Analysis</title>
+  <title>8 Break-down Plots for Interactions (iBreak-down Plots) | 解释性模型分析</title>
   <meta name="description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Break-down Plots for Interactions (iBreak-down Plots) | Explanatory Model Analysis" />
+  <meta property="og:title" content="8 Break-down Plots for Interactions (iBreak-down Plots) | 解释性模型分析" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="pbiecek/ema" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Break-down Plots for Interactions (iBreak-down Plots) | Explanatory Model Analysis" />
+  <meta name="twitter:title" content="8 Break-down Plots for Interactions (iBreak-down Plots) | 解释性模型分析" />
   
   <meta name="twitter:description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Przemyslaw Biecek and Tomasz Burzykowski" />
 
 
-<meta name="date" content="2020-03-08" />
+<meta name="date" content="2020-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,66 +74,41 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -386,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Explanatory Model Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">解释性模型分析</a>
           </h1>
         </div>
 
@@ -447,10 +422,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the variable-importance measure separately for each explanatory variable. In particular, for each variable, compute <span class="math inline">\(\Delta^{j|\emptyset}(x_*)\)</span> (see Section <a href="breakDown.html#BDMethod">7.2</a>).</li>
 <li>Calculate the measure for each pair of variables. Subtract the obtained value from the sum of the measures for the particular variables to obtain a contribution attributable to an interaction. In particular, for each pair of variables, compute <span class="math inline">\(\Delta^{\{i,j\}|\emptyset}\)</span> (see Section <a href="breakDown.html#BDMethod">7.2</a>) and then</li>
 </ol>
-<p><span class="math display" id="eq:deltaBreakDownInteractions">\[\begin{equation}
+<span class="math display" id="eq:deltaBreakDownInteractions">\[\begin{equation}
 \Delta^{\{i,j\}}_I(x_*) \equiv \Delta^{\{i,j\}|\emptyset}(x_*)-\Delta^{i|\emptyset}(x_*)-\Delta^{j|\emptyset}(x_*).
 \tag{8.1}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <ol start="3" style="list-style-type: decimal">
 <li>Rank the so-obtained importance measures for the ``main’’ and interaction effects to determine the final ordering for computing the variable-importance measures. Using the ordering, compute variable-importance measures <span class="math inline">\(v(j, x_*) = \Delta^{j|\{1, ..., j-1\}}(x_*)\)</span> (see Section <a href="breakDown.html#BDMethod">7.2</a>).</li>
 </ol>
@@ -459,8 +434,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="iBDExample" class="section level2">
 <h2><span class="header-section-number">8.3</span> Example: Titanic data</h2>
 <p>Let us consider the random-forest model <code>titanic_rf_v6</code> (see Section <a href="dataSetsIntro.html#model-titanic-rf">5.1.3</a>) and passenger <code>johny_d</code> (see Section <a href="dataSetsIntro.html#predictions-titanic">5.1.6</a>) as the instance of interest in the Titanic data.</p>
-<p>Table <a href="iBreakDown.html#tab:titanicIBreakDownList">8.2</a> presents the expected model predictions <span class="math inline">\(E_X[f(X)|X^i = x_*^i, X^j = x_*^j]\)</span>, single-variable effects <span class="math inline">\(\Delta^{\{i,j\}|\emptyset}(x_*)\)</span> (see Equation <a href="breakDown.html#eq:deltaBreakDownAdditive">(7.5)</a>), and interaction effects <span class="math inline">\(\Delta_{I}^{\{i,j\}}(x_*)\)</span> (see Equation <a href="iBreakDown.html#eq:deltaBreakDownInteractions">(8.1)</a>) for each explanatory variable and each pair of variables. All the measures are calculated for <code>johny_d</code>, the instance of interest.
-The rows in the table are sorted according to the absolute value of the net impact of the variable or net impact of the interaction between two variables. For a single variable the net impact is simply measured by <span class="math inline">\(\Delta^{\{i,j\}}(x_*)\)</span> while for the pairs of variables the net impact is measured by <span class="math inline">\(\Delta_{I}^{\{i,j\}}(x_*)\)</span>. This way if two variables are important but there is no interaction, then the net effect of interaction <span class="math inline">\(\Delta_{I}^{\{i,j\}}(x_*)\)</span> is smaller than additive effect of each variable and the interaction will be lower in the table, see <code>age</code> and <code>gender</code>. Contrary, is the interaction is important then its net effect will be higher than each variable separately, see <code>fare</code> and <code>class</code>.</p>
+<p>Table <a href="iBreakDown.html#tab:titanicIBreakDownList">8.2</a> presents the expected model predictions <span class="math inline">\(E_X[f(X)|X^i = x_*^i, X^j = x_*^j]\)</span>, single-variable effects <span class="math inline">\(\Delta^{\{i,j\}|\emptyset}(x_*)\)</span> (see Equation <a href="breakDown.html#eq:deltaBreakDownAdditive">(7.5)</a>), and interaction effects <span class="math inline">\(\Delta_{I}^{\{i,j\}}(x_*)\)</span> (see Equation <a href="iBreakDown.html#eq:deltaBreakDownInteractions">(8.1)</a>) for each explanatory variable and each pair of variables. All the measures are calculated for <code>johny_d</code>, the instance of interest. The rows in the table are sorted according to the absolute value of the net impact of the variable or net impact of the interaction between two variables. For a single variable the net impact is simply measured by <span class="math inline">\(\Delta^{\{i,j\}}(x_*)\)</span> while for the pairs of variables the net impact is measured by <span class="math inline">\(\Delta_{I}^{\{i,j\}}(x_*)\)</span>. This way if two variables are important but there is no interaction, then the net effect of interaction <span class="math inline">\(\Delta_{I}^{\{i,j\}}(x_*)\)</span> is smaller than additive effect of each variable and the interaction will be lower in the table, see <code>age</code> and <code>gender</code>. Contrary, is the interaction is important then its net effect will be higher than each variable separately, see <code>fare</code> and <code>class</code>.</p>
 <p>Based on the ordering of the rows, the following sequence of variables is identified as informative:</p>
 <ul>
 <li><code>age</code> because it has largest net effect <span class="math inline">\(0.270\)</span>,</li>
@@ -471,18 +445,12 @@ The rows in the table are sorted according to the absolute value of the net impa
 </ul>
 <table>
 <caption><span id="tab:titanicIBreakDownList">Table 8.2: </span> Expected model predictions <span class="math inline">\(E_X[f(X)|X^i = x_*^i, X^j = x_*^j]\)</span>, single-variable effects <span class="math inline">\(\Delta^{\{i,j\}|\emptyset}(x_*)\)</span> (see Equation <a href="breakDown.html#eq:deltaBreakDownAdditive">(7.5)</a>), and interaction effects <span class="math inline">\(\Delta_{I}^{\{i,j\}}(x_*)\)</span> (see Equation <a href="iBreakDown.html#eq:deltaBreakDownInteractions">(8.1)</a>) for the random-forest model <code>titanic_rf_v6</code> and passenger <code>johny_d</code> in the Titanic data. The rows are sorted according to the absolute value of the net impact of the variable or net impact of the interaction between two variables. For a single variable the net impact is defined as <span class="math inline">\(\Delta^{\{i,j\}}(x_*)\)</span> while for the pairs of variables the net impact is equal to <span class="math inline">\(\Delta_{I}^{\{i,j\}}(x_*)\)</span>.</caption>
-<colgroup>
-<col width="41%" />
-<col width="15%" />
-<col width="17%" />
-<col width="25%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Variable</th>
-<th align="right"><span class="math inline">\(E_X[f(X)|X^{i}= x_*^{i},X^{j}= x_*^{j}]\)</span></th>
-<th align="right"><span class="math inline">\(\Delta^{\{i,j\}|\emptyset}(x_*)\)</span></th>
-<th align="right"><span class="math inline">\(\Delta_{I}^{\{i,j\}}(x_*)\)</span></th>
+<th align="right">$E_X[f(X)</th>
+<th align="right">X^{i}= x_<em><sup>{i},X</sup>{j}= x_</em>^{j}]$</th>
+<th align="right">$^{{i,j}</th>
 </tr>
 </thead>
 <tbody>
@@ -659,16 +627,11 @@ The rows in the table are sorted according to the absolute value of the net impa
 <p>Table <a href="iBreakDown.html#tab:titanicIBreakDownList2">8.3</a> presents the variable-importance measures computed by using the sequence of variables <code>age</code>, <code>fare:class</code>, <code>gender</code>, <code>embarked</code>, <code>sibsp</code>, and <code>parch</code>.</p>
 <table>
 <caption><span id="tab:titanicIBreakDownList2">Table 8.3: </span> Variable-importance measures <span class="math inline">\(\Delta^{j|\{1,\ldots,j\}}(x_*)\)</span> computed by using the sequence of variables <code>age</code>, <code>fare:class</code>, <code>gender</code>, <code>embarked</code>, <code>sibsp</code>, and <code>parch</code> for the random-forest model <code>titanic_rf_v6</code> for the Titanic data and <code>johny_d</code>.</caption>
-<colgroup>
-<col width="47%" />
-<col width="27%" />
-<col width="25%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Variable</th>
-<th align="right"><span class="math inline">\(\Delta^{j|\{1,\ldots,j\}}(x_*)\)</span></th>
-<th align="right"><span class="math inline">\(E_X[f(X) | X^{\{1,\ldots,j\}} = x^{\{1,\ldots,j\}}_*)]\)</span></th>
+<th align="right">$^{j</th>
+<th align="right">{1,,j}}(x_*)$</th>
 </tr>
 </thead>
 <tbody>
@@ -710,8 +673,7 @@ The rows in the table are sorted according to the absolute value of the net impa
 </tbody>
 </table>
 <p>Figure <a href="iBreakDown.html#fig:iBreakDownTitanicExamplePlot">8.1</a> presents the BD plot corresponding to the results from Table <a href="iBreakDown.html#tab:titanicIBreakDownList2">8.3</a>.</p>
-<p>As we see the interaction between <code>fare</code> and <code>class</code> is included in the plot as a single bar. As effects of these two variables cannot be disentangled, the plot shows combination of both variables as a single contribution.
-From Table <a href="iBreakDown.html#tab:titanicIBreakDownList">8.2</a> we can read that <code>class</code> alone would increase average prediction by <span class="math inline">\(0.185\)</span>, <code>fare</code> would increase average prediction by <span class="math inline">\(0.143\)</span>, but together they increase the average prediction only by <span class="math inline">\(0.098\)</span>. It’s because the <code>fare=72</code> is a high value on average, but is below median when it comes for the 1st class passengers. So these two values combined <code>fare:class=72:1st</code> signal a cheaper version of the fist class, this is why its contribution to model prediction is smaller than contribution of <code>class</code> and <code>fare</code> separately.</p>
+<p>As we see the interaction between <code>fare</code> and <code>class</code> is included in the plot as a single bar. As effects of these two variables cannot be disentangled, the plot shows combination of both variables as a single contribution. From Table <a href="iBreakDown.html#tab:titanicIBreakDownList">8.2</a> we can read that <code>class</code> alone would increase average prediction by <span class="math inline">\(0.185\)</span>, <code>fare</code> would increase average prediction by <span class="math inline">\(0.143\)</span>, but together they increase the average prediction only by <span class="math inline">\(0.098\)</span>. It’s because the <code>fare=72</code> is a high value on average, but is below median when it comes for the 1st class passengers. So these two values combined <code>fare:class=72:1st</code> signal a cheaper version of the fist class, this is why its contribution to model prediction is smaller than contribution of <code>class</code> and <code>fare</code> separately.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:iBreakDownTitanicExamplePlot"></span>
 <img src="ema_files/figure-html/iBreakDownTitanicExamplePlot-1.png" alt="Break-down plot with interactions for the titanic_rf_v6 model and johny_d for the Titanic data." width="80%" />
@@ -723,27 +685,26 @@ Figure 8.1: Break-down plot with interactions for the <code>titanic_rf_v6</code>
 <div id="iBDProsCons" class="section level2">
 <h2><span class="header-section-number">8.4</span> Pros and cons</h2>
 <p>iBD plots share many pros and cons of BD plots for models without interactions (see section <a href="breakDown.html#BDProsCons">7.4</a>). However, in case of interactions, the iBD plots provide more correct explanations.</p>
-<p>Though the numerical complexity of the iBD procedure is quadratic, it may be time-consuming in case of models with a large number of explanatory variables. If <span class="math inline">\(p\)</span> stands for the number of variables, then we need to estimate <span class="math inline">\(p*(p+1)/2\)</span> net effects for single variables and pair of variables. For datasets with small number of observations calculations of net effects will suffer from larger variance and therefore larger randomness in the ranking of effects.
-The identification of interactions in the presented procedure is not based on a formal statistical significance test. Thus, for small sample sizes, the procedure may be prone to errors.</p>
+<p>Though the numerical complexity of the iBD procedure is quadratic, it may be time-consuming in case of models with a large number of explanatory variables. If <span class="math inline">\(p\)</span> stands for the number of variables, then we need to estimate <span class="math inline">\(p*(p+1)/2\)</span> net effects for single variables and pair of variables. For datasets with small number of observations calculations of net effects will suffer from larger variance and therefore larger randomness in the ranking of effects. The identification of interactions in the presented procedure is not based on a formal statistical significance test. Thus, for small sample sizes, the procedure may be prone to errors.</p>
 </div>
 <div id="iBDRcode" class="section level2">
 <h2><span class="header-section-number">8.5</span> Code snippets for R</h2>
 <p>In this section, we use an <code>DALEX()</code> package which is a wrapper for <code>iBreakDown</code> R package <span class="citation">(Gosiewska and Biecek <a href="#ref-iBreakDownRPackage">2019</a><a href="#ref-iBreakDownRPackage">a</a>)</span>. The package covers all methods presented in this chapter. It is available on CRAN and GitHub.</p>
 <p>For illustration purposes, we use the <code>titanic_rf_v6</code> random-forest model for the Titanic data developed in Section <a href="dataSetsIntro.html#model-titanic-rf">5.1.3</a>. Recall that it is developed to predict the probability of survival from sinking of Titanic. Instance-level explanations are calculated for a single observation: <code>henry</code> - an 47-years old passenger that travelled in the 1st class.</p>
 <p><code>DALEX</code> explainers for the model and the <code>henry</code> data are retrieved via <code>archivist</code> hooks as listed in Section <a href="dataSetsIntro.html#ListOfModelsTitanic">5.1.8</a>.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;randomForest&quot;</span>)</a>
-<a class="sourceLine" id="cb59-2" data-line-number="2">explain_rf_v6 &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/6ed54&quot;</span>)</a>
-<a class="sourceLine" id="cb59-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb59-4" data-line-number="4">johny_d &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/e3596&quot;</span>)</a>
-<a class="sourceLine" id="cb59-5" data-line-number="5">henry</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;randomForest&quot;</span>)
+explain_rf_v6 &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/6ed54&quot;</span>)
+
+johny_d &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/e3596&quot;</span>)
+henry</code></pre></div>
 <pre><code>##   class gender age sibsp parch fare  embarked
 ## 1   1st   male  47     0     0   25 Cherbourg</code></pre>
 <p>The key function to construct iBD plots is the <code>DALEX::varaible_attribution()</code> function. The use of the function has already been explained in Section <a href="breakDown.html#BDR">7.5</a>. In order to use Break-down plots the necessary argument is <code>type = &quot;break_down_interactions&quot;</code>.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)</a>
-<a class="sourceLine" id="cb61-2" data-line-number="2">bd_rf &lt;-<span class="st"> </span><span class="kw">variable_attribution</span>(explain_rf_v6,</a>
-<a class="sourceLine" id="cb61-3" data-line-number="3">                 <span class="dt">new_observation =</span> henry,</a>
-<a class="sourceLine" id="cb61-4" data-line-number="4">                 <span class="dt">type =</span> <span class="st">&quot;break_down_interactions&quot;</span>)</a>
-<a class="sourceLine" id="cb61-5" data-line-number="5">bd_rf</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)
+bd_rf &lt;-<span class="st"> </span><span class="kw">variable_attribution</span>(explain_rf_v6,
+                 <span class="dt">new_observation =</span> henry,
+                 <span class="dt">type =</span> <span class="st">&quot;break_down_interactions&quot;</span>)
+bd_rf</code></pre></div>
 <pre><code>##                                             contribution
 ## Random Forest: intercept                           0.235
 ## Random Forest: class = 1st                         0.185
@@ -755,7 +716,7 @@ The identification of interactions in the presented procedure is not based on a 
 ## Random Forest: prediction                          0.246</code></pre>
 <p>Now we can plot this object with the generic <code>plot()</code> function.</p>
 
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">plot</span>(bd_rf) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(bd_rf) </code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:iBDforHenry"></span>
 <img src="ema_files/figure-html/iBDforHenry-1.png" alt="Generic plot() function for the iBreakDown method calculated for henry." width="80%" />
 <p class="caption">
@@ -769,7 +730,7 @@ Figure 8.2: Generic plot() function for the iBreakDown method calculated for <co
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-iBreakDownRPackage">
-<p>Gosiewska, Alicja, and Przemyslaw Biecek. 2019a. “iBreakDown: Uncertainty of Model Explanations for Non-additive Predictive Models.” <a href="https://arxiv.org/abs/1903.11420v1">https://arxiv.org/abs/1903.11420v1</a>.</p>
+<p>Gosiewska, Alicja, and Przemyslaw Biecek. 2019a. “iBreakDown: Uncertainty of Model Explanations for Non-additive Predictive Models.” <a href="https://arxiv.org/abs/1903.11420v1" class="uri">https://arxiv.org/abs/1903.11420v1</a>.</p>
 </div>
 </div>
             </section>
@@ -833,7 +794,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

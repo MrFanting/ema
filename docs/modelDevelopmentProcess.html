@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Model Development | Explanatory Model Analysis</title>
+  <title>2 Model Development | 解释性模型分析</title>
   <meta name="description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Model Development | Explanatory Model Analysis" />
+  <meta property="og:title" content="2 Model Development | 解释性模型分析" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="pbiecek/ema" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Model Development | Explanatory Model Analysis" />
+  <meta name="twitter:title" content="2 Model Development | 解释性模型分析" />
   
   <meta name="twitter:description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Przemyslaw Biecek and Tomasz Burzykowski" />
 
 
-<meta name="date" content="2020-03-08" />
+<meta name="date" content="2020-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,66 +74,41 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -386,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Explanatory Model Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">解释性模型分析</a>
           </h1>
         </div>
 
@@ -406,8 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="MDPprocess" class="section level2">
 <h2><span class="header-section-number">2.2</span> The Process</h2>
 <p>Several approaches are proposed in order to describe the process of model development. Their main goal is to standardize the process. And the standardisation is important because it helps to plan resources needed to develop and maintain the model and also to not miss any important step.</p>
-<p>The most known methodology for data science projects is CRISP-DM <span class="citation">(Chapman et al. <a href="#ref-crisp1999">1999</a>)</span>, <span class="citation">(Wikipedia <a href="#ref-crisp2019wiki">2019</a>)</span> which is a tool agnostic procedure. The key component of CRISP-DM is the break down of the whole process into six phases, that are iterated: business understanding, data understanding, data preparation, modeling, evaluation and deployment. CRISP-DM is general, it was designed for any data science project. For predictive models some methodologies are introduced in ,,R for Data Science’’ <span class="citation">(Grolemund and Wickham <a href="#ref-r4ds2019">2019</a>)</span> and ,,On XAI Misconceptions’’ <span class="citation">(Hall <a href="#ref-misconceptions2019">2019</a>)</span>.Both are focused on iterative repetitions of some phases.
-Figure <a href="modelDevelopmentProcess.html#fig:MDPwashmachine">2.1</a> presents a variant of iterative process divided into five steps. Data preparation is needed prior to any modeling. Better data is needed for better models. On the other hand, garbage-in garbage-out. Once the data is gathered, steps that are usually highlighted are Data understanding, Model assembly and Model audit. This is the common thinking about model development. Repeat these steps until some convergence, e.g. repeat until best model is identified.</p>
+<p>The most known methodology for data science projects is CRISP-DM <span class="citation">(Chapman et al. <a href="#ref-crisp1999">1999</a>)</span>, <span class="citation">(Wikipedia <a href="#ref-crisp2019wiki">2019</a>)</span> which is a tool agnostic procedure. The key component of CRISP-DM is the break down of the whole process into six phases, that are iterated: business understanding, data understanding, data preparation, modeling, evaluation and deployment. CRISP-DM is general, it was designed for any data science project. For predictive models some methodologies are introduced in ,,R for Data Science’‘<span class="citation">(Grolemund and Wickham <a href="#ref-r4ds2019">2019</a>)</span> and ,,On XAI Misconceptions’’ <span class="citation">(Hall <a href="#ref-misconceptions2019">2019</a>)</span>.Both are focused on iterative repetitions of some phases. Figure <a href="modelDevelopmentProcess.html#fig:MDPwashmachine">2.1</a> presents a variant of iterative process divided into five steps. Data preparation is needed prior to any modeling. Better data is needed for better models. On the other hand, garbage-in garbage-out. Once the data is gathered, steps that are usually highlighted are Data understanding, Model assembly and Model audit. This is the common thinking about model development. Repeat these steps until some convergence, e.g. repeat until best model is identified.</p>
 <div class="figure" style="text-align: center"><span id="fig:MDPwashmachine"></span>
 <img src="figure/MDP_washmachine.png" alt="Lifecycle of predictive model can be decomposed into five tasks. First we need data that is poured into the model development cycle. The model development is highly iterative, learn something new about the data, assemble a new model based on current understanding, and validate the new model. Repeat these steps as long as needed to be satisfied with model performance. Once the model is created we can deliver the model to the production along with required tests and documentation." width="60%" />
 <p class="caption">
@@ -415,8 +389,7 @@ Figure 2.1: Lifecycle of predictive model can be decomposed into five tasks. Fir
 </p>
 </div>
 <p>In this book we use <em>Model Development Process</em> <span class="citation">(Biecek <a href="#ref-mdp2019">2019</a>)</span>. It is motivated by Rational Unified Process for Software Development <span class="citation">(Kruchten <a href="#ref-rup1998">1998</a>)</span>, <span class="citation">(Jacobson, Booch, and Rumbaugh <a href="#ref-usdp1999">1999</a>)</span>, <span class="citation">(Boehm <a href="#ref-spiral1988">1988</a>)</span>. One can think about MDP as an extension of process introduced in Figure <a href="modelDevelopmentProcess.html#fig:MDPwashmachine">2.1</a>. What is important is to notice that consecutive iterations are not identical. Our knowledge increases during the process and consecutive iterations are performed with different goals in mind.</p>
-<p>This is why MDP is build as an untangled version of Figure <a href="modelDevelopmentProcess.html#fig:MDPwashmachine">2.1</a>. The MDP process is shown in Figure <a href="modelDevelopmentProcess.html#fig:mdpGeneral">2.2</a>. Each vertical stripe is a single run of the cycle.
-First iterations are usually focused on <em>formulation of the problem</em>. Sometimes the problem is well stated, however it’s a rare situation valid maybe only for kaggle competitions. In most real-life problems the problem formulation requires lots of discussions and experiments. Once the problem is defined we can start building first prototypes, first <em>crisp versions of models</em>. These initial versions of models are needed to verify if the problem can be solved and how far we are form the solution. Usually we gather more information and go for the next phase, the <em>fine tuning</em>. We repeat these iterations until a final version of a model is developed. Then we move to the last phase <em>maintenance and</em> (one day) <em>decommissioning</em>.</p>
+<p>This is why MDP is build as an untangled version of Figure <a href="modelDevelopmentProcess.html#fig:MDPwashmachine">2.1</a>. The MDP process is shown in Figure <a href="modelDevelopmentProcess.html#fig:mdpGeneral">2.2</a>. Each vertical stripe is a single run of the cycle. First iterations are usually focused on <em>formulation of the problem</em>. Sometimes the problem is well stated, however it’s a rare situation valid maybe only for kaggle competitions. In most real-life problems the problem formulation requires lots of discussions and experiments. Once the problem is defined we can start building first prototypes, first <em>crisp versions of models</em>. These initial versions of models are needed to verify if the problem can be solved and how far we are form the solution. Usually we gather more information and go for the next phase, the <em>fine tuning</em>. We repeat these iterations until a final version of a model is developed. Then we move to the last phase <em>maintenance and</em> (one day) <em>decommissioning</em>.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:mdpGeneral"></span>
 <img src="figure/mdp_general.png" alt="Overview of the Model Development Process. Horizontal axis show how time passes from the problem formulation to the model decommissioning. Vertical axis shows tasks are performed in a given phase. Each vertical strip is a next iteration of cycle presented in Figure 2.1" width="99%" />
@@ -431,28 +404,24 @@ Figure 2.2: Overview of the Model Development Process. Horizontal axis show how 
 </div>
 <div id="notation" class="section level2">
 <h2><span class="header-section-number">2.3</span> Notation</h2>
-<p>Methods described in this book were developed by different authors, who used different mathematical notations.
-We try to keep the mathematical notation consistent throughout the entire book. In some cases this may result in formulas with a fairly complex system of indices.</p>
+<p>Methods described in this book were developed by different authors, who used different mathematical notations. We try to keep the mathematical notation consistent throughout the entire book. In some cases this may result in formulas with a fairly complex system of indices.</p>
 <p>In this section, we provide a general overview of the notation we use. Whenever necessary, parts of the notation will be explained again in subsequent chapters.</p>
-<p>We assume that the data consist <span class="math inline">\(n\)</span> observations/instances. Each observation is described by <span class="math inline">\(p\)</span> explanatory variables. Thus data is described as a set of points on a <span class="math inline">\(p\)</span>-dimensional input space <span class="math inline">\(\mathcal X \equiv \mathcal R^p\)</span>. By <span class="math inline">\(x \in \mathcal X\)</span> we will refer to a single point in this input space.
-By <span class="math inline">\(x_i\)</span> we refer to the <span class="math inline">\(i\)</span>-th observation in this dataset. Of course, <span class="math inline">\(x_i \in \mathcal X\)</span>. By <span class="math inline">\(X\)</span> we denote a matrix <span class="math inline">\(n\times p\)</span> with rows corresponding to consecutive observations.</p>
+<p>We assume that the data consist <span class="math inline">\(n\)</span> observations/instances. Each observation is described by <span class="math inline">\(p\)</span> explanatory variables. Thus data is described as a set of points on a <span class="math inline">\(p\)</span>-dimensional input space <span class="math inline">\(\mathcal X \equiv \mathcal R^p\)</span>. By <span class="math inline">\(x \in \mathcal X\)</span> we will refer to a single point in this input space. By <span class="math inline">\(x_i\)</span> we refer to the <span class="math inline">\(i\)</span>-th observation in this dataset. Of course, <span class="math inline">\(x_i \in \mathcal X\)</span>. By <span class="math inline">\(X\)</span> we denote a matrix <span class="math inline">\(n\times p\)</span> with rows corresponding to consecutive observations.</p>
 <p>Some methods of model exploration are constructed around an observation of interest which will be denoted by <span class="math inline">\(x_{*}\)</span>. The observation may not necessarily belong to the analyzed dataset; hence, the use of the asterisk in the index. Of course, <span class="math inline">\(x_* \in \mathcal X\)</span>.</p>
 <p>Points in <span class="math inline">\(\mathcal X\)</span> are <span class="math inline">\(p\)</span> dimensional vectors. We refer to the <span class="math inline">\(j\)</span>-th coordinate by using <span class="math inline">\(j\)</span> in superscript. Thus, <span class="math inline">\(x^j_i\)</span> denotes the <span class="math inline">\(j\)</span>-th coordinate of the <span class="math inline">\(i\)</span>-th observation from the analyzed dataset. If <span class="math inline">\(\mathcal J\)</span> denotes a subset of indices, then <span class="math inline">\(x^{\mathcal J}\)</span> denotes the elements of vector <span class="math inline">\(x\)</span> corresponding to the indices included in <span class="math inline">\(\mathcal J\)</span>.</p>
 <p>We will use the notation <span class="math inline">\(x^{-j}\)</span> to refer to a vector that results from removing the <span class="math inline">\(j\)</span>-th coordinate from vector <span class="math inline">\(x\)</span>. By <strong><span class="math inline">\(x^{j|=z}\)</span></strong>, we denote a vector with the values at all coordinates equal to the values in <span class="math inline">\(x\)</span>, except of the <span class="math inline">\(j\)</span>-th coordinate, which is set equal to <span class="math inline">\(z\)</span>. So, if <span class="math inline">\(w=x^{j|=z}\)</span>, then <span class="math inline">\(w^j = z\)</span> and <span class="math inline">\(\forall_{k\neq j} w^k = x^k\)</span>. In other words <span class="math inline">\(x^{j|=z} = (x^1, ..., x^{j-1}, z, x^{j+1}, ..., x^p)\)</span>.</p>
 <p>By <span class="math inline">\(x^{*j}\)</span> we denote a matrix with the values as in <span class="math inline">\(x\)</span> except the <span class="math inline">\(j\)</span>th column which is permuted.</p>
-<p>In this book, a model is a function <span class="math inline">\(f:\mathcal X \rightarrow \mathcal R\)</span> that transforms a point from <span class="math inline">\(\mathcal X\)</span> into a real number. In most cases, the presented methods can be used directly for multivariate dependent variables; however, we use examples with uni-variate responses to simplify the notation.
-Typically, during the model development, we create many competing models. Formally we shall index models to refer to a specific version of a trained model. But for the sake of simplicity we omit these indexes where they are not important.</p>
+<p>In this book, a model is a function <span class="math inline">\(f:\mathcal X \rightarrow \mathcal R\)</span> that transforms a point from <span class="math inline">\(\mathcal X\)</span> into a real number. In most cases, the presented methods can be used directly for multivariate dependent variables; however, we use examples with uni-variate responses to simplify the notation. Typically, during the model development, we create many competing models. Formally we shall index models to refer to a specific version of a trained model. But for the sake of simplicity we omit these indexes where they are not important.</p>
 <p>Later in this book we will use the term <strong>model residual</strong> as the the difference between the observed value of the dependent variable <span class="math inline">\(Y\)</span> for the <span class="math inline">\(i\)</span>-th observation from a particular dataset and the model prediction for the observation</p>
-<p><span class="math display" id="eq:modelResiduals">\[\begin{equation}
+<span class="math display" id="eq:modelResiduals">\[\begin{equation}
 r_i = y_i - f(x_i) = y_i - \hat y_i.
 \tag{2.1}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 </div>
 <div id="data-exploration" class="section level2">
 <h2><span class="header-section-number">2.4</span> Data exploration</h2>
-<p>Before we start the modeling we need to understand the data.
-Visual, tabular and statistical tools for data exploration are used depending on the character of variables.</p>
-<p>The most know introduction to data exploration is the famous book by John Tukey <span class="citation">(Tukey <a href="#ref-tukey1977">1977</a>)</span>. It introduces new tools for data exploration, like for example boxplots or stem-and-leaf plots. Availability of computational tools makes the process of data exploration easier and more interactive. Find a good overview of techniques for data exploration in ,,Data Science in R’’ <span class="citation">(Nolan and Lang <a href="#ref-Nolan2015">2015</a>)</span> or ,,R for Data Science’’ <span class="citation">(Wickham and Grolemund <a href="#ref-Wickham2017">2017</a>)</span>.</p>
+<p>Before we start the modeling we need to understand the data. Visual, tabular and statistical tools for data exploration are used depending on the character of variables.</p>
+<p>The most know introduction to data exploration is the famous book by John Tukey <span class="citation">(Tukey <a href="#ref-tukey1977">1977</a>)</span>. It introduces new tools for data exploration, like for example boxplots or stem-and-leaf plots. Availability of computational tools makes the process of data exploration easier and more interactive. Find a good overview of techniques for data exploration in ,,Data Science in R’‘<span class="citation">(Nolan and Lang <a href="#ref-Nolan2015">2015</a>)</span> or ,,R for Data Science’’ <span class="citation">(Wickham and Grolemund <a href="#ref-Wickham2017">2017</a>)</span>.</p>
 <p>In this book we will rely on five visual methods for data exploration presented in Figure <a href="modelDevelopmentProcess.html#fig:UMEPEDA">2.3</a>. Two of them are used to present distribution of explanatory or target variables; three others are used to explore pairwise relations between variables.</p>
 <div class="figure" style="text-align: center"><span id="fig:UMEPEDA"></span>
 <img src="figure/UMEPEDA.png" alt="Basic methods for visual exploration. Histogram for distribution of continuous or categorical variables, empirical cumulative distribution for continuous variables. Mosaic plot for relation between two categorical variables, boxplots for relation between continuous and categorical variables or scatterplot for relation between two continuous variables." width="75%" />
@@ -470,23 +439,21 @@ Figure 2.3: Basic methods for visual exploration. Histogram for distribution of 
 <p>Assume that we have got model <span class="math inline">\(f()\)</span>, for which <span class="math inline">\(f(x_*)\)</span> is an approximation of <span class="math inline">\(E_Y(Y | x_*)\)</span>, i.e., <span class="math inline">\(E_Y(Y | x_*) \approx f(x_*)\)</span>. Note that we do not assume that it is a “good” model, nor that the approximation is precise. We simply assume that we have a model that is used to estimate the conditional expected value and to form predictions of the values of the dependent variable. Our interest lies in the evaluation of the quality of the predictions. If the model offers a “good” approximation of the conditional expected value, it should be reflected in its satisfactory predictive performance.</p>
 <p>Usually the available data is split into two parts. One will be used for model training (estimation of model parameters), second will be used for model validation. The splitting may be repeated as in k-fold cross validation or repeated k-fold cross validation (see for example ,,Applied predictive modeling’’ <span class="citation">(Kuhn and Johnson <a href="#ref-Kuhn2013">2013</a>)</span>). We leave the topic of model validation for Chapter <a href="modelPerformance.html#modelPerformance">16</a>.</p>
 <p>Training procedures are different for different models, but most of them can be written as an optimization problem. Let <span class="math inline">\(\Theta\)</span> be a space for possible model parameters. Model training is a procedure of selection a <span class="math inline">\(\theta \in \Theta\)</span> that maximize some loss function <span class="math inline">\(L(y, f_\theta(X))\)</span>. For models with large parameter spaces it is common to add additional term <span class="math inline">\(\lambda(\theta)\)</span> that control the model complexity.</p>
-<p><span class="math display" id="eq:modelTrainingEq1">\[\begin{equation}
+<span class="math display" id="eq:modelTrainingEq1">\[\begin{equation}
 \hat\theta = \arg \min_{\theta \in \Theta}  L (y, f_\theta(X)) + \lambda(\theta). 
 \tag{2.2}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>For statistical models it is common to assume some family of probability distributions for <span class="math inline">\(y|x\)</span>. In such case the loss function <span class="math inline">\(L\)</span> may be defined as a minus log-likelihood function for <span class="math inline">\(\theta\)</span>. Likelihood is probability of observing <span class="math inline">\(y|x\)</span> as a function of parameter <span class="math inline">\(\theta\)</span>.</p>
-<p>For example, in linear regression we assume that that observed vector of values <span class="math inline">\(y\)</span> follow a multidimensional Gaussian distribution
-<span class="math display">\[
+<p>For example, in linear regression we assume that that observed vector of values <span class="math inline">\(y\)</span> follow a multidimensional Gaussian distribution <span class="math display">\[
 y \sim \mathcal N(X \beta, I\sigma^2),
-\]</span>
-where <span class="math inline">\(\theta = (\beta, \sigma^2)\)</span>. In this case equation <a href="modelDevelopmentProcess.html#eq:modelTrainingEq1">(2.2)</a> become</p>
-<p><span class="math display" id="eq:modelTrainingEq2">\[\begin{equation}
+\]</span> where <span class="math inline">\(\theta = (\beta, \sigma^2)\)</span>. In this case equation <a href="modelDevelopmentProcess.html#eq:modelTrainingEq1">(2.2)</a> become</p>
+<span class="math display" id="eq:modelTrainingEq2">\[\begin{equation}
 \hat\theta = \arg \min_{\theta \in \Theta}  ||y - X \beta||_{2} + \lambda(\beta). 
 \tag{2.3}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>For linear regression, the penalty term <span class="math inline">\(\lambda(\beta)\)</span> is equal to <span class="math inline">\(0\)</span>, and optimal parameters <span class="math inline">\(\beta\)</span> in equation <a href="modelDevelopmentProcess.html#eq:modelTrainingEq2">(2.3)</a> have close analytical solution <span class="math inline">\(\hat \beta = (X^TX)^{-1}X^Ty\)</span>. In ridge regression the penalty <span class="math inline">\(\lambda(\beta) = \lambda ||\beta||_2\)</span> and also <a href="modelDevelopmentProcess.html#eq:modelTrainingEq2">(2.3)</a> have analytical solution <span class="math inline">\(\hat \beta = (X^TX + \lambda I)^{-1}X^Ty\)</span>. For LASSO regression the penalty <span class="math inline">\(\lambda(\beta) = \lambda ||\beta||_1\)</span> and <span class="math inline">\(\beta\)</span> are estimated through a numerical optimization.</p>
 <p>For classification, the natural choice for distribution of <span class="math inline">\(y\)</span> is a Binomial distribution. This leads to logistic regression and logistic loss function. For multi label classification frequent choice is the cross-entropy loss function.</p>
-<p>Apart from linear models for <span class="math inline">\(y\)</span> there is a large variety of predictive models. Find a good overview of different techniques for model development in ,,Modern Applied Statistics with S’’ <span class="citation">(Venables and Ripley <a href="#ref-MASSbook">2002</a>)</span> or ,,Applied predictive modeling’’ <span class="citation">(Kuhn and Johnson <a href="#ref-Kuhn2013">2013</a>)</span>.</p>
+<p>Apart from linear models for <span class="math inline">\(y\)</span> there is a large variety of predictive models. Find a good overview of different techniques for model development in ,,Modern Applied Statistics with S’‘<span class="citation">(Venables and Ripley <a href="#ref-MASSbook">2002</a>)</span> or ,,Applied predictive modeling’’ <span class="citation">(Kuhn and Johnson <a href="#ref-Kuhn2013">2013</a>)</span>.</p>
 </div>
 <div id="model-understanding" class="section level2">
 <h2><span class="header-section-number">2.6</span> Model understanding</h2>
@@ -506,19 +473,19 @@ where <span class="math inline">\(\theta = (\beta, \sigma^2)\)</span>. In this c
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-mdp2019">
-<p>Biecek, Przemyslaw. 2019. “Model Development Process.” <em>CoRR</em> abs/1907.04461. <a href="http://arxiv.org/abs/1907.04461">http://arxiv.org/abs/1907.04461</a>.</p>
+<p>Biecek, Przemyslaw. 2019. “Model Development Process.” <em>CoRR</em> abs/1907.04461. <a href="http://arxiv.org/abs/1907.04461" class="uri">http://arxiv.org/abs/1907.04461</a>.</p>
 </div>
 <div id="ref-spiral1988">
 <p>Boehm, Barry. 1988. <em>A Spiral Model of Software Development and Enhancement</em>. <em> IEEE Computer, IEEE, 21(5):61-72</em>.</p>
 </div>
 <div id="ref-crisp1999">
-<p>Chapman, Pete, Julian Clinton, Randy Kerber, Thomas Khabaza, Thomas Reinartz, Colin Shearer, and Rudiger Wirth. 1999. <em>The CRISP-DM 1.0 Step-by-step data mining guide</em>. <a href="ftp://ftp.software.ibm.com/software/analytics/spss/support/Modeler/Documentation/14/UserManual/CRISP-DM.pdf">ftp://ftp.software.ibm.com/software/analytics/spss/support/Modeler/Documentation/14/UserManual/CRISP-DM.pdf</a>.</p>
+<p>Chapman, Pete, Julian Clinton, Randy Kerber, Thomas Khabaza, Thomas Reinartz, Colin Shearer, and Rudiger Wirth. 1999. <em>The CRISP-DM 1.0 Step-by-step data mining guide</em>. <a href="ftp://ftp.software.ibm.com/software/analytics/spss/support/Modeler/Documentation/14/UserManual/CRISP-DM.pdf" class="uri">ftp://ftp.software.ibm.com/software/analytics/spss/support/Modeler/Documentation/14/UserManual/CRISP-DM.pdf</a>.</p>
 </div>
 <div id="ref-r4ds2019">
-<p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</p>
+<p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a>.</p>
 </div>
 <div id="ref-misconceptions2019">
-<p>Hall, Patrick. 2019. <em>On Explainable Machine Learning Misconceptions and a More Human-Centered Machine Learning</em>. <a href="https://github.com/jphall663/xai_misconceptions/blob/master/xai_misconceptions.pdf">https://github.com/jphall663/xai_misconceptions/blob/master/xai_misconceptions.pdf</a>.</p>
+<p>Hall, Patrick. 2019. <em>On Explainable Machine Learning Misconceptions and a More Human-Centered Machine Learning</em>. <a href="https://github.com/jphall663/xai_misconceptions/blob/master/xai_misconceptions.pdf" class="uri">https://github.com/jphall663/xai_misconceptions/blob/master/xai_misconceptions.pdf</a>.</p>
 </div>
 <div id="ref-usdp1999">
 <p>Jacobson, Ivar, Grady Booch, and James Rumbaugh. 1999. <em>The Unified Software Development Process</em>.</p>
@@ -527,7 +494,7 @@ where <span class="math inline">\(\theta = (\beta, \sigma^2)\)</span>. In this c
 <p>Kruchten, Philippe. 1998. <em>The Rational Unified Process</em>.</p>
 </div>
 <div id="ref-Kuhn2013">
-<p>Kuhn, Max, and Kjell Johnson. 2013. <em>Applied predictive modeling</em>. New York, NY: Springer. <a href="http://appliedpredictivemodeling.com/">http://appliedpredictivemodeling.com/</a>.</p>
+<p>Kuhn, Max, and Kjell Johnson. 2013. <em>Applied predictive modeling</em>. New York, NY: Springer. <a href="http://appliedpredictivemodeling.com/" class="uri">http://appliedpredictivemodeling.com/</a>.</p>
 </div>
 <div id="ref-Nolan2015">
 <p>Nolan, Deborah, and Duncan Temple Lang. 2015. <em>Data Science in R: A Case Studies Approach to Computational Reasoning and Problem Solving</em>. Chapman &amp; Hall/CRC.</p>
@@ -536,13 +503,13 @@ where <span class="math inline">\(\theta = (\beta, \sigma^2)\)</span>. In this c
 <p>Tukey, John W. 1977. <em>Exploratory Data Analysis</em>. Addison-Wesley.</p>
 </div>
 <div id="ref-MASSbook">
-<p>Venables, W. N., and B. D. Ripley. 2002. <em>Modern Applied Statistics with S</em>. Fourth. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4">http://www.stats.ox.ac.uk/pub/MASS4</a>.</p>
+<p>Venables, W. N., and B. D. Ripley. 2002. <em>Modern Applied Statistics with S</em>. Fourth. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4" class="uri">http://www.stats.ox.ac.uk/pub/MASS4</a>.</p>
 </div>
 <div id="ref-Wickham2017">
 <p>Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 1st ed. O’Reilly Media, Inc.</p>
 </div>
 <div id="ref-crisp2019wiki">
-<p>Wikipedia. 2019. <em>CRISP DM: Cross-industry standard process for data mining</em>. <a href="https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining">https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining</a>.</p>
+<p>Wikipedia. 2019. <em>CRISP DM: Cross-industry standard process for data mining</em>. <a href="https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining" class="uri">https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining</a>.</p>
 </div>
 </div>
             </section>
@@ -606,7 +573,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

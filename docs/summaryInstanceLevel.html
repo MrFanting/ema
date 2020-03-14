@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>14 Summary of Instance-level Explainers | Explanatory Model Analysis</title>
+  <title>14 Summary of Instance-level Explainers | 解释性模型分析</title>
   <meta name="description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="14 Summary of Instance-level Explainers | Explanatory Model Analysis" />
+  <meta property="og:title" content="14 Summary of Instance-level Explainers | 解释性模型分析" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="pbiecek/ema" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="14 Summary of Instance-level Explainers | Explanatory Model Analysis" />
+  <meta name="twitter:title" content="14 Summary of Instance-level Explainers | 解释性模型分析" />
   
   <meta name="twitter:description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Przemyslaw Biecek and Tomasz Burzykowski" />
 
 
-<meta name="date" content="2020-03-08" />
+<meta name="date" content="2020-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,66 +74,41 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -386,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Explanatory Model Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">解释性模型分析</a>
           </h1>
         </div>
 
@@ -396,13 +371,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="summaryInstanceLevel" class="section level1">
 <h1><span class="header-section-number">14</span> Summary of Instance-level Explainers</h1>
-<p>In the first part of the book, we introduced a number of techniques for exploration and explanation of model predictions for individual instances.
-In each chapter we introduced and presented a single technique.
-But in practice these techniques rarely shall be used separately. It’s more informative to combine different views offered by each technique into a more holistic overview.</p>
-<p>See an example in Figure <a href="summaryInstanceLevel.html#fig:instanceLevelExplainers">14.1</a>. Four different approaches to the explanation of the random forest model are used.
-First row shows results from variable attribution methods like LIME, SHAP and Break Down. All these method agree that the most important variables for <code>johny_d</code> are his <code>age</code>, <code>gender</code>, <code>class</code> and <code>fare.</code> Since <code>fare</code> and <code>class</code> are correlated and possibly <code>age</code> is in the interaction with <code>gender</code> then the additive decomposition is ambiguous.
-Second row shows Ceteris Paribus profiles for these four most important variables. We see that higher age or being in the <code>2nd</code> class in he <code>restaurant staff</code> would decrease the model response while lower fare (which is counter intuitive), being a female or in the <code>deck crew</code> would increase the model response.
-Third row show univariate distributions of particular variables. We see that <code>fare=72</code> is very high as for a ticket and that only small fraction of people on the titanic were children (no kids in the crew). Combination of different perspectives supplement each other.</p>
+<p>In the first part of the book, we introduced a number of techniques for exploration and explanation of model predictions for individual instances. In each chapter we introduced and presented a single technique. But in practice these techniques rarely shall be used separately. It’s more informative to combine different views offered by each technique into a more holistic overview.</p>
+<p>See an example in Figure <a href="summaryInstanceLevel.html#fig:instanceLevelExplainers">14.1</a>. Four different approaches to the explanation of the random forest model are used. First row shows results from variable attribution methods like LIME, SHAP and Break Down. All these method agree that the most important variables for <code>johny_d</code> are his <code>age</code>, <code>gender</code>, <code>class</code> and <code>fare.</code> Since <code>fare</code> and <code>class</code> are correlated and possibly <code>age</code> is in the interaction with <code>gender</code> then the additive decomposition is ambiguous. Second row shows Ceteris Paribus profiles for these four most important variables. We see that higher age or being in the <code>2nd</code> class in he <code>restaurant staff</code> would decrease the model response while lower fare (which is counter intuitive), being a female or in the <code>deck crew</code> would increase the model response. Third row show univariate distributions of particular variables. We see that <code>fare=72</code> is very high as for a ticket and that only small fraction of people on the titanic were children (no kids in the crew). Combination of different perspectives supplement each other.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:instanceLevelExplainers"></span>
 <img src="figure/instance_level.png" alt="Instance-level explanations of the fandom forest model for the titanic data and johny_d an 8-years old boy that travels in the 1ts class." width="100%" />
@@ -434,14 +404,11 @@ Figure 14.1: Instance-level explanations of the fandom forest model for the tita
 <h2><span class="header-section-number">14.2</span> Correlated explanatory variables</h2>
 <p>When we derived some properties for presented methods we assumed that explanatory variables are independent. Obviously, this is not always the case. For instance, in the case of the data on apartment prices (see Chapter <a href="dataSetsIntro.html#ApartmentDataset">5.2</a>), the number of rooms and surface of an apartment will most likely be positively associated same is true for the class variable and fare for titanic data.</p>
 <p>Of course all presented methods can be applied for correlated features, however sometimes it may be harder to analyze these features independently from each other.</p>
-<p>To address the issue, the two most common approaches are:
-* to create new features that are independent (sometimes it is possible due to domain knowledge; sometimes it can e achieve by using principal components analysis or a similar technique),
-* construct two-dimensional extensions for CP plots (model response is plotted as a 2d surface) or permute variables in blocks to preserve the correlation structure of variables.</p>
+<p>To address the issue, the two most common approaches are: * to create new features that are independent (sometimes it is possible due to domain knowledge; sometimes it can e achieve by using principal components analysis or a similar technique), * construct two-dimensional extensions for CP plots (model response is plotted as a 2d surface) or permute variables in blocks to preserve the correlation structure of variables.</p>
 </div>
 <div id="models-with-interactions" class="section level2">
 <h2><span class="header-section-number">14.3</span> Models with interactions</h2>
-<p>In models with interactions, the effect of one explanatory variable may depend on values of other variables. For example, the probability of survival on Titanic may decrease with age, but the effect may be different for different classes of passengers.
-In such a case, to explore and explain model’s predictions, we have got to consider not individual variables, but sets of variables included in interactions. To identify interactions, we can use BD plots as described in Chapter <a href="iBreakDown.html#iBreakDown">8</a>. To show effects of an interaction we may use a set of CP profiles. For the Titanic example we may use CP profiles for age with to instances that differ only in gender. The less parallel are such profiles the higher the effect of an interaction.</p>
+<p>In models with interactions, the effect of one explanatory variable may depend on values of other variables. For example, the probability of survival on Titanic may decrease with age, but the effect may be different for different classes of passengers. In such a case, to explore and explain model’s predictions, we have got to consider not individual variables, but sets of variables included in interactions. To identify interactions, we can use BD plots as described in Chapter <a href="iBreakDown.html#iBreakDown">8</a>. To show effects of an interaction we may use a set of CP profiles. For the Titanic example we may use CP profiles for age with to instances that differ only in gender. The less parallel are such profiles the higher the effect of an interaction.</p>
 </div>
 <div id="sparse-explanations" class="section level2">
 <h2><span class="header-section-number">14.4</span> Sparse explanations</h2>
@@ -459,9 +426,7 @@ In such a case, to explore and explain model’s predictions, we have got to con
 <div id="champion-challenger-analysis-1" class="section level2">
 <h2><span class="header-section-number">14.6</span> Champion Challenger analysis</h2>
 <p>The techniques for explaining and exploring models have many applications. One of them is the opportunity to compare models.</p>
-<p>Why compare models?
-One scenario is the Champion-Challenger analysis. Let’s assume that some institution uses a predictive model but wants to know if they could get a better model using other modeling techniques. For example, the risk department in a bank uses logistical regression to assess credit risk. The model has some efficiency and is the so-called champion - the best model considered in the class of logistic regression models.
-However, it is worth checking whether using more complex models, so called challengers, e.g. boosting or random trees, will not be more effective. And if they are more effective, the question will arise as to how these challengers differ from the champion.</p>
+<p>Why compare models? One scenario is the Champion-Challenger analysis. Let’s assume that some institution uses a predictive model but wants to know if they could get a better model using other modeling techniques. For example, the risk department in a bank uses logistical regression to assess credit risk. The model has some efficiency and is the so-called champion - the best model considered in the class of logistic regression models. However, it is worth checking whether using more complex models, so called challengers, e.g. boosting or random trees, will not be more effective. And if they are more effective, the question will arise as to how these challengers differ from the champion.</p>
 <p>Another reason why we want to compare models is because of the iterativness of the modeling process itself (see <a href="modelDevelopmentProcess.html#MDPprocess">2.2</a>). During the modeling process many versions of the models are created, often with different structures, sometimes with very similar efficiency. Comparative analysis allows for better understanding how these models differ from each other.</p>
 <p>Below is an example of champion-challenger analysis for Random Forest model <code>model_titanic_rf</code>, logistic regression model <code>model_titanic_lmr</code>, boosting model of <code>model_titanic_gbm</code> and support-vector machines (SVM) model of <code>model_titanic_svm</code>.</p>
 <p>Each of these models has a different way of functioning. Random forest and boosting models are on trees, so the response curves will be stepped one. The logistic regression and booster models have continuous and smooth response curves.</p>
@@ -472,8 +437,7 @@ However, it is worth checking whether using more complex models, so called chall
 Figure 14.2: SHAP plots for four different models for the Titanic data.
 </p>
 </div>
-<p>Shapley values show an additive distribution for model predictions. In the chapter <a href="iBreakDown.html#iBreakDown">8</a> we discussed what to do if the add-on attribute may not reflect the exact behaviour of the model.
-Figure <a href="summaryInstanceLevel.html#fig:championChallengerBD">14.3</a> compares Break Down plots with interactions for the four models under consideration.</p>
+<p>Shapley values show an additive distribution for model predictions. In the chapter <a href="iBreakDown.html#iBreakDown">8</a> we discussed what to do if the add-on attribute may not reflect the exact behaviour of the model. Figure <a href="summaryInstanceLevel.html#fig:championChallengerBD">14.3</a> compares Break Down plots with interactions for the four models under consideration.</p>
 <p>Each of these models obviously has a different estimate for the chances of survival for <code>johny_d</code>. The highest estimate has the logistic regression model <span class="math inline">\(0.764\)</span> while the lowest estimate has the random forest model <span class="math inline">\(0.441\)</span>. For the SVM model, the most important variable is <code>gender</code> and for the other models, <code>age</code> and <code>class</code>. The Random Forest model included interactions of <code>fare:class</code> and the SVM model included interactions of <code>fare:age</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:championChallengerBD"></span>
 <img src="ema_files/figure-html/championChallengerBD-1.png" alt="Break Down plots for four different models for the Titanic data." width="100%" />
@@ -481,8 +445,7 @@ Figure <a href="summaryInstanceLevel.html#fig:championChallengerBD">14.3</a> com
 Figure 14.3: Break Down plots for four different models for the Titanic data.
 </p>
 </div>
-<p>Figure <a href="summaryInstanceLevel.html#fig:championChallengerCP">14.4</a> shows Ceteris Paribus profiles for the four models considered for the <code>age</code> and <code>fare</code> variables.
-The logistic regression and GBM models behave in a similar way. Random forest and SVM models are much less sensitive to the <code>age</code> variable.</p>
+<p>Figure <a href="summaryInstanceLevel.html#fig:championChallengerCP">14.4</a> shows Ceteris Paribus profiles for the four models considered for the <code>age</code> and <code>fare</code> variables. The logistic regression and GBM models behave in a similar way. Random forest and SVM models are much less sensitive to the <code>age</code> variable.</p>
 <div class="figure" style="text-align: center"><span id="fig:championChallengerCP"></span>
 <img src="ema_files/figure-html/championChallengerCP-1.png" alt="Ceteris Paribus profiles for four different models for the Titanic data." width="100%" />
 <p class="caption">
@@ -555,7 +518,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

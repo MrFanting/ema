@@ -10,7 +10,7 @@ library("forcats")
 
 link_to_models <- "models/models_titanic.rda"
 
-titanic <- archivist::aread("pbiecek/models/27e5c")
+data("titanic")
 
 
 if (file.exists(link_to_models)) {

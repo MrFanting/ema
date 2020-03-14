@@ -1,5 +1,5 @@
 --- 
-title: 'Explanatory Model Analysis'
+title: '解释性模型分析'
 author: "Przemyslaw Biecek and Tomasz Burzykowski"
 date: "`r Sys.Date()`"
 output:

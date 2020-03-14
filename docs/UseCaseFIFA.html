@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>21 FIFA 19 | Explanatory Model Analysis</title>
+  <title>21 FIFA 19 | 解释性模型分析</title>
   <meta name="description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="21 FIFA 19 | Explanatory Model Analysis" />
+  <meta property="og:title" content="21 FIFA 19 | 解释性模型分析" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="pbiecek/ema" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="21 FIFA 19 | Explanatory Model Analysis" />
+  <meta name="twitter:title" content="21 FIFA 19 | 解释性模型分析" />
   
   <meta name="twitter:description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Przemyslaw Biecek and Tomasz Burzykowski" />
 
 
-<meta name="date" content="2020-03-08" />
+<meta name="date" content="2020-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,66 +74,41 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -386,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Explanatory Model Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">解释性模型分析</a>
           </h1>
         </div>
 
@@ -406,8 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="data-preparation" class="section level2">
 <h2><span class="header-section-number">21.2</span> Data preparation</h2>
-<p>The scraped data contains 89 columns, and various information about players along with photo, club, nationality and others.
-Here we will focus on 40 players statistics and the way how they influence model predictions.</p>
+<p>The scraped data contains 89 columns, and various information about players along with photo, club, nationality and others. Here we will focus on 40 players statistics and the way how they influence model predictions.</p>
 <p>The data set contains statistics for 16924 players. First, let’s see distribution of selected variables from this dataset.</p>
 <p>Players values are heavily skewed. Half of players have estimated value between 0.3 and 2.2 millions of Euro. But few players have estimated values higher than 100 millions of Euro. Figure <a href="UseCaseFIFA.html#fig:distFIFA19Value">21.1</a> presents empirical cumulative distribution function and histogram with log transformation of the OX axis.</p>
 <div class="figure" style="text-align: center"><span id="fig:distFIFA19Value"></span>
@@ -428,8 +402,7 @@ Figure 21.2: Histograms for selected characteristics of players. Note that <code
 </div>
 <div id="data-understanding" class="section level2">
 <h2><span class="header-section-number">21.3</span> Data understanding</h2>
-<p>Time to see how these variables are linked with player’s value.
-Figure <a href="UseCaseFIFA.html#fig:distFIFA19scatter">21.3</a> shows scatterplots for selected four characteristics. Because of the skewness of player’s value the OY value is presented after log transformation.</p>
+<p>Time to see how these variables are linked with player’s value. Figure <a href="UseCaseFIFA.html#fig:distFIFA19scatter">21.3</a> shows scatterplots for selected four characteristics. Because of the skewness of player’s value the OY value is presented after log transformation.</p>
 <p>For <code>Age</code> it looks like the relation is not monotonic, there is some optimal age in which players value is the highest, between 24 and 28 years. Value of youngest players are on average 10x lower. Same with olders players.</p>
 <p>For variables <code>BallControl</code> and <code>ShortPassing</code> the relation is not monotonic. In general the larger value of these coefficients the higher value of a player and most expensive are players with top characteristics. But among players with very low scores in <code>BallControl</code> and <code>ShortPassing</code> some are very expensive too. As it was suggested earlier, these players are probably goalkeepers.</p>
 <p>For variable <code>Reactions</code> the link with player’s value is monotonic. As expected, the higher <code>Reactions</code> the higher player’s value.</p>
@@ -459,59 +432,59 @@ Figure 21.4: Scatterplot for relation between selected four players characterist
 <li>linear model with spline transformation of dependent variables implemented in package <code>rms</code> <span class="citation">(Harrell Jr <a href="#ref-rms">2018</a>)</span>,</li>
 <li>random forest model with 250 trees as implemented in package <code>ranger</code> <span class="citation">(Wright and Ziegler <a href="#ref-rangerRpackage">2017</a>)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;gbm&quot;</span>)</a>
-<a class="sourceLine" id="cb159-2" data-line-number="2">fifa_gbm_shallow &lt;-<span class="st"> </span><span class="kw">gbm</span>(LogValue<span class="op">~</span>., <span class="dt">data =</span> fifa19small, <span class="dt">n.trees =</span> <span class="dv">250</span>,</a>
-<a class="sourceLine" id="cb159-3" data-line-number="3">        <span class="dt">interaction.depth =</span> <span class="dv">1</span>, <span class="dt">distribution =</span> <span class="st">&quot;gaussian&quot;</span>)</a>
-<a class="sourceLine" id="cb159-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb159-5" data-line-number="5">fifa_gbm_deep &lt;-<span class="st"> </span><span class="kw">gbm</span>(LogValue<span class="op">~</span>., <span class="dt">data =</span> fifa19small, <span class="dt">n.trees =</span> <span class="dv">250</span>,</a>
-<a class="sourceLine" id="cb159-6" data-line-number="6">        <span class="dt">interaction.depth =</span> <span class="dv">4</span>, <span class="dt">distribution =</span> <span class="st">&quot;gaussian&quot;</span>)</a>
-<a class="sourceLine" id="cb159-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb159-8" data-line-number="8"><span class="kw">library</span>(<span class="st">&quot;ranger&quot;</span>)</a>
-<a class="sourceLine" id="cb159-9" data-line-number="9">fifa_rf &lt;-<span class="st"> </span><span class="kw">ranger</span>(LogValue<span class="op">~</span>., <span class="dt">data =</span> fifa19small, <span class="dt">num.trees =</span> <span class="dv">250</span>)</a>
-<a class="sourceLine" id="cb159-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb159-11" data-line-number="11"><span class="kw">library</span>(<span class="st">&quot;rms&quot;</span>)</a>
-<a class="sourceLine" id="cb159-12" data-line-number="12">fifa_ols &lt;-<span class="st"> </span><span class="kw">ols</span>(LogValue <span class="op">~</span><span class="st"> </span><span class="kw">rcs</span>(Age) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(International.Reputation) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-13" data-line-number="13"><span class="st">        </span><span class="kw">rcs</span>(Skill.Moves) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Crossing) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Finishing) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-14" data-line-number="14"><span class="st">        </span><span class="kw">rcs</span>(HeadingAccuracy) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(ShortPassing) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Volleys) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-15" data-line-number="15"><span class="st">        </span><span class="kw">rcs</span>(Dribbling) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Curve) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(FKAccuracy) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-16" data-line-number="16"><span class="st">        </span><span class="kw">rcs</span>(LongPassing) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(BallControl) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Acceleration) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-17" data-line-number="17"><span class="st">        </span><span class="kw">rcs</span>(SprintSpeed) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Agility) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Reactions) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-18" data-line-number="18"><span class="st">        </span><span class="kw">rcs</span>(Balance) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(ShotPower) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Jumping) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Stamina) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-19" data-line-number="19"><span class="st">        </span><span class="kw">rcs</span>(Strength) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(LongShots) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Aggression) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-20" data-line-number="20"><span class="st">        </span><span class="kw">rcs</span>(Interceptions) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Positioning) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Vision) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-21" data-line-number="21"><span class="st">        </span><span class="kw">rcs</span>(Penalties) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Composure) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Marking) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-22" data-line-number="22"><span class="st">        </span><span class="kw">rcs</span>(StandingTackle) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(SlidingTackle) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(GKDiving) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-23" data-line-number="23"><span class="st">        </span><span class="kw">rcs</span>(GKHandling) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(GKKicking) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(GKPositioning) <span class="op">+</span></a>
-<a class="sourceLine" id="cb159-24" data-line-number="24"><span class="st">        </span><span class="kw">rcs</span>(GKReflexes), <span class="dt">data =</span> fifa19small)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;gbm&quot;</span>)
+fifa_gbm_shallow &lt;-<span class="st"> </span><span class="kw">gbm</span>(LogValue<span class="op">~</span>., <span class="dt">data =</span> fifa19small, <span class="dt">n.trees =</span> <span class="dv">250</span>,
+        <span class="dt">interaction.depth =</span> <span class="dv">1</span>, <span class="dt">distribution =</span> <span class="st">&quot;gaussian&quot;</span>)
+
+fifa_gbm_deep &lt;-<span class="st"> </span><span class="kw">gbm</span>(LogValue<span class="op">~</span>., <span class="dt">data =</span> fifa19small, <span class="dt">n.trees =</span> <span class="dv">250</span>,
+        <span class="dt">interaction.depth =</span> <span class="dv">4</span>, <span class="dt">distribution =</span> <span class="st">&quot;gaussian&quot;</span>)
+
+<span class="kw">library</span>(<span class="st">&quot;ranger&quot;</span>)
+fifa_rf &lt;-<span class="st"> </span><span class="kw">ranger</span>(LogValue<span class="op">~</span>., <span class="dt">data =</span> fifa19small, <span class="dt">num.trees =</span> <span class="dv">250</span>)
+
+<span class="kw">library</span>(<span class="st">&quot;rms&quot;</span>)
+fifa_ols &lt;-<span class="st"> </span><span class="kw">ols</span>(LogValue <span class="op">~</span><span class="st"> </span><span class="kw">rcs</span>(Age) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(International.Reputation) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(Skill.Moves) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Crossing) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Finishing) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(HeadingAccuracy) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(ShortPassing) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Volleys) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(Dribbling) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Curve) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(FKAccuracy) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(LongPassing) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(BallControl) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Acceleration) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(SprintSpeed) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Agility) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Reactions) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(Balance) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(ShotPower) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Jumping) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Stamina) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(Strength) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(LongShots) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Aggression) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(Interceptions) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Positioning) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Vision) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(Penalties) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Composure) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(Marking) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(StandingTackle) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(SlidingTackle) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(GKDiving) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(GKHandling) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(GKKicking) <span class="op">+</span><span class="st"> </span><span class="kw">rcs</span>(GKPositioning) <span class="op">+</span>
+<span class="st">        </span><span class="kw">rcs</span>(GKReflexes), <span class="dt">data =</span> fifa19small)</code></pre></div>
 <p>Before we can explore model behavior we need to create explainers with the <code>DALEX::explain</code> function. These explainers will be later used to assess model performance.</p>
 <p>Note that models are trained on logarithm of the value, but it will be much more natural to operate on values in Euro. This is why in explainers we specified a user defined predict function that transforms log value to the value in Euro.</p>
 <p>Each explainer got also a unique <code>label</code> and corresponding <code>data</code> and <code>y</code> arguments.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)</a>
-<a class="sourceLine" id="cb160-2" data-line-number="2">fifa_gbm_exp_deep &lt;-<span class="st"> </span><span class="kw">explain</span>(fifa_gbm_deep, </a>
-<a class="sourceLine" id="cb160-3" data-line-number="3">        <span class="dt">data =</span> fifa19small, <span class="dt">y =</span> <span class="dv">10</span><span class="op">^</span>fifa19small<span class="op">$</span>LogValue, </a>
-<a class="sourceLine" id="cb160-4" data-line-number="4">        <span class="dt">predict_function =</span> <span class="cf">function</span>(m,x) <span class="dv">10</span><span class="op">^</span><span class="kw">predict</span>(m, x, <span class="dt">n.trees =</span> <span class="dv">250</span>),</a>
-<a class="sourceLine" id="cb160-5" data-line-number="5">        <span class="dt">label =</span> <span class="st">&quot;GBM deep&quot;</span>)</a>
-<a class="sourceLine" id="cb160-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb160-7" data-line-number="7">fifa_gbm_exp_shallow &lt;-<span class="st"> </span><span class="kw">explain</span>(fifa_gbm_shallow, </a>
-<a class="sourceLine" id="cb160-8" data-line-number="8">        <span class="dt">data =</span> fifa19small, <span class="dt">y =</span> <span class="dv">10</span><span class="op">^</span>fifa19small<span class="op">$</span>LogValue, </a>
-<a class="sourceLine" id="cb160-9" data-line-number="9">        <span class="dt">predict_function =</span> <span class="cf">function</span>(m,x) <span class="dv">10</span><span class="op">^</span><span class="kw">predict</span>(m, x, <span class="dt">n.trees =</span> <span class="dv">250</span>),</a>
-<a class="sourceLine" id="cb160-10" data-line-number="10">        <span class="dt">label =</span> <span class="st">&quot;GBM shallow&quot;</span>)</a>
-<a class="sourceLine" id="cb160-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb160-12" data-line-number="12">fifa_rf_exp &lt;-<span class="st"> </span><span class="kw">explain</span>(fifa_rf, </a>
-<a class="sourceLine" id="cb160-13" data-line-number="13">        <span class="dt">data =</span> fifa19small, <span class="dt">y =</span> <span class="dv">10</span><span class="op">^</span>fifa19small<span class="op">$</span>LogValue, </a>
-<a class="sourceLine" id="cb160-14" data-line-number="14">        <span class="dt">predict_function =</span> <span class="cf">function</span>(m,x) <span class="dv">10</span><span class="op">^</span><span class="kw">predict</span>(m, x)<span class="op">$</span>predictions,</a>
-<a class="sourceLine" id="cb160-15" data-line-number="15">        <span class="dt">label =</span> <span class="st">&quot;RF&quot;</span>)</a>
-<a class="sourceLine" id="cb160-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb160-17" data-line-number="17">fifa_rms_exp &lt;-<span class="st"> </span><span class="kw">explain</span>(fifa_ols, </a>
-<a class="sourceLine" id="cb160-18" data-line-number="18">        <span class="dt">data =</span> fifa19small, <span class="dt">y =</span> <span class="dv">10</span><span class="op">^</span>fifa19small<span class="op">$</span>LogValue, </a>
-<a class="sourceLine" id="cb160-19" data-line-number="19">        <span class="dt">predict_function =</span> <span class="cf">function</span>(m,x) <span class="dv">10</span><span class="op">^</span><span class="kw">predict</span>(m, x),</a>
-<a class="sourceLine" id="cb160-20" data-line-number="20">        <span class="dt">label =</span> <span class="st">&quot;RMS&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)
+fifa_gbm_exp_deep &lt;-<span class="st"> </span><span class="kw">explain</span>(fifa_gbm_deep, 
+        <span class="dt">data =</span> fifa19small, <span class="dt">y =</span> <span class="dv">10</span><span class="op">^</span>fifa19small<span class="op">$</span>LogValue, 
+        <span class="dt">predict_function =</span> <span class="cf">function</span>(m,x) <span class="dv">10</span><span class="op">^</span><span class="kw">predict</span>(m, x, <span class="dt">n.trees =</span> <span class="dv">250</span>),
+        <span class="dt">label =</span> <span class="st">&quot;GBM deep&quot;</span>)
+
+fifa_gbm_exp_shallow &lt;-<span class="st"> </span><span class="kw">explain</span>(fifa_gbm_shallow, 
+        <span class="dt">data =</span> fifa19small, <span class="dt">y =</span> <span class="dv">10</span><span class="op">^</span>fifa19small<span class="op">$</span>LogValue, 
+        <span class="dt">predict_function =</span> <span class="cf">function</span>(m,x) <span class="dv">10</span><span class="op">^</span><span class="kw">predict</span>(m, x, <span class="dt">n.trees =</span> <span class="dv">250</span>),
+        <span class="dt">label =</span> <span class="st">&quot;GBM shallow&quot;</span>)
+
+fifa_rf_exp &lt;-<span class="st"> </span><span class="kw">explain</span>(fifa_rf, 
+        <span class="dt">data =</span> fifa19small, <span class="dt">y =</span> <span class="dv">10</span><span class="op">^</span>fifa19small<span class="op">$</span>LogValue, 
+        <span class="dt">predict_function =</span> <span class="cf">function</span>(m,x) <span class="dv">10</span><span class="op">^</span><span class="kw">predict</span>(m, x)<span class="op">$</span>predictions,
+        <span class="dt">label =</span> <span class="st">&quot;RF&quot;</span>)
+
+fifa_rms_exp &lt;-<span class="st"> </span><span class="kw">explain</span>(fifa_ols, 
+        <span class="dt">data =</span> fifa19small, <span class="dt">y =</span> <span class="dv">10</span><span class="op">^</span>fifa19small<span class="op">$</span>LogValue, 
+        <span class="dt">predict_function =</span> <span class="cf">function</span>(m,x) <span class="dv">10</span><span class="op">^</span><span class="kw">predict</span>(m, x),
+        <span class="dt">label =</span> <span class="st">&quot;RMS&quot;</span>)</code></pre></div>
 </div>
 <div id="model-audit" class="section level2">
 <h2><span class="header-section-number">21.5</span> Model audit</h2>
 <p>We have created four models. Let’s see which model is better. Figure <a href="UseCaseFIFA.html#fig:modelPerforamanceBoxplot">21.5</a> compares distributions of absolute model residuals. Crosses corresponds to average, which correspond to RMSE. On average, smallest residuals are for the Random Forest model.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)</a>
-<a class="sourceLine" id="cb161-2" data-line-number="2">(fifa_mr_gbm_shallow &lt;-<span class="st"> </span><span class="kw">model_performance</span>(fifa_gbm_exp_shallow))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)
+(fifa_mr_gbm_shallow &lt;-<span class="st"> </span><span class="kw">model_performance</span>(fifa_gbm_exp_shallow))</code></pre></div>
 <pre><code>## Measures for:  regression
 ## mse      : 8.793857e+12 
 ## rmse     : 2965444 
@@ -525,7 +498,7 @@ Figure 21.4: Scatterplot for relation between selected four players characterist
 ##      7545.811     78107.824    179592.760    385908.869   1242757.255 
 ##          100% 
 ##  84138902.525</code></pre>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1">(fifa_mr_gbm_deep &lt;-<span class="st"> </span><span class="kw">model_performance</span>(fifa_gbm_exp_deep))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(fifa_mr_gbm_deep &lt;-<span class="st"> </span><span class="kw">model_performance</span>(fifa_gbm_exp_deep))</code></pre></div>
 <pre><code>## Measures for:  regression
 ## mse      : 2.258819e+12 
 ## rmse     : 1502937 
@@ -533,27 +506,23 @@ Figure 21.4: Scatterplot for relation between selected four players characterist
 ## mad      : 118742.1
 ## 
 ## Residuals:
-##           0%          10%          20%          30%          40% 
-## -19116967.31   -436856.06   -148437.56    -57458.30    -18811.11 
-##          50%          60%          70%          80%          90% 
-##     10420.76     46392.59    100655.11    217644.71    714571.14 
-##         100% 
-##  41410615.28</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1">(fifa_mr_gbm_rf &lt;-<span class="st"> </span><span class="kw">model_performance</span>(fifa_rf_exp))</a></code></pre></div>
+##           0%          10%          20%          30%          40%          50% 
+## -19116967.31   -436856.06   -148437.56    -57458.30    -18811.11     10420.76 
+##          60%          70%          80%          90%         100% 
+##     46392.59    100655.11    217644.71    714571.14  41410615.28</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(fifa_mr_gbm_rf &lt;-<span class="st"> </span><span class="kw">model_performance</span>(fifa_rf_exp))</code></pre></div>
 <pre><code>## Measures for:  regression
-## mse      : 1.127823e+12 
-## rmse     : 1061990 
-## r2       : 0.9661357 
-## mad      : 51320.23
+## mse      : 1.111888e+12 
+## rmse     : 1054461 
+## r2       : 0.9666141 
+## mad      : 51155.09
 ## 
 ## Residuals:
-##           0%          10%          20%          30%          40% 
-## -4610822.779   -97148.598   -41372.043   -20398.749    -6968.849 
-##          50%          60%          70%          80%          90% 
-##     5584.176    25714.410    65998.232   181294.901   589440.628 
-##         100% 
-## 29046254.806</code></pre>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1">(fifa_mr_gbm_rms &lt;-<span class="st"> </span><span class="kw">model_performance</span>(fifa_rms_exp))</a></code></pre></div>
+##           0%          10%          20%          30%          40%          50% 
+## -4023741.909   -98780.587   -41036.482   -20520.720    -7261.099     5771.509 
+##          60%          70%          80%          90%         100% 
+##    25797.271    67285.110   176384.242   585837.494 25869035.076</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(fifa_mr_gbm_rms &lt;-<span class="st"> </span><span class="kw">model_performance</span>(fifa_rms_exp))</code></pre></div>
 <pre><code>## Measures for:  regression
 ## mse      : 2.191297e+13 
 ## rmse     : 4681129 
@@ -567,9 +536,9 @@ Figure 21.4: Scatterplot for relation between selected four players characterist
 ##  7.872114e+03  5.199682e+04  1.301219e+05  3.007244e+05  1.071466e+06 
 ##          100% 
 ##  6.091332e+07</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="kw">plot</span>(fifa_mr_gbm_shallow, fifa_mr_gbm_deep, fifa_mr_gbm_rf, fifa_mr_gbm_rms, <span class="dt">geom =</span> <span class="st">&quot;boxplot&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb169-2" data-line-number="2"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="st">&quot;Absolute residuals in Euro&quot;</span>, <span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> <span class="kw">dollar_format</span>(<span class="dt">suffix =</span> <span class="st">&quot;€&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb169-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Distributions of model absolute residuals&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(fifa_mr_gbm_shallow, fifa_mr_gbm_deep, fifa_mr_gbm_rf, fifa_mr_gbm_rms, <span class="dt">geom =</span> <span class="st">&quot;boxplot&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="st">&quot;Absolute residuals in Euro&quot;</span>, <span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> <span class="kw">dollar_format</span>(<span class="dt">suffix =</span> <span class="st">&quot;€&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Distributions of model absolute residuals&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:modelPerforamanceBoxplot"></span>
 <img src="ema_files/figure-html/modelPerforamanceBoxplot-1.png" alt="Distribution of absolute values of residuals. The smaller are values the better is the model. Dots stand for averages." width="90%" />
 <p class="caption">
@@ -578,19 +547,19 @@ Figure 21.5: Distribution of absolute values of residuals. The smaller are value
 </div>
 <p>But performance is not everything. Figure <a href="UseCaseFIFA.html#fig:modelPerformanceScatterplot">21.6</a> show diagnostics plots for every model. Each scatterplot shows true target variable against model predictions. The random forest model has predictions closest to the true target values.</p>
 <p>Extreme predictions (lowest and highest) are biased towards the mean, what is typical for such type of models. This means that Random Forest models learned factors that influence players’ values, but for the most expensive players these values will be underestimated.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1">fifa_md_gbm_shallow &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(fifa_gbm_exp_shallow)</a>
-<a class="sourceLine" id="cb170-2" data-line-number="2">fifa_md_gbm_deep &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(fifa_gbm_exp_deep)</a>
-<a class="sourceLine" id="cb170-3" data-line-number="3">fifa_md_gbm_rf &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(fifa_rf_exp)</a>
-<a class="sourceLine" id="cb170-4" data-line-number="4">fifa_md_gbm_rms &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(fifa_rms_exp)</a>
-<a class="sourceLine" id="cb170-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb170-6" data-line-number="6"><span class="kw">plot</span>(fifa_md_gbm_shallow, fifa_md_gbm_deep, </a>
-<a class="sourceLine" id="cb170-7" data-line-number="7">                fifa_md_gbm_rf, fifa_md_gbm_rms, </a>
-<a class="sourceLine" id="cb170-8" data-line-number="8">     <span class="dt">variable =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;y_hat&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="st">&quot;Value in Euro&quot;</span>, <span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> <span class="kw">dollar_format</span>(<span class="dt">suffix =</span> <span class="st">&quot;€&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb170-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="st">&quot;Estimated value in Euro&quot;</span>, <span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> <span class="kw">dollar_format</span>(<span class="dt">suffix =</span> <span class="st">&quot;€&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb170-11" data-line-number="11"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>label) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-13" data-line-number="13"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Diagnostics plot Predicted vs True target values&quot;</span>, <span class="st">&quot;&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fifa_md_gbm_shallow &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(fifa_gbm_exp_shallow)
+fifa_md_gbm_deep &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(fifa_gbm_exp_deep)
+fifa_md_gbm_rf &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(fifa_rf_exp)
+fifa_md_gbm_rms &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(fifa_rms_exp)
+
+<span class="kw">plot</span>(fifa_md_gbm_shallow, fifa_md_gbm_deep, 
+                fifa_md_gbm_rf, fifa_md_gbm_rms, 
+     <span class="dt">variable =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;y_hat&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="st">&quot;Value in Euro&quot;</span>, <span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> <span class="kw">dollar_format</span>(<span class="dt">suffix =</span> <span class="st">&quot;€&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="st">&quot;Estimated value in Euro&quot;</span>, <span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> <span class="kw">dollar_format</span>(<span class="dt">suffix =</span> <span class="st">&quot;€&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>label) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Diagnostics plot Predicted vs True target values&quot;</span>, <span class="st">&quot;&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:modelPerformanceScatterplot"></span>
 <img src="ema_files/figure-html/modelPerformanceScatterplot-1.png" alt="Diagnostics plots Predicted vs. True target values. Points correspond to particular players. The closer to the diagonal the better is the model." width="90%" />
 <p class="caption">
@@ -602,14 +571,14 @@ Figure 21.6: Diagnostics plots Predicted vs. True target values. Points corresp
 <h2><span class="header-section-number">21.6</span> Model understanding</h2>
 <p>Figure <a href="UseCaseFIFA.html#fig:featureImportance">21.7</a> shows variable importance plots for four selected models. Only 12 most important variables in each model are presented.</p>
 <p>Some variables are important for all models, like <code>Reactions</code> or <code>BallControl</code>. Importance of other variables may be very different. All models except random forest are using some characteristics of goalkeepers.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1">fifa_mp_gbm_shallow &lt;-<span class="st"> </span><span class="kw">model_parts</span>(fifa_gbm_exp_shallow)</a>
-<a class="sourceLine" id="cb171-2" data-line-number="2">fifa_mp_gbm_deep &lt;-<span class="st"> </span><span class="kw">model_parts</span>(fifa_gbm_exp_deep)</a>
-<a class="sourceLine" id="cb171-3" data-line-number="3">fifa_mp_rf &lt;-<span class="st"> </span><span class="kw">model_parts</span>(fifa_rf_exp)</a>
-<a class="sourceLine" id="cb171-4" data-line-number="4">fifa_mp_rms &lt;-<span class="st"> </span><span class="kw">model_parts</span>(fifa_rms_exp)</a>
-<a class="sourceLine" id="cb171-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb171-6" data-line-number="6"><span class="kw">plot</span>(fifa_mp_gbm_shallow, fifa_mp_gbm_deep, </a>
-<a class="sourceLine" id="cb171-7" data-line-number="7">     fifa_mp_rf, fifa_mp_rms,</a>
-<a class="sourceLine" id="cb171-8" data-line-number="8">     <span class="dt">max_vars =</span> <span class="dv">20</span>, <span class="dt">bar_width =</span> <span class="dv">4</span>, <span class="dt">show_boxplots =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fifa_mp_gbm_shallow &lt;-<span class="st"> </span><span class="kw">model_parts</span>(fifa_gbm_exp_shallow)
+fifa_mp_gbm_deep &lt;-<span class="st"> </span><span class="kw">model_parts</span>(fifa_gbm_exp_deep)
+fifa_mp_rf &lt;-<span class="st"> </span><span class="kw">model_parts</span>(fifa_rf_exp)
+fifa_mp_rms &lt;-<span class="st"> </span><span class="kw">model_parts</span>(fifa_rms_exp)
+
+<span class="kw">plot</span>(fifa_mp_gbm_shallow, fifa_mp_gbm_deep, 
+     fifa_mp_rf, fifa_mp_rms,
+     <span class="dt">max_vars =</span> <span class="dv">20</span>, <span class="dt">bar_width =</span> <span class="dv">4</span>, <span class="dt">show_boxplots =</span> <span class="ot">FALSE</span>) </code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:featureImportance"></span>
 <img src="ema_files/figure-html/featureImportance-1.png" alt="Variable importance plots for four considered models. Each bar starts in a RMSE for the model and ends in a RMSE calculated for data with permuted single variable." width="90%" />
 <p class="caption">
@@ -619,20 +588,18 @@ Figure 21.7: Variable importance plots for four considered models. Each bar star
 <p>Figure <a href="UseCaseFIFA.html#fig:usecaseFIFApdp">21.8</a> shows Partial Dependence profiles for the most important variables. They show average relation between particular variable and players value.</p>
 <p>The general direction of relation in all models is the same. The larger the player characteristic the higher is the price. With a single exception – variable Age.</p>
 <p>Random forest model has smallest range of average model responses. All tree-based models stabilize average predictions at the ends of variables ranges.</p>
-<p>The most interesting difference between Exploratory Data Analysis presented in Figure <a href="UseCaseFIFA.html#fig:distFIFA19scatter">21.3</a> and Exploratory Model Analysis presented in Figure <a href="UseCaseFIFA.html#fig:usecaseFIFApdp">21.8</a> is related with variable <code>Age</code>. In Figure <a href="UseCaseFIFA.html#fig:distFIFA19scatter">21.3</a> the relation was non-monotonic while in Figure <a href="UseCaseFIFA.html#fig:usecaseFIFApdp">21.8</a> its monotonically decreasing.
-How we can explain this difference?
-One explanation is following: Youngest players have lower values not because of their age but because of lower skills that are correlated with Age. The EDA analysis cannot entangle these effects, thus for youngest players we see lover values also because their lower skills. But models learned that once we take skills into account, the effect of age is only decreasing.</p>
+<p>The most interesting difference between Exploratory Data Analysis presented in Figure <a href="UseCaseFIFA.html#fig:distFIFA19scatter">21.3</a> and Exploratory Model Analysis presented in Figure <a href="UseCaseFIFA.html#fig:usecaseFIFApdp">21.8</a> is related with variable <code>Age</code>. In Figure <a href="UseCaseFIFA.html#fig:distFIFA19scatter">21.3</a> the relation was non-monotonic while in Figure <a href="UseCaseFIFA.html#fig:usecaseFIFApdp">21.8</a> its monotonically decreasing. How we can explain this difference? One explanation is following: Youngest players have lower values not because of their age but because of lower skills that are correlated with Age. The EDA analysis cannot entangle these effects, thus for youngest players we see lover values also because their lower skills. But models learned that once we take skills into account, the effect of age is only decreasing.</p>
 <p>This example also shows, that proper <em>exploration of models may be more insightful than exploration of raw data</em>. Variable <code>Age</code> is correlated with other confounding variables. This entangle was visible in the EDA analysis. But models learned to disentangle these effects.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1">selected_variables &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Reactions&quot;</span>,<span class="st">&quot;BallControl&quot;</span>, <span class="st">&quot;ShortPassing&quot;</span>)</a>
-<a class="sourceLine" id="cb172-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb172-3" data-line-number="3">fifa19_pd_shallow &lt;-<span class="st"> </span><span class="kw">model_profile</span>(fifa_gbm_exp_shallow, <span class="dt">variables =</span> selected_variables)<span class="op">$</span>agr_profiles</a>
-<a class="sourceLine" id="cb172-4" data-line-number="4">fifa19_pd_deep &lt;-<span class="st"> </span><span class="kw">model_profile</span>(fifa_gbm_exp_deep, <span class="dt">variables =</span> selected_variables)<span class="op">$</span>agr_profiles</a>
-<a class="sourceLine" id="cb172-5" data-line-number="5">fifa19_pd_rf &lt;-<span class="st"> </span><span class="kw">model_profile</span>(fifa_rf_exp, <span class="dt">variables =</span> selected_variables)<span class="op">$</span>agr_profiles</a>
-<a class="sourceLine" id="cb172-6" data-line-number="6">fifa19_pd_rms &lt;-<span class="st"> </span><span class="kw">model_profile</span>(fifa_rms_exp, <span class="dt">variables =</span> selected_variables)<span class="op">$</span>agr_profiles</a>
-<a class="sourceLine" id="cb172-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb172-8" data-line-number="8"><span class="kw">plot</span>(fifa19_pd_shallow, fifa19_pd_deep, fifa19_pd_rf, fifa19_pd_rms) <span class="op">+</span></a>
-<a class="sourceLine" id="cb172-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="st">&quot;Estimated value in Euro&quot;</span>, <span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> <span class="kw">dollar_format</span>(<span class="dt">suffix =</span> <span class="st">&quot;€&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb172-10" data-line-number="10"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Partial Dependence profiles for selected variables&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">selected_variables &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Reactions&quot;</span>,<span class="st">&quot;BallControl&quot;</span>, <span class="st">&quot;ShortPassing&quot;</span>)
+
+fifa19_pd_shallow &lt;-<span class="st"> </span><span class="kw">model_profile</span>(fifa_gbm_exp_shallow, <span class="dt">variables =</span> selected_variables)<span class="op">$</span>agr_profiles
+fifa19_pd_deep &lt;-<span class="st"> </span><span class="kw">model_profile</span>(fifa_gbm_exp_deep, <span class="dt">variables =</span> selected_variables)<span class="op">$</span>agr_profiles
+fifa19_pd_rf &lt;-<span class="st"> </span><span class="kw">model_profile</span>(fifa_rf_exp, <span class="dt">variables =</span> selected_variables)<span class="op">$</span>agr_profiles
+fifa19_pd_rms &lt;-<span class="st"> </span><span class="kw">model_profile</span>(fifa_rms_exp, <span class="dt">variables =</span> selected_variables)<span class="op">$</span>agr_profiles
+
+<span class="kw">plot</span>(fifa19_pd_shallow, fifa19_pd_deep, fifa19_pd_rf, fifa19_pd_rms) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="st">&quot;Estimated value in Euro&quot;</span>, <span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> <span class="kw">dollar_format</span>(<span class="dt">suffix =</span> <span class="st">&quot;€&quot;</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Partial Dependence profiles for selected variables&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:usecaseFIFApdp"></span>
 <img src="ema_files/figure-html/usecaseFIFApdp-1.png" alt="Partial Dependence profiles for four selected variables and four considered models." width="90%" />
 <p class="caption">
@@ -642,24 +609,21 @@ Figure 21.8: Partial Dependence profiles for four selected variables and four co
 </div>
 <div id="instance-understanding" class="section level2">
 <h2><span class="header-section-number">21.7</span> Instance understanding</h2>
-<p>Time to see how the model behaves for a single observation / player
-This can be done for any player, but for this example we will use <em>Robert Lewandowski</em>, the most valuable polish football player.</p>
+<p>Time to see how the model behaves for a single observation / player This can be done for any player, but for this example we will use <em>Robert Lewandowski</em>, the most valuable polish football player.</p>
 <p>Here are his characteristics in the FIFA 19 database.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1">fifa19small[<span class="st">&quot;R. Lewandowski&quot;</span>,]</a></code></pre></div>
-<pre><code>##                Age Special Preferred.Foot International.Reputation
-## R. Lewandowski  29    2152          Right                        4
-##                Weak.Foot Skill.Moves Crossing Finishing HeadingAccuracy
-## R. Lewandowski         4           4       62        91              85
-##                ShortPassing Volleys Dribbling Curve FKAccuracy LongPassing
-## R. Lewandowski           83      89        85    77         86          65
-##                BallControl Acceleration SprintSpeed Agility Reactions
-## R. Lewandowski          89           77          78      78        90
-##                Balance ShotPower Jumping Stamina Strength LongShots
-## R. Lewandowski      78        88      84      78       84        84
-##                Aggression Interceptions Positioning Vision Penalties
-## R. Lewandowski         80            39          91     77        88
-##                Composure Marking StandingTackle SlidingTackle GKDiving
-## R. Lewandowski        86      34             42            19       15
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fifa19small[<span class="st">&quot;R. Lewandowski&quot;</span>,]</code></pre></div>
+<pre><code>##                Age Special Preferred.Foot International.Reputation Weak.Foot
+## R. Lewandowski  29    2152          Right                        4         4
+##                Skill.Moves Crossing Finishing HeadingAccuracy ShortPassing Volleys
+## R. Lewandowski           4       62        91              85           83      89
+##                Dribbling Curve FKAccuracy LongPassing BallControl Acceleration
+## R. Lewandowski        85    77         86          65          89           77
+##                SprintSpeed Agility Reactions Balance ShotPower Jumping Stamina
+## R. Lewandowski          78      78        90      78        88      84      78
+##                Strength LongShots Aggression Interceptions Positioning Vision
+## R. Lewandowski       84        84         80            39          91     77
+##                Penalties Composure Marking StandingTackle SlidingTackle GKDiving
+## R. Lewandowski        88        86      34             42            19       15
 ##                GKHandling GKKicking GKPositioning GKReflexes LogValue
 ## R. Lewandowski          6        12             8         10 7.886491</code></pre>
 <p>In the chapter <a href="breakDown.html#breakDown">7</a> we showed a Break Down plots for presentation of variable attributions. In the Figure <a href="UseCaseFIFA.html#fig:usecaseFIFAbreakDown">21.9</a> we show Break Down plots for Robert Lewandowski predictions.</p>
@@ -679,9 +643,9 @@ Figure 21.10: SHAP values for GBM model.
 <p>Robert Lewandowski is a striker. It makes sense that his most valuable characteristics are <code>Reactions</code> and <code>BallControl.</code></p>
 <p>How these plots will look like for goalkeepers? Figure <a href="UseCaseFIFA.html#fig:usecaseFIFAbreakDownWS">21.11</a> show Break Down plots for Wojciech Szczęsny - most valuable polish goalkeeper. As we see the most important coefficients make sense, most of them are linked with properties of goalkeepers.</p>
 <div class="figure" style="text-align: center"><span id="fig:usecaseFIFAbreakDownWS"></span>
-<img src="ema_files/figure-html/usecaseFIFAbreakDownWS-1.png" alt="Break down plot for Wojciech Szczęsny. Results for GBM and RF model." width="100%" />
+<img src="ema_files/figure-html/usecaseFIFAbreakDownWS-1.png" alt="Break down plot for Wojciech Szczesny. Results for GBM and RF model." width="100%" />
 <p class="caption">
-Figure 21.11: Break down plot for Wojciech Szczęsny. Results for GBM and RF model.
+Figure 21.11: Break down plot for Wojciech Szczesny. Results for GBM and RF model.
 </p>
 </div>
 <p>In Chapter <a href="ceterisParibus.html#ceterisParibus">11</a> we introduced Ceteris Paribus profiles. These are more details steps of the model exploration. Based on an example of Robert Lewandowski. Figure <a href="UseCaseFIFA.html#fig:usecaseFIFAceterisParibus">21.12</a> show how change in one characteristic affects model value.</p>
@@ -710,25 +674,23 @@ Figure 21.14: Ceteris Paribus profiles for 15 neighbours of Robert Lewandowski.
 <div id="cr7" class="section level2">
 <h2><span class="header-section-number">21.8</span> CR7</h2>
 <p>In this section we present model explanations for Cristiano Ronaldo (CR7). Here are his characteristics in the FIFA 19 database.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1">fifa19small[<span class="st">&quot;Cristiano Ronaldo&quot;</span>,]</a></code></pre></div>
-<pre><code>##                   Age Special Preferred.Foot International.Reputation
-## Cristiano Ronaldo  33    2228          Right                        5
-##                   Weak.Foot Skill.Moves Crossing Finishing HeadingAccuracy
-## Cristiano Ronaldo         4           5       84        94              89
-##                   ShortPassing Volleys Dribbling Curve FKAccuracy
-## Cristiano Ronaldo           81      87        88    81         76
-##                   LongPassing BallControl Acceleration SprintSpeed Agility
-## Cristiano Ronaldo          77          94           89          91      87
-##                   Reactions Balance ShotPower Jumping Stamina Strength
-## Cristiano Ronaldo        96      70        95      95      88       79
-##                   LongShots Aggression Interceptions Positioning Vision
-## Cristiano Ronaldo        93         63            29          95     82
-##                   Penalties Composure Marking StandingTackle SlidingTackle
-## Cristiano Ronaldo        85        95      28             31            23
-##                   GKDiving GKHandling GKKicking GKPositioning GKReflexes
-## Cristiano Ronaldo        7         11        15            14         11
-##                   LogValue
-## Cristiano Ronaldo 7.886491</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fifa19small[<span class="st">&quot;Cristiano Ronaldo&quot;</span>,]</code></pre></div>
+<pre><code>##                   Age Special Preferred.Foot International.Reputation Weak.Foot
+## Cristiano Ronaldo  33    2228          Right                        5         4
+##                   Skill.Moves Crossing Finishing HeadingAccuracy ShortPassing
+## Cristiano Ronaldo           5       84        94              89           81
+##                   Volleys Dribbling Curve FKAccuracy LongPassing BallControl
+## Cristiano Ronaldo      87        88    81         76          77          94
+##                   Acceleration SprintSpeed Agility Reactions Balance ShotPower
+## Cristiano Ronaldo           89          91      87        96      70        95
+##                   Jumping Stamina Strength LongShots Aggression Interceptions
+## Cristiano Ronaldo      95      88       79        93         63            29
+##                   Positioning Vision Penalties Composure Marking StandingTackle
+## Cristiano Ronaldo          95     82        85        95      28             31
+##                   SlidingTackle GKDiving GKHandling GKKicking GKPositioning
+## Cristiano Ronaldo            23        7         11        15            14
+##                   GKReflexes LogValue
+## Cristiano Ronaldo         11 7.886491</code></pre>
 <p>Let’s start with Break Down plots for variable attributions.</p>
 <div class="figure" style="text-align: center"><span id="fig:usecaseFIFAbreakDownCR7"></span>
 <img src="ema_files/figure-html/usecaseFIFAbreakDownCR7-1.png" alt="Break down plot for Cristiano Ronaldo." width="100%" />
@@ -749,13 +711,13 @@ Figure 21.16: Ceteris Paribus profiles for Cristiano Ronaldo for four selected v
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-rms">
-<p>Harrell Jr, Frank E. 2018. <em>Rms: Regression Modeling Strategies</em>. <a href="https://CRAN.R-project.org/package=rms">https://CRAN.R-project.org/package=rms</a>.</p>
+<p>Harrell Jr, Frank E. 2018. <em>Rms: Regression Modeling Strategies</em>. <a href="https://CRAN.R-project.org/package=rms" class="uri">https://CRAN.R-project.org/package=rms</a>.</p>
 </div>
 <div id="ref-gbm">
-<p>Ridgeway, Greg. 2017. <em>Gbm: Generalized Boosted Regression Models</em>. <a href="https://CRAN.R-project.org/package=gbm">https://CRAN.R-project.org/package=gbm</a>.</p>
+<p>Ridgeway, Greg. 2017. <em>Gbm: Generalized Boosted Regression Models</em>. <a href="https://CRAN.R-project.org/package=gbm" class="uri">https://CRAN.R-project.org/package=gbm</a>.</p>
 </div>
 <div id="ref-rangerRpackage">
-<p>Wright, Marvin N., and Andreas Ziegler. 2017. <em>ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R</em>. <em>Journal of Statistical Software</em>. Vol. 77. <a href="https://doi.org/10.18637/jss.v077.i01">https://doi.org/10.18637/jss.v077.i01</a>.</p>
+<p>Wright, Marvin N., and Andreas Ziegler. 2017. <em>ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R</em>. <em>Journal of Statistical Software</em>. Vol. 77. doi:<a href="https://doi.org/10.18637/jss.v077.i01">10.18637/jss.v077.i01</a>.</p>
 </div>
 </div>
             </section>
@@ -819,7 +781,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

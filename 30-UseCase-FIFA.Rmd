@@ -339,8 +339,8 @@ How these plots will look like for goalkeepers? Figure \@ref(fig:usecaseFIFAbrea
 
 ```{r usecaseFIFAbreakDownWS, warning=FALSE, message=FALSE, echo=FALSE, fig.width=12, fig.height=6, fig.cap="Break down plot for Wojciech Szczęsny. Results for GBM and RF model.", out.width = '100%', fig.align='center'}
 library("iBreakDown")
-fifa_bd_gbm <- predict_parts(fifa_gbm_exp_shallow, new_observation = fifa19small["W. Szczęsny",])
-fifa_bd_rf <- predict_parts(fifa_rf_exp, new_observation = fifa19small["W. Szczęsny",])
+fifa_bd_gbm <- predict_parts(fifa_gbm_exp_shallow, new_observation = fifa19small[93,])
+fifa_bd_rf <- predict_parts(fifa_rf_exp, new_observation = fifa19small[93,])
 
 pl1 <- plot(fifa_bd_gbm) +
   scale_y_continuous("Estimated value in Euro", labels = dollar_format(suffix = "€", prefix = "")) + 

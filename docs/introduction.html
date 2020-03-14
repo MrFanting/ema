@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Introduction | Explanatory Model Analysis</title>
+  <title>1 Introduction | 解释性模型分析</title>
   <meta name="description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Introduction | Explanatory Model Analysis" />
+  <meta property="og:title" content="1 Introduction | 解释性模型分析" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="pbiecek/ema" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Introduction | Explanatory Model Analysis" />
+  <meta name="twitter:title" content="1 Introduction | 解释性模型分析" />
   
   <meta name="twitter:description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Przemyslaw Biecek and Tomasz Burzykowski" />
 
 
-<meta name="date" content="2020-03-08" />
+<meta name="date" content="2020-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,66 +74,41 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -386,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Explanatory Model Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">解释性模型分析</a>
           </h1>
         </div>
 
@@ -400,8 +375,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.1</span> Notes to readers</h2>
 <p>A note to readers: this text is a work in progress.</p>
 <p>We’ve released this initial version to get more feedback. Feedback can be given at the GitHub repo <a href="https://github.com/pbiecek/ema/issues" class="uri">https://github.com/pbiecek/ema/issues</a>. We are primarily interested in the organization and consistency of the content, but any comments will be welcomed.</p>
-<p>We’d like to thank everyone that contributed feedback, found typos, or ignited discussions while the book was being written, including GitHub contributors: <a href="https://github.com/agosiewska/">agosiewska</a>, Rees Morrison, <a href="https://github.com/kasiapekala/">kasiapekala</a>, <a href="https://github.com/hbaniecki/">hbaniecki</a>, <a href="https://github.com/AsiaHenzel/">AsiaHenzel</a>, <a href="https://github.com/kozaka93/">kozaka93</a>,
-<a href="https://github.com/agilebean/">agilebean</a>.</p>
+<p>We’d like to thank everyone that contributed feedback, found typos, or ignited discussions while the book was being written, including GitHub contributors: <a href="https://github.com/agosiewska/">agosiewska</a>, Rees Morrison, <a href="https://github.com/kasiapekala/">kasiapekala</a>, <a href="https://github.com/hbaniecki/">hbaniecki</a>, <a href="https://github.com/AsiaHenzel/">AsiaHenzel</a>, <a href="https://github.com/kozaka93/">kozaka93</a>, <a href="https://github.com/agilebean/">agilebean</a>.</p>
 </div>
 <div id="the-aim-of-the-book" class="section level2">
 <h2><span class="header-section-number">1.2</span> The aim of the book</h2>
@@ -441,9 +415,7 @@ Figure 1.1: Shift in the relative importance and effort put in different phases 
 <div id="bookstructure" class="section level2">
 <h2><span class="header-section-number">1.4</span> The structure of this book</h2>
 <p>This book is split in two major parts. In the part <em>Instance-level explainers</em>, we present techniques for exploration and explanation of model predictions for a single observation. On the other hand, in the part <em>Dataset-level explainers</em>, we present techniques for exploration and explanation of a model for an entire dataset.</p>
-<p>Before embarking on the description of the methods, in Chapter
-<a href="modelDevelopmentProcess.html#modelDevelopmentProcess">2</a>, we provide a short introduction to the process of data exploration and model assembly along with notation and definition of key concepts that are used in consecutive chapters.
-In Chapters <a href="doItYourselfWithR.html#doItYourselfWithR">3</a> and <a href="doItYourselfWithPython.html#doItYourselfWithPython">4</a>, we provide a short description of R and Python tools and packages that are necessary to replicate the results presented in this book. In Chapter <a href="dataSetsIntro.html#dataSetsIntro">5</a>, we describe two datasets that are used throughout the book to illustrate the presented methods and tools.</p>
+<p>Before embarking on the description of the methods, in Chapter <a href="modelDevelopmentProcess.html#modelDevelopmentProcess">2</a>, we provide a short introduction to the process of data exploration and model assembly along with notation and definition of key concepts that are used in consecutive chapters. In Chapters <a href="doItYourselfWithR.html#doItYourselfWithR">3</a> and <a href="doItYourselfWithPython.html#doItYourselfWithPython">4</a>, we provide a short description of R and Python tools and packages that are necessary to replicate the results presented in this book. In Chapter <a href="dataSetsIntro.html#dataSetsIntro">5</a>, we describe two datasets that are used throughout the book to illustrate the presented methods and tools.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:UMEPpiramide"></span>
 <img src="figure/UMEPpiramide.png" alt="Stack with model exploration methods presented in this book. Left side is focused on instance-level explanation while the right side is focused on dataset-level explanation. Consecutive layers of the stack are linked with a deeper level of model exploration. These layers are linked with law’s of model exploration introduced in Section 1.3" width="85%" />
@@ -452,16 +424,9 @@ Figure 1.2: Stack with model exploration methods presented in this book. Left si
 </p>
 </div>
 <p>Rest of the book is structured in Figure <a href="introduction.html#fig:UMEPpiramide">1.2</a>.</p>
-<p>The <strong>Instance-level</strong> part of the book consists of Chapters <a href="breakDown.html#breakDown">7</a>-<a href="summaryInstanceLevel.html#summaryInstanceLevel">14</a>.
-Chapters <a href="breakDown.html#breakDown">7</a>-<a href="shapley.html#shapley">9</a> present methods to decompose model predictions into variable contributions. In particular, Chapter <a href="breakDown.html#breakDown">7</a> introduces Break-down (BD) plots for models with additive effects. On the other hand, Chapter <a href="iBreakDown.html#iBreakDown">8</a> presents a method that allows for interactions. Finally, Chapter <a href="shapley.html#shapley">9</a> describes SHAP <span class="citation">(Lundberg and Lee <a href="#ref-SHAP">2017</a>)</span> an alternative method for decomposing model predictions that is closely linked with Shapley values <span class="citation">(Shapley <a href="#ref-shapleybook1952">1953</a>)</span> developed originally for cooperative games.
-Chapter <a href="LIME.html#LIME">10</a> presents a different approach to explanation of single-instance predictions. It is based on a local approximation of a black-box model by a simpler, glass-box one. In this chapter, we discuss the Local Interpretable Model-Agnostic Explanations (LIME) method <span class="citation">(Ribeiro, Singh, and Guestrin <a href="#ref-lime">2016</a>)</span>. These chapters corresponds to the second layer of the stack in Figure <a href="introduction.html#fig:UMEPpiramide">1.2</a>.</p>
-<p>In Chapters <a href="ceterisParibus.html#ceterisParibus">11</a>-<a href="localDiagnostics.html#localDiagnostics">13</a> we present methods based on Ceteris-paribus (CP) profiles. The profiles show the change of model-based predictions induced by a change of a single variable. These profiles are introduced in Chapter <a href="ceterisParibus.html#ceterisParibus">11</a> while Chapter <a href="ceterisParibusOscillations.html#ceterisParibusOscillations">12</a> presents a CP-profile-based measure that summarizes the impact of a selected variable on model’s predictions. This measure can be used to determine the order of variables in model exploration. It is particularly important for models with large numbers of explanatory variables. Chapter <a href="localDiagnostics.html#localDiagnostics">13</a> is focused on model diagnostic. It describes local-fidelity plots that are useful to investigate the sources of a poor prediction for a particular single observation.
-The final chapter of the first part, Chapter <a href="summaryInstanceLevel.html#summaryInstanceLevel">14</a> compares various instance-level explainers.</p>
-<p>The <strong>Dataset-level explainers</strong> part of the book consists of Chapters <a href="modelLevelExploration.html#modelLevelExploration">15</a>-<a href="residualDiagnostic.html#residualDiagnostic">20</a>. These chapters present methods in the same order as appeared in the Model Exploration Stack in Figure <a href="introduction.html#fig:UMEPpiramide">1.2</a>.
-Chapter <a href="modelPerformance.html#modelPerformance">16</a> shows selected measures for model benchmarking along with performance measures for classification and regression models.
-On top of these measures, the Chapter <a href="featureImportance.html#featureImportance">17</a> presented an algorithm for assessment of importance of variables based on selected performance measure. This method is model agnostic and can be used for cross models comparisons.
-Next layer of the Model Exploration Stack is presented in Chapters <a href="partialDependenceProfiles.html#partialDependenceProfiles">18</a> and <a href="accumulatedLocalProfiles.html#accumulatedLocalProfiles">19</a>. Here we introduce Partial Dependency and Accumulated Dependency methods for univariate exploration of variable effects.
-This part of the book is closed with the Chapter <a href="residualDiagnostic.html#residualDiagnostic">20</a> that summarises diagnostic techniques for model residuals.</p>
+<p>The <strong>Instance-level</strong> part of the book consists of Chapters <a href="breakDown.html#breakDown">7</a>-<a href="summaryInstanceLevel.html#summaryInstanceLevel">14</a>. Chapters <a href="breakDown.html#breakDown">7</a>-<a href="shapley.html#shapley">9</a> present methods to decompose model predictions into variable contributions. In particular, Chapter <a href="breakDown.html#breakDown">7</a> introduces Break-down (BD) plots for models with additive effects. On the other hand, Chapter <a href="iBreakDown.html#iBreakDown">8</a> presents a method that allows for interactions. Finally, Chapter <a href="shapley.html#shapley">9</a> describes SHAP <span class="citation">(Lundberg and Lee <a href="#ref-SHAP">2017</a>)</span> an alternative method for decomposing model predictions that is closely linked with Shapley values <span class="citation">(Shapley <a href="#ref-shapleybook1952">1953</a>)</span> developed originally for cooperative games. Chapter <a href="LIME.html#LIME">10</a> presents a different approach to explanation of single-instance predictions. It is based on a local approximation of a black-box model by a simpler, glass-box one. In this chapter, we discuss the Local Interpretable Model-Agnostic Explanations (LIME) method <span class="citation">(Ribeiro, Singh, and Guestrin <a href="#ref-lime">2016</a>)</span>. These chapters corresponds to the second layer of the stack in Figure <a href="introduction.html#fig:UMEPpiramide">1.2</a>.</p>
+<p>In Chapters <a href="ceterisParibus.html#ceterisParibus">11</a>-<a href="localDiagnostics.html#localDiagnostics">13</a> we present methods based on Ceteris-paribus (CP) profiles. The profiles show the change of model-based predictions induced by a change of a single variable. These profiles are introduced in Chapter <a href="ceterisParibus.html#ceterisParibus">11</a> while Chapter <a href="ceterisParibusOscillations.html#ceterisParibusOscillations">12</a> presents a CP-profile-based measure that summarizes the impact of a selected variable on model’s predictions. This measure can be used to determine the order of variables in model exploration. It is particularly important for models with large numbers of explanatory variables. Chapter <a href="localDiagnostics.html#localDiagnostics">13</a> is focused on model diagnostic. It describes local-fidelity plots that are useful to investigate the sources of a poor prediction for a particular single observation. The final chapter of the first part, Chapter <a href="summaryInstanceLevel.html#summaryInstanceLevel">14</a> compares various instance-level explainers.</p>
+<p>The <strong>Dataset-level explainers</strong> part of the book consists of Chapters <a href="modelLevelExploration.html#modelLevelExploration">15</a>-<a href="residualDiagnostic.html#residualDiagnostic">20</a>. These chapters present methods in the same order as appeared in the Model Exploration Stack in Figure <a href="introduction.html#fig:UMEPpiramide">1.2</a>. Chapter <a href="modelPerformance.html#modelPerformance">16</a> shows selected measures for model benchmarking along with performance measures for classification and regression models. On top of these measures, the Chapter <a href="featureImportance.html#featureImportance">17</a> presented an algorithm for assessment of importance of variables based on selected performance measure. This method is model agnostic and can be used for cross models comparisons. Next layer of the Model Exploration Stack is presented in Chapters <a href="partialDependenceProfiles.html#partialDependenceProfiles">18</a> and <a href="accumulatedLocalProfiles.html#accumulatedLocalProfiles">19</a>. Here we introduce Partial Dependency and Accumulated Dependency methods for univariate exploration of variable effects. This part of the book is closed with the Chapter <a href="residualDiagnostic.html#residualDiagnostic">20</a> that summarises diagnostic techniques for model residuals.</p>
 <p>To make the exploration of the book easier, in each chapter we introduce a single method and each chapter has the same structure:</p>
 <ul>
 <li>Section <em>Introduction</em> explains the goal of and the general idea behind the method.</li>
@@ -473,15 +438,15 @@ This part of the book is closed with the Chapter <a href="residualDiagnostic.htm
 </div>
 <div id="terminology" class="section level2">
 <h2><span class="header-section-number">1.5</span> Terminology</h2>
-<p>It is worth noting that, when it comes to predictive models, the same concepts have often been given different names in statistics and in machine learning. For instance, in the statistical-modelling literature, one refers to ,,explanatory variables,’’ with ,,independent variables,’’ ,,predictors,’’ or ,,covariates’’ as often-used equivalents. Explanatory variables are used in the model as means to explain (predict) the ,,dependent variable,’’ also called ,,predicted’’ variable or ,,response.’’ In machine-learning terminology, ,,input variables’’ or ,,features’’ are used to predict the ,,output’’ or ,,target’’ variable. In statistical modelling, models are fit to the data that contain ,,observations’‘, whereas in the machine-learning world a dataset may contain ,,instances’’ or ,,cases’‘. When we talk about values that define a single instance of a model in statistical modelling we refer to model ,,coefficients’’ while in machine-learning it is more common to use phrase model ,,parameters’‘. In statistics it is common to say that model coefficients are ,,estimated’’ while in machine learning it is more common to say that parameters are ,,trained’’ or are obtained in the process of ,,model training’’.</p>
-<p>To the extent possible, in our book we try to consistently use the statistical-modelling terminology. However, the reader may find references to a ,,feature’’ here and there. Somewhat inconsistently, we also introduce the term ,,instance-level’’ explanation. Instance-level explanation methods are designed to extract information about the behavior of the model related to a specific observation (or instance). On the other hand, ,,dataset-level’’ explanation techniques allow obtaining information about the behavior of the model for an entire dataset.</p>
+<p>It is worth noting that, when it comes to predictive models, the same concepts have often been given different names in statistics and in machine learning. For instance, in the statistical-modelling literature, one refers to ,,explanatory variables,‘’ with ,,independent variables,’‘,,predictors,’‘or ,,covariates’‘as often-used equivalents. Explanatory variables are used in the model as means to explain (predict) the ,,dependent variable,’‘also called ,,predicted’‘variable or ,,response.’‘In machine-learning terminology, ,,input variables’‘or ,,features’‘are used to predict the ,,output’‘or ,,target’‘variable. In statistical modelling, models are fit to the data that contain ,,observations’‘, whereas in the machine-learning world a dataset may contain ,,instances’‘or ,,cases’‘. When we talk about values that define a single instance of a model in statistical modelling we refer to model ,,coefficients’‘while in machine-learning it is more common to use phrase model ,,parameters’‘. In statistics it is common to say that model coefficients are ,,estimated’‘while in machine learning it is more common to say that parameters are ,,trained’‘or are obtained in the process of ,,model training’’.</p>
+<p>To the extent possible, in our book we try to consistently use the statistical-modelling terminology. However, the reader may find references to a ,,feature’‘here and there. Somewhat inconsistently, we also introduce the term ,,instance-level’‘explanation. Instance-level explanation methods are designed to extract information about the behavior of the model related to a specific observation (or instance). On the other hand, ,,dataset-level’’ explanation techniques allow obtaining information about the behavior of the model for an entire dataset.</p>
 <p>We consider models for dependent variables that can be continuous or nominal/categorical. The values of a continuous variable can be represented by numbers with an ordering that makes some sense (zip codes or phone numbers are not considered as continuous variables while age, number of children are). A continuous variable does not have to be continuous in the mathematical sense; counts (number of floors, steps, etc.) will be treated as continuous variables as well. A nominal/categorical variable can assume only a finite set of values that are not numbers in the mathematical sense, i.e. it makes no sense to subtract or divide these values.</p>
 <p>In this book we focus on ,,black-box’’ approach. We discuss this approach in a bit more detail in the next section.</p>
 </div>
 <div id="glass-box-models-vs.black-box-models" class="section level2">
 <h2><span class="header-section-number">1.6</span> Glass-box models vs. black-box models</h2>
 <p>Black-box models are models with a complex structure that is hard to understand by humans. Usually this refers to a large number of model coefficients or complex mathematical transformations. As people vary in their capacity to understand complex models, there is no strict threshold for the number of coefficients that makes a model a black-box. In practice, for most people this threshold is probably closer to 10 than to 100.</p>
-<p>A ,,glass-box’’ (sometimes called white-box or transparent-box) model, which is opposite to a ,,black-box’’ one, is a model that is easy to understand (though maybe not by every person). It has a simple structure and a limited number of coefficients.</p>
+<p>A ,,glass-box’‘(sometimes called white-box or transparent-box) model, which is opposite to a ,,black-box’’ one, is a model that is easy to understand (though maybe not by every person). It has a simple structure and a limited number of coefficients.</p>
 <p>The most common classes of glass-box models are decision or regression trees, as an example in Figure <a href="introduction.html#fig:BILLCD8">1.3</a>, rules, or models with an explicit compact structure, like the following model for obesity based on the BMI index.</p>
 <p><span class="math display">\[
 BMI = \frac{mass_{kg}}{height_{m^2}}.
@@ -495,14 +460,12 @@ BMI = \frac{mass_{kg}}{height_{m^2}}.
 Figure 1.3: Example classification tree model for melanoma risk patients based on <span class="citation">(Donizy et al. <a href="#ref-BILLCD8">2016</a>)</span>. The model is based on two explanatory variables, Breslow thickness and Tumor infiltration lymphocytes. These two variables lead to three groups of paritents with different odds of survival.
 </p>
 </div>
-<p>Note that some glass-box models, like the decision tree model presented in Figure <a href="introduction.html#fig:BILLCD8">1.3</a> by design satisfies explainability laws introduced in Section <a href="introduction.html#three-single-laws">1.3</a>.
-For <em>Prediction’s validation</em> we see in each node how many patients fall in a given category. For <em>Prediction’s justification</em> we see which variables are used in every decision path. For <em>Prediction’s speculation</em> we can trace how changes in particular variables will affect the model prediction. We can, of course, argue if the model is good or not, but obviously the model structure is transparent.</p>
+<p>Note that some glass-box models, like the decision tree model presented in Figure <a href="introduction.html#fig:BILLCD8">1.3</a> by design satisfies explainability laws introduced in Section <a href="introduction.html#three-single-laws">1.3</a>. For <em>Prediction’s validation</em> we see in each node how many patients fall in a given category. For <em>Prediction’s justification</em> we see which variables are used in every decision path. For <em>Prediction’s speculation</em> we can trace how changes in particular variables will affect the model prediction. We can, of course, argue if the model is good or not, but obviously the model structure is transparent.</p>
 <p>Comprehending the performance of a black-box models presents more challenges. The structure of a complex model, such as a neural-network model, may be far from transparent. Consequently, we may not understand which features influence the model decisions and by how much. Consequently, it may be difficult to decide whether the model is consistent with our domain knowledge. In our book we present tools that can help in extracting the information necessary for the evaluation of complex models.</p>
 </div>
 <div id="model-agnostic-vs.model-specific-approach" class="section level2">
 <h2><span class="header-section-number">1.7</span> Model-agnostic vs. model-specific approach</h2>
-<p>Interest in model interpretability is as old as the statistical modeling itself.
-Some classes of models have been developed for a long period of time or have attracted intensive research. Consequently, those classes of models are equipped with excellent tools for model exploration or visualisation. For example:</p>
+<p>Interest in model interpretability is as old as the statistical modeling itself. Some classes of models have been developed for a long period of time or have attracted intensive research. Consequently, those classes of models are equipped with excellent tools for model exploration or visualisation. For example:</p>
 <ul>
 <li>There are many tools for diagnostics and evaluation of linear models, see for example <span class="citation">(Galecki and Burzykowski <a href="#ref-Galecki2013">2013</a>)</span> or <span class="citation">(Faraway <a href="#ref-Faraway02practicalregression">2002</a>)</span>. Model assumptions are formally defined (normality, linear structure, homogenous variance) and can be checked by using normality tests or plots (normal qq-plot), diagnostic plots, tests for model structure, tools for identification of outliers, etc.</li>
 <li>For many more advanced models with an additive structure, like the proportional hazards model, many tools can be used for checking model assumptions, see for example <span class="citation">(Harrell Jr <a href="#ref-rms">2018</a>)</span> or <span class="citation">(Sheather <a href="#ref-sheather2009modern">2009</a>)</span>.</li>
@@ -511,8 +474,7 @@ Some classes of models have been developed for a long period of time or have att
 <li>BERT family of models leads to high-performance models in Natural Language Processing. The exBERT method <span class="citation">(Hoover, Strobelt, and Gehrmann <a href="#ref-hoover2019exbert">2019</a>)</span> is designed to visualize the activation of attention heads in this model.</li>
 </ul>
 <p>Of course, the list of model classes with dedicated collections of model-explanation and/or diagnostics methods is much longer. This variety of model-specific approaches does lead to issues, though. For instance, one cannot easily compare explanations for two models with different structures. Also, every time a new architecture or a new ensemble of models is proposed, one needs to look for new methods of model exploration. Finally, for brand-new models no tools for model explanation or diagnostics may be immediately available.</p>
-<p>For these reasons, in our book we focus on model-agnostic techniques. In particular, we prefer not to assume anything about the model structure, as we may be dealing with a black-box model with an unspecified structure. Often we do not have access to model parameters just to a specified Application Programming Interface (API) that allows for querying remote models (for example in Microsoft Cognitive Services <span class="citation">(Azure <a href="#ref-MicrosofrCognitiveServices">2019</a>)</span>).
-In that case, the only operation that we may be able to perform is the evaluation of a model for a specified data.</p>
+<p>For these reasons, in our book we focus on model-agnostic techniques. In particular, we prefer not to assume anything about the model structure, as we may be dealing with a black-box model with an unspecified structure. Often we do not have access to model parameters just to a specified Application Programming Interface (API) that allows for querying remote models (for example in Microsoft Cognitive Services <span class="citation">(Azure <a href="#ref-MicrosofrCognitiveServices">2019</a>)</span>). In that case, the only operation that we may be able to perform is the evaluation of a model for a specified data.</p>
 <p>However, while we do not assume anything about the structure of the model, we will assume that the model operates on <span class="math inline">\(p\)</span>-dimensional vector of variables/features and, for a single observation, it returns a single value (score/probability) which is a real number. This assumption holds for a broad range of models for data such as tabular data, images, text data, videos, etc. It may not be suitable for, e.g., models with memory like sequence-to-sequence models <span class="citation">(Sutskever, Vinyals, and Le <a href="#ref-seq2seq">2014</a>)</span> or Long Short Term Memory models <span class="citation">(Hochreiter and Schmidhuber <a href="#ref-lstm">1997</a>)</span> in which the model output depends also on sequence of previous inputs or generative models that output text of images.</p>
 </div>
 <div id="what-is-in-this-book-and-what-is-not" class="section level2">
@@ -536,8 +498,7 @@ In that case, the only operation that we may be able to perform is the evaluatio
 </div>
 <div id="thanksto" class="section level2">
 <h2><span class="header-section-number">1.9</span> Acknowledgements</h2>
-<p>This book has been prepared using the <code>bookdown</code> package <span class="citation">(Xie <a href="#ref-R-bookdown">2018</a>)</span>, created thanks to the amazing work of Yihui Xie.
-Figures and tables are created in R language for statistical computing <span class="citation">(R Core Team <a href="#ref-RcoreT">2018</a>)</span> with numerous libraries that support predictive modeling. Just to name few frequently used in this book <code>randomForest</code> <span class="citation">(Liaw and Wiener <a href="#ref-randomForest">2002</a>)</span>, <code>ranger</code> <span class="citation">(Wright and Ziegler <a href="#ref-rangerRpackage">2017</a>)</span>, <code>rms</code> <span class="citation">(Harrell Jr <a href="#ref-rms">2018</a>)</span>, <code>gbm</code> <span class="citation">(Ridgeway <a href="#ref-gbm">2017</a>)</span> or <code>caret</code> <span class="citation">(Jed Wing et al. <a href="#ref-caret">2016</a>)</span>. For statistical graphics we used the <code>ggplot2</code> library <span class="citation">(Wickham <a href="#ref-ggplot2">2009</a>)</span> and for model governance we used <code>archivist</code> <span class="citation">(Biecek and Kosinski <a href="#ref-archivist">2017</a>)</span>.</p>
+<p>This book has been prepared using the <code>bookdown</code> package <span class="citation">(Xie <a href="#ref-R-bookdown">2018</a>)</span>, created thanks to the amazing work of Yihui Xie. Figures and tables are created in R language for statistical computing <span class="citation">(R Core Team <a href="#ref-RcoreT">2018</a>)</span> with numerous libraries that support predictive modeling. Just to name few frequently used in this book <code>randomForest</code> <span class="citation">(Liaw and Wiener <a href="#ref-randomForest">2002</a>)</span>, <code>ranger</code> <span class="citation">(Wright and Ziegler <a href="#ref-rangerRpackage">2017</a>)</span>, <code>rms</code> <span class="citation">(Harrell Jr <a href="#ref-rms">2018</a>)</span>, <code>gbm</code> <span class="citation">(Ridgeway <a href="#ref-gbm">2017</a>)</span> or <code>caret</code> <span class="citation">(Jed Wing et al. <a href="#ref-caret">2016</a>)</span>. For statistical graphics we used the <code>ggplot2</code> library <span class="citation">(Wickham <a href="#ref-ggplot2">2009</a>)</span> and for model governance we used <code>archivist</code> <span class="citation">(Biecek and Kosinski <a href="#ref-archivist">2017</a>)</span>.</p>
 <p>Przemek’s work on interpretability started during research trips within the RENOIR (H2020 grant no. 691152) secondments to Nanyang Technological University (Singapour) and Davis University of California (USA). So he would like to thank Prof. Janusz Holyst for the chance to take part in this project. Przemek would also like to thank Prof. Chris Drake for her hospitality. This book would have never been created without perfect conditions that Przemek found at Chris’s house in Woodland.</p>
 
 </div>
@@ -548,31 +509,31 @@ Figures and tables are created in R language for statistical computing <span cla
 <p>Alber, Maximilian, Sebastian Lapuschkin, Philipp Seegerer, Miriam Hägele, Kristof T. Schütt, Grégoire Montavon, Wojciech Samek, Klaus-Robert Müller, Sven Dähne, and Pieter-Jan Kindermans. 2018. “INNvestigate Neural Networks!”</p>
 </div>
 <div id="ref-MicrosofrCognitiveServices">
-<p>Azure. 2019. “Microsoft Cognitive Services.” <a href="https://azure.microsoft.com/en-en/services/cognitive-services/">https://azure.microsoft.com/en-en/services/cognitive-services/</a>.</p>
+<p>Azure. 2019. “Microsoft Cognitive Services.” <a href="https://azure.microsoft.com/en-en/services/cognitive-services/" class="uri">https://azure.microsoft.com/en-en/services/cognitive-services/</a>.</p>
 </div>
 <div id="ref-BachLWRP">
-<p>Bach, Sebastian, Alexander Binder, Grégoire Montavon, Frederick Klauschen, Klaus-Robert Müller, and Wojciech Samek. 2015. “On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation.” Edited by Oscar Deniz Suarez. <em>Plos One</em> 10 (7): e0130140. <a href="https://doi.org/10.1371/journal.pone.0130140">https://doi.org/10.1371/journal.pone.0130140</a>.</p>
+<p>Bach, Sebastian, Alexander Binder, Grégoire Montavon, Frederick Klauschen, Klaus-Robert Müller, and Wojciech Samek. 2015. “On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation.” Edited by Oscar Deniz Suarez. <em>Plos One</em> 10 (7): e0130140. doi:<a href="https://doi.org/10.1371/journal.pone.0130140">10.1371/journal.pone.0130140</a>.</p>
 </div>
 <div id="ref-archivist">
-<p>Biecek, Przemyslaw, and Marcin Kosinski. 2017. “archivist: An R Package for Managing, Recording and Restoring Data Analysis Results.” <em>Journal of Statistical Software</em> 82 (11): 1–28. <a href="https://doi.org/10.18637/jss.v082.i11">https://doi.org/10.18637/jss.v082.i11</a>.</p>
+<p>Biecek, Przemyslaw, and Marcin Kosinski. 2017. “archivist: An R Package for Managing, Recording and Restoring Data Analysis Results.” <em>Journal of Statistical Software</em> 82 (11): 1–28. doi:<a href="https://doi.org/10.18637/jss.v082.i11">10.18637/jss.v082.i11</a>.</p>
 </div>
 <div id="ref-R-randomForest">
-<p>Breiman, Leo, Adele Cutler, Andy Liaw, and Matthew Wiener. 2018. <em>RandomForest: Breiman and Cutler’s Random Forests for Classification and Regression</em>. <a href="https://CRAN.R-project.org/package=randomForest">https://CRAN.R-project.org/package=randomForest</a>.</p>
+<p>Breiman, Leo, Adele Cutler, Andy Liaw, and Matthew Wiener. 2018. <em>RandomForest: Breiman and Cutler’s Random Forests for Classification and Regression</em>. <a href="https://CRAN.R-project.org/package=randomForest" class="uri">https://CRAN.R-project.org/package=randomForest</a>.</p>
 </div>
 <div id="ref-RightToExpl2">
-<p>Casey, Bryan, Ashkon Farhangi, and Roland Vogl. 2018. “Rethinking Explainable Machines: The Gdpr’s ’Right to Explanation’ Debate and the Rise of Algorithmic Audits in Enterprise.” <em>Berkeley Technology Law Journal</em>. <a href="https://ssrn.com/abstract=3143325">https://ssrn.com/abstract=3143325</a>.</p>
+<p>Casey, Bryan, Ashkon Farhangi, and Roland Vogl. 2018. “Rethinking Explainable Machines: The Gdpr’s ’Right to Explanation’ Debate and the Rise of Algorithmic Audits in Enterprise.” <em>Berkeley Technology Law Journal</em>. <a href="https://ssrn.com/abstract=3143325" class="uri">https://ssrn.com/abstract=3143325</a>.</p>
 </div>
 <div id="ref-AmazonAI">
-<p>Dastin, Jeffrey. 2018. “Amazon Scraps Secret Ai Recruiting Tool That Showed Bias Against Women.” <em>Reuters</em>. <a href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazonscraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G">https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazonscraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G</a>.</p>
+<p>Dastin, Jeffrey. 2018. “Amazon Scraps Secret Ai Recruiting Tool That Showed Bias Against Women.” <em>Reuters</em>. <a href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazonscraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G" class="uri">https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazonscraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G</a>.</p>
 </div>
 <div id="ref-Diaz2018">
-<p>Diaz, Mark, Isaac Johnson, Amanda Lazar, Anne Marie Piper, and Darren Gergle. 2018. “Addressing Age-Related Bias in Sentiment Analysis.” In <em>Proceedings of the 2018 Chi Conference on Human Factors in Computing Systems</em>, 412:1–412:14. Chi ’18. New York, NY, USA: Acm. <a href="https://doi.org/10.1145/3173574.3173986">https://doi.org/10.1145/3173574.3173986</a>.</p>
+<p>Diaz, Mark, Isaac Johnson, Amanda Lazar, Anne Marie Piper, and Darren Gergle. 2018. “Addressing Age-Related Bias in Sentiment Analysis.” In <em>Proceedings of the 2018 Chi Conference on Human Factors in Computing Systems</em>, 412:1–412:14. Chi ’18. New York, NY, USA: Acm. doi:<a href="https://doi.org/10.1145/3173574.3173986">10.1145/3173574.3173986</a>.</p>
 </div>
 <div id="ref-BILLCD8">
 <p>Donizy, Piotr, Przemyslaw Biecek, Agnieszka Halon, and Rafal Matkowski. 2016. “BILLCD8 – a Multivariable Survival Model as a Simple and Clinically Useful Prognostic Tool to Identify High-Risk Cutaneous Melanoma Patients” 36 (September): 4739–48.</p>
 </div>
 <div id="ref-AppleCreditCard">
-<p>Duffy, Clare. 2019. “Apple Co-Founder Steve Wozniak Says Apple Card Discriminated Against His Wife.” <em>CNN Business</em>. <a href="https://edition.cnn.com/2019/11/10/business/goldman-sachs-apple-card-discrimination/index.html">https://edition.cnn.com/2019/11/10/business/goldman-sachs-apple-card-discrimination/index.html</a>.</p>
+<p>Duffy, Clare. 2019. “Apple Co-Founder Steve Wozniak Says Apple Card Discriminated Against His Wife.” <em>CNN Business</em>. <a href="https://edition.cnn.com/2019/11/10/business/goldman-sachs-apple-card-discrimination/index.html" class="uri">https://edition.cnn.com/2019/11/10/business/goldman-sachs-apple-card-discrimination/index.html</a>.</p>
 </div>
 <div id="ref-Efron2016">
 <p>Efron, Bradley, and Trevor Hastie. 2016. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. 1st ed. New York, NY, USA: Cambridge University Press.</p>
@@ -581,25 +542,25 @@ Figures and tables are created in R language for statistical computing <span cla
 <p>Faraway, Julian. 2002. <em>Practical Regression and Anova Using R</em>.</p>
 </div>
 <div id="ref-xgboostExplainer">
-<p>Foster, David. 2017. <em>XgboostExplainer: An R Package That Makes Xgboost Models Fully Interpretable</em>. <a href="https://github.com/AppliedDataSciencePartners/xgboostExplainer/">https://github.com/AppliedDataSciencePartners/xgboostExplainer/</a>.</p>
+<p>Foster, David. 2017. <em>XgboostExplainer: An R Package That Makes Xgboost Models Fully Interpretable</em>. <a href="https://github.com/AppliedDataSciencePartners/xgboostExplainer/" class="uri">https://github.com/AppliedDataSciencePartners/xgboostExplainer/</a>.</p>
 </div>
 <div id="ref-Galecki2013">
 <p>Galecki, Andrzej, and Tomasz Burzykowski. 2013. <em>Linear Mixed-Effects Models Using R: A Step-by-Step Approach</em>. Springer Publishing Company, Incorporated.</p>
 </div>
 <div id="ref-EUGDPR">
-<p>Gdpr. 2018. “The Eu General Data Protection Regulation (Gdpr) Is the Most Important Change in Data Privacy Regulation in 20 Years.” <a href="https://eugdpr.org/">https://eugdpr.org/</a>.</p>
+<p>Gdpr. 2018. “The Eu General Data Protection Regulation (Gdpr) Is the Most Important Change in Data Privacy Regulation in 20 Years.” <a href="https://eugdpr.org/" class="uri">https://eugdpr.org/</a>.</p>
 </div>
 <div id="ref-RightToExpl">
-<p>Goodman, Bryce, and Seth Flaxman. 2016. “European Union Regulations on Algorithmic Decision-Making and a &quot;Right to Explanation&quot;.” <em>Arxiv</em>. <a href="https://arxiv.org/abs/1606.08813">https://arxiv.org/abs/1606.08813</a>.</p>
+<p>Goodman, Bryce, and Seth Flaxman. 2016. “European Union Regulations on Algorithmic Decision-Making and a ‘Right to Explanation’.” <em>Arxiv</em>. <a href="https://arxiv.org/abs/1606.08813" class="uri">https://arxiv.org/abs/1606.08813</a>.</p>
 </div>
 <div id="ref-r4ds2019">
-<p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.</p>
+<p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a>.</p>
 </div>
 <div id="ref-rms">
-<p>Harrell Jr, Frank E. 2018. <em>Rms: Regression Modeling Strategies</em>. <a href="https://CRAN.R-project.org/package=rms">https://CRAN.R-project.org/package=rms</a>.</p>
+<p>Harrell Jr, Frank E. 2018. <em>Rms: Regression Modeling Strategies</em>. <a href="https://CRAN.R-project.org/package=rms" class="uri">https://CRAN.R-project.org/package=rms</a>.</p>
 </div>
 <div id="ref-lstm">
-<p>Hochreiter, Sepp, and Jürgen Schmidhuber. 1997. “Long Short-Term Memory.” <em>Neural Computation</em> 9 (8): 1735–80. <a href="https://doi.org/10.1162/neco.1997.9.8.1735">https://doi.org/10.1162/neco.1997.9.8.1735</a>.</p>
+<p>Hochreiter, Sepp, and Jürgen Schmidhuber. 1997. “Long Short-Term Memory.” <em>Neural Computation</em> 9 (8): 1735–80. doi:<a href="https://doi.org/10.1162/neco.1997.9.8.1735">10.1162/neco.1997.9.8.1735</a>.</p>
 </div>
 <div id="ref-hoover2019exbert">
 <p>Hoover, Benjamin, Hendrik Strobelt, and Sebastian Gehrmann. 2019. “ExBERT: A Visual Analysis Tool to Explore Learned Representations in Transformers Models.”</p>
@@ -608,25 +569,25 @@ Figures and tables are created in R language for statistical computing <span cla
 <p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2014. <em>An Introduction to Statistical Learning: With Applications in R</em>. Springer Publishing Company, Incorporated.</p>
 </div>
 <div id="ref-caret">
-<p>Jed Wing, Max Kuhn. Contributions from, Steve Weston, Andre Williams, Chris Keefer, Allan Engelhardt, Tony Cooper, Zachary Mayer, et al. 2016. <em>Caret: Classification and Regression Training</em>. <a href="https://CRAN.R-project.org/package=caret">https://CRAN.R-project.org/package=caret</a>.</p>
+<p>Jed Wing, Max Kuhn. Contributions from, Steve Weston, Andre Williams, Chris Keefer, Allan Engelhardt, Tony Cooper, Zachary Mayer, et al. 2016. <em>Caret: Classification and Regression Training</em>. <a href="https://CRAN.R-project.org/package=caret" class="uri">https://CRAN.R-project.org/package=caret</a>.</p>
 </div>
 <div id="ref-EIXkarbowiak">
-<p>Karbowiak, Ewelina, and Przemyslaw Biecek. 2019. <em>EIX: Explain Interactions in Gradient Boosting Models</em>. <a href="https://CRAN.R-project.org/package=EIX">https://CRAN.R-project.org/package=EIX</a>.</p>
+<p>Karbowiak, Ewelina, and Przemyslaw Biecek. 2019. <em>EIX: Explain Interactions in Gradient Boosting Models</em>. <a href="https://CRAN.R-project.org/package=EIX" class="uri">https://CRAN.R-project.org/package=EIX</a>.</p>
 </div>
 <div id="ref-Kuhn2013">
-<p>Kuhn, Max, and Kjell Johnson. 2013. <em>Applied predictive modeling</em>. New York, NY: Springer. <a href="http://appliedpredictivemodeling.com/">http://appliedpredictivemodeling.com/</a>.</p>
+<p>Kuhn, Max, and Kjell Johnson. 2013. <em>Applied predictive modeling</em>. New York, NY: Springer. <a href="http://appliedpredictivemodeling.com/" class="uri">http://appliedpredictivemodeling.com/</a>.</p>
 </div>
 <div id="ref-COMPAS">
-<p>Larson, Jeff, Surya Mattu, Lauren Kirchner, and Julia Angwin. 2016. “How We Analyzed the Compas Recidivism Algorithm.” <em>ProPublica</em>. <a href="https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm">https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm</a>.</p>
+<p>Larson, Jeff, Surya Mattu, Lauren Kirchner, and Julia Angwin. 2016. “How We Analyzed the Compas Recidivism Algorithm.” <em>ProPublica</em>. <a href="https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm" class="uri">https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm</a>.</p>
 </div>
 <div id="ref-Lazer1203">
-<p>Lazer, David, Ryan Kennedy, Gary King, and Alessandro Vespignani. 2014. “The Parable of Google Flu: Traps in Big Data Analysis.” <em>Science</em> 343 (6176). American Association for the Advancement of Science: 1203–5. <a href="https://doi.org/10.1126/science.1248506">https://doi.org/10.1126/science.1248506</a>.</p>
+<p>Lazer, David, Ryan Kennedy, Gary King, and Alessandro Vespignani. 2014. “The Parable of Google Flu: Traps in Big Data Analysis.” <em>Science</em> 343 (6176). American Association for the Advancement of Science: 1203–5. doi:<a href="https://doi.org/10.1126/science.1248506">10.1126/science.1248506</a>.</p>
 </div>
 <div id="ref-randomForest">
-<p>Liaw, Andy, and Matthew Wiener. 2002. “Classification and Regression by randomForest.” <em>R News</em> 2 (3): 18–22. <a href="http://CRAN.R-project.org/doc/Rnews/">http://CRAN.R-project.org/doc/Rnews/</a>.</p>
+<p>Liaw, Andy, and Matthew Wiener. 2002. “Classification and Regression by randomForest.” <em>R News</em> 2 (3): 18–22. <a href="http://CRAN.R-project.org/doc/Rnews/" class="uri">http://CRAN.R-project.org/doc/Rnews/</a>.</p>
 </div>
 <div id="ref-SHAP">
-<p>Lundberg, Scott M, and Su-In Lee. 2017. “A Unified Approach to Interpreting Model Predictions.” In <em>Advances in Neural Information Processing Systems 30</em>, edited by I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, 4765–74. Curran Associates, Inc. <a href="http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf">http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf</a>.</p>
+<p>Lundberg, Scott M, and Su-In Lee. 2017. “A Unified Approach to Interpreting Model Predictions.” In <em>Advances in Neural Information Processing Systems 30</em>, edited by I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, 4765–74. Curran Associates, Inc. <a href="http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf" class="uri">http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf</a>.</p>
 </div>
 <div id="ref-molnar2019">
 <p>Molnar, Christoph. 2019. <em>Interpretable Machine Learning: A Guide for Making Black Box Models Explainable</em>.</p>
@@ -635,25 +596,25 @@ Figures and tables are created in R language for statistical computing <span cla
 <p>O’Neil, Cathy. 2016. <em>Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy</em>. New York, NY, USA: Crown Publishing Group.</p>
 </div>
 <div id="ref-randomForestExplainer">
-<p>Paluszynska, Aleksandra, and Przemyslaw Biecek. 2017. <em>RandomForestExplainer: A Set of Tools to Understand What Is Happening Inside a Random Forest</em>. <a href="https://github.com/MI2DataLab/randomForestExplainer">https://github.com/MI2DataLab/randomForestExplainer</a>.</p>
+<p>Paluszynska, Aleksandra, and Przemyslaw Biecek. 2017. <em>RandomForestExplainer: A Set of Tools to Understand What Is Happening Inside a Random Forest</em>. <a href="https://github.com/MI2DataLab/randomForestExplainer" class="uri">https://github.com/MI2DataLab/randomForestExplainer</a>.</p>
 </div>
 <div id="ref-RcoreT">
-<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
 </div>
 <div id="ref-lime">
-<p>Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. 2016. “Why Should I Trust You?: Explaining the Predictions of Any Classifier.” In, 1135–44. ACM Press. <a href="https://doi.org/10.1145/2939672.2939778">https://doi.org/10.1145/2939672.2939778</a>.</p>
+<p>Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. 2016. “Why Should I Trust You?: Explaining the Predictions of Any Classifier.” In, 1135–44. ACM Press. doi:<a href="https://doi.org/10.1145/2939672.2939778">10.1145/2939672.2939778</a>.</p>
 </div>
 <div id="ref-gbm">
-<p>Ridgeway, Greg. 2017. <em>Gbm: Generalized Boosted Regression Models</em>. <a href="https://CRAN.R-project.org/package=gbm">https://CRAN.R-project.org/package=gbm</a>.</p>
+<p>Ridgeway, Greg. 2017. <em>Gbm: Generalized Boosted Regression Models</em>. <a href="https://CRAN.R-project.org/package=gbm" class="uri">https://CRAN.R-project.org/package=gbm</a>.</p>
 </div>
 <div id="ref-IBMWatson">
-<p>Ross, Casey, and Ike Swetliz. 2018. “IBM’s Watson Supercomputer Recommended ‘Unsafe and Incorrect’ Cancer Treatments, Internal Documents Show.” <em>Statnews</em>. <a href="https://www.statnews.com/2018/07/25/ibm-watson-recommended-unsafe-incorrect-treatments/">https://www.statnews.com/2018/07/25/ibm-watson-recommended-unsafe-incorrect-treatments/</a>.</p>
+<p>Ross, Casey, and Ike Swetliz. 2018. “IBM’s Watson Supercomputer Recommended ‘Unsafe and Incorrect’ Cancer Treatments, Internal Documents Show.” <em>Statnews</em>. <a href="https://www.statnews.com/2018/07/25/ibm-watson-recommended-unsafe-incorrect-treatments/" class="uri">https://www.statnews.com/2018/07/25/ibm-watson-recommended-unsafe-incorrect-treatments/</a>.</p>
 </div>
 <div id="ref-RightToExpl3">
-<p>Ruiz, Javier. 2018. “Machine Learning and the Right to Explanation in Gdpr.” <a href="https://www.openrightsgroup.org/blog/2018/machine-learning-and-the-right-to-explanation-in-gdpr">https://www.openrightsgroup.org/blog/2018/machine-learning-and-the-right-to-explanation-in-gdpr</a>.</p>
+<p>Ruiz, Javier. 2018. “Machine Learning and the Right to Explanation in Gdpr.” <a href="https://www.openrightsgroup.org/blog/2018/machine-learning-and-the-right-to-explanation-in-gdpr" class="uri">https://www.openrightsgroup.org/blog/2018/machine-learning-and-the-right-to-explanation-in-gdpr</a>.</p>
 </div>
 <div id="ref-GoogleFLU">
-<p>Salzberg, Steven. 2014. “Why Google Flu Is A Failure.” <em>Forbes</em>. <a href="https://www.forbes.com/sites/stevensalzberg/2014/03/23/why-google-flu-is-a-failure/">https://www.forbes.com/sites/stevensalzberg/2014/03/23/why-google-flu-is-a-failure/</a>.</p>
+<p>Salzberg, Steven. 2014. “Why Google Flu Is A Failure.” <em>Forbes</em>. <a href="https://www.forbes.com/sites/stevensalzberg/2014/03/23/why-google-flu-is-a-failure/" class="uri">https://www.forbes.com/sites/stevensalzberg/2014/03/23/why-google-flu-is-a-failure/</a>.</p>
 </div>
 <div id="ref-samek2017explainable">
 <p>Samek, Wojciech, Thomas Wiegand, and Klaus-Robert Müller. 2017. “Explainable Artificial Intelligence: Understanding, Visualizing and Interpreting Deep Learning Models.”</p>
@@ -665,28 +626,28 @@ Figures and tables are created in R language for statistical computing <span cla
 <p>Sheather, Simon. 2009. <em>A Modern Approach to Regression with R</em>. Springer Texts in Statistics. Springer New York.</p>
 </div>
 <div id="ref-SaliencyMaps">
-<p>Simonyan, Karen, Andrea Vedaldi, and Andrew Zisserman. 2013. “Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps.” <em>CoRR</em> abs/1312.6034. <a href="http://arxiv.org/abs/1312.6034">http://arxiv.org/abs/1312.6034</a>.</p>
+<p>Simonyan, Karen, Andrea Vedaldi, and Andrew Zisserman. 2013. “Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps.” <em>CoRR</em> abs/1312.6034. <a href="http://arxiv.org/abs/1312.6034" class="uri">http://arxiv.org/abs/1312.6034</a>.</p>
 </div>
 <div id="ref-seq2seq">
-<p>Sutskever, Ilya, Oriol Vinyals, and Quoc V. Le. 2014. “Sequence to Sequence Learning with Neural Networks.” <em>CoRR</em> abs/1409.3215. <a href="http://arxiv.org/abs/1409.3215">http://arxiv.org/abs/1409.3215</a>.</p>
+<p>Sutskever, Ilya, Oriol Vinyals, and Quoc V. Le. 2014. “Sequence to Sequence Learning with Neural Networks.” <em>CoRR</em> abs/1409.3215. <a href="http://arxiv.org/abs/1409.3215" class="uri">http://arxiv.org/abs/1409.3215</a>.</p>
 </div>
 <div id="ref-tukey1977">
 <p>Tukey, John W. 1977. <em>Exploratory Data Analysis</em>. Addison-Wesley.</p>
 </div>
 <div id="ref-MASSbook">
-<p>Venables, W. N., and B. D. Ripley. 2002. <em>Modern Applied Statistics with S</em>. Fourth. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4">http://www.stats.ox.ac.uk/pub/MASS4</a>.</p>
+<p>Venables, W. N., and B. D. Ripley. 2002. <em>Modern Applied Statistics with S</em>. Fourth. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4" class="uri">http://www.stats.ox.ac.uk/pub/MASS4</a>.</p>
 </div>
 <div id="ref-Wes2012">
 <p>Wes, McKinney. 2012. <em>Python for Data Analysis</em>. 1st ed. O’Reilly Media, Inc.</p>
 </div>
 <div id="ref-ggplot2">
-<p>Wickham, Hadley. 2009. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org">http://ggplot2.org</a>.</p>
+<p>Wickham, Hadley. 2009. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org" class="uri">http://ggplot2.org</a>.</p>
 </div>
 <div id="ref-rangerRpackage">
-<p>Wright, Marvin N., and Andreas Ziegler. 2017. <em>ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R</em>. <em>Journal of Statistical Software</em>. Vol. 77. <a href="https://doi.org/10.18637/jss.v077.i01">https://doi.org/10.18637/jss.v077.i01</a>.</p>
+<p>Wright, Marvin N., and Andreas Ziegler. 2017. <em>ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R</em>. <em>Journal of Statistical Software</em>. Vol. 77. doi:<a href="https://doi.org/10.18637/jss.v077.i01">10.18637/jss.v077.i01</a>.</p>
 </div>
 <div id="ref-R-bookdown">
-<p>Xie, Yihui. 2018. <em>bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
+<p>Xie, Yihui. 2018. <em>bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
 </div>
 </div>
             </section>
@@ -750,7 +711,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

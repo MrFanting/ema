@@ -132,14 +132,16 @@ We use the random forest model `titanic_rf_v6` developed for the Titanic dataset
 
 `DALEX` explainers for the model and the `henry` data frame are retrieved via `archivist` hooks, as listed in Section \@ref(ListOfModelsTitanic). 
 
-```{r residualDistributionFidelity, warning=FALSE, message=FALSE, eval=TRUE}
+```{r residualDistributionFidelity, warning=FALSE, message=FALSE, eval= FALSE}
 library("randomForest")
 library("DALEX")
 explain_rf_v6 <- archivist::aread("pbiecek/models/6ed54")
 henry <- archivist::aread("pbiecek/models/a6538")
 henry
 ```
-
+```{r echo=FALSE}
+henry
+```
 We will show how to construct fidelity plot as in Figure \@ref(fig:profileWith10NN). Toward this aim we need some number of passengers most similar to `henry`. 
 Here we are using `individual_diagnostics` function from the `DALEX` package. First argument is an explainer, second the instance of interest, optional arguments are `neighbours` (number of neighbours) and `distance` (by default, the Gower distance is used).
 

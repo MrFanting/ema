@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>20 Residual Diagnostics | Explanatory Model Analysis</title>
+  <title>20 Residual Diagnostics | 解释性模型分析</title>
   <meta name="description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="20 Residual Diagnostics | Explanatory Model Analysis" />
+  <meta property="og:title" content="20 Residual Diagnostics | 解释性模型分析" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="pbiecek/ema" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="20 Residual Diagnostics | Explanatory Model Analysis" />
+  <meta name="twitter:title" content="20 Residual Diagnostics | 解释性模型分析" />
   
   <meta name="twitter:description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Przemyslaw Biecek and Tomasz Burzykowski" />
 
 
-<meta name="date" content="2020-03-08" />
+<meta name="date" content="2020-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,66 +74,41 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -386,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Explanatory Model Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">解释性模型分析</a>
           </h1>
         </div>
 
@@ -423,18 +398,17 @@ Figure 20.1: Diagnostic plots for linear models. Consecutive panels present resi
 <div id="MethodResidualDiagnostic" class="section level2">
 <h2><span class="header-section-number">20.3</span> Method</h2>
 <p>As it was already mentioned in Chapter <a href="modelDevelopmentProcess.html#modelDevelopmentProcess">2</a>, for a continuous dependent variable (or a count), residual <span class="math inline">\(r_i\)</span> for the <span class="math inline">\(i\)</span>-th observation in a dataset is the difference between the model prediction and the corresponding value of the variable:</p>
-<p><span class="math display" id="eq:resid">\[\begin{equation}
+<span class="math display" id="eq:resid">\[\begin{equation}
 r_i = y_i - f(x_i).
 \tag{20.1}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>A histogram of the estimated residuals can be used to check the symmetry and location of their distribution. An index plot of residuals, i.e., the plot of residuals against the corresponding observation number, may be used to identify observations with large residuals.</p>
 <p>For diagnostic purposes the <em>standardized residuals</em> are defined as</p>
-<p><span class="math display" id="eq:standresid">\[\begin{equation}
+<span class="math display" id="eq:standresid">\[\begin{equation}
 \tilde{r}_i = \frac{r_i}{\sqrt{\mbox{Var}(r_i)}},
 \tag{20.2}
-\end{equation}\]</span></p>
-<p>where <span class="math inline">\(\mbox{Var}(r_i)\)</span> is the variance of the residual <span class="math inline">\(r_i\)</span>.
-Of course, in practice, the variance of <span class="math inline">\(r_i\)</span> is usually unknown. Hence, in Equation <a href="residualDiagnostic.html#eq:standresid">(20.2)</a>, the estimated value of the variance is used. Residuals defined in this way are often called the <em>Pearson residuals</em>.</p>
+\end{equation}\]</span>
+<p>where <span class="math inline">\(\mbox{Var}(r_i)\)</span> is the variance of the residual <span class="math inline">\(r_i\)</span>. Of course, in practice, the variance of <span class="math inline">\(r_i\)</span> is usually unknown. Hence, in Equation <a href="residualDiagnostic.html#eq:standresid">(20.2)</a>, the estimated value of the variance is used. Residuals defined in this way are often called the <em>Pearson residuals</em>.</p>
 <p>For a gaussian linear model the <span class="math inline">\(\mbox{Var}(r_i)\)</span> can be estimated from design matrix and the distribution of <span class="math inline">\(\tilde{r}_i\)</span> is approximately standard normal. In general case, for complicated models, it is hard to estimate the variance <span class="math inline">\(\mbox{Var}(r_i)\)</span> for a single instance so it is often approximated by a constant.</p>
 <!-- Consider, for example, the classical linear-regression model. According to the model, for the $i$-th observation, the dependent variable $Y_i$ should follow a normal distribution with mean $f(x_i)$ and variance $\sigma^2$. Thus, the standardized residual $\tilde{r}_i = r_i/\sigma$. If the model is correct, $\tilde{r}_i$ should have a standard-normal distribution. The Pearson residual is defined as $r_i/\widehat{\sigma}$, where $\widehat{\sigma}$ is the estimated value of $\sigma$, and has, approximately, also a standard-normal distribution.  -->
 <p>Definition <a href="residualDiagnostic.html#eq:standresid">(20.2)</a> can also be applied to a binary dependent variable if the model prediction <span class="math inline">\(f(x_i)\)</span> is the probability observing <span class="math inline">\(y_i\)</span> and upon coding the two possible values of the variable as 0 and 1. However, in this case, the range of possible values of <span class="math inline">\(r_i\)</span> is restricted to <span class="math inline">\((-1,1)\)</span>, which limits the usefulness of the residuals. For this reason, more often the Pearson residuals are used. Note that, if the values of the explanatory-variable vectors <span class="math inline">\(x_i\)</span> lead to different predicted values <span class="math inline">\(f(x_i)\)</span> for different observations in a dataset, the distribution of the Pearson residuals will not be approximated by the standard normal one. Nevertheless, the index plot may still be useful to detect observations with large residuals. The standard-normal approximation is more likely to apply in the situation when vectors <span class="math inline">\(x_i\)</span> split data into (a few, perhaps) groups sharing the same predicted value <span class="math inline">\(f(x_i)\)</span>. In that case, one one can consider averaging residuals <span class="math inline">\(r_i\)</span> per group and standardizing them by <span class="math inline">\(\sqrt{f(x_i)\{1-f(x_i)/k\}}\)</span>, where <span class="math inline">\(k\)</span> is the number of observations in a particular group.</p>
@@ -554,8 +528,8 @@ Figure 20.5: Predicted and observed values of the dependent variable for the ran
 </div>
 <p>Figure <a href="residualDiagnostic.html#fig:plotResidual2">20.6</a> shows an index plot of residuals, i.e., their scatterplot in function of an (arbitrary) id-number of the observation (x-axis). The plot indicates an asymmetric distribution of residuals around zero, as there is an excess of large positive (larger than 500) residuals without a corresponding fraction of negative values. This can be linked to the right-skewed distribution seen in Figures <a href="residualDiagnostic.html#fig:plotResidualDensity1">20.2</a> and <a href="residualDiagnostic.html#fig:plotResidualBoxplot1">20.3</a> for the random-forest model.</p>
 
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;ids&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;residuals&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb147-2" data-line-number="2"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;observation id&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;residuals&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;ids&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;residuals&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;observation id&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;residuals&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:plotResidual2"></span>
 <img src="ema_files/figure-html/plotResidual2-1.png" alt="An index plot of residuals for the random-forest model apartments_rf_v5 for the apartments data." width="672" />
 <p class="caption">
@@ -564,8 +538,8 @@ Figure 20.6: An index plot of residuals for the random-forest model <code>apartm
 </div>
 <p>Figure <a href="residualDiagnostic.html#fig:plotResidual3">20.7</a> shows a scatterplot of residuals (y-axis) in function of the predicted (x-axis) value of the dependent variable. For a ‘’good’’ model, we would like to see a symmetric scatter of points around the horizontal line at zero. The plot in Figure <a href="residualDiagnostic.html#fig:plotResidual3">20.7</a>, as the one in Figure <a href="residualDiagnostic.html#fig:plotResidual1">20.4</a>, the plot suggests that the predictions are shifted (biased) towards the average.</p>
 
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y_hat&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;residuals&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb148-2" data-line-number="2"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;predicted price&quot;</span>) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y_hat&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;residuals&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;predicted price&quot;</span>) </code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:plotResidual3"></span>
 <img src="ema_files/figure-html/plotResidual3-1.png" alt="Residuals and predicted values of the dependent variable for the random-forest model apartments_rf_v5 for the apartments data." width="480" />
 <p class="caption">
@@ -578,8 +552,8 @@ Figure \@ref(fig:plotAutocorrelation1) presents an autocorrelation plot of resid
 
 <p>The random-forest model, as the linear-regression model, assumes that residuals should be homoscedastic, i.e., that they should have a constant variance. Figure <a href="residualDiagnostic.html#fig:plotScaleLocation1">20.8</a> presents the scale-location plot of residuals, i.e., a scatterplot of the absolute value of residuals in function of the predicted values of the dependent variable. The plot includes a smoothed line capturing the average trend. For homoscedastic residuals, we would expect a symmetric scatter around a horizontal line, for which the smoothed trend should be also horizontal. The plot in Figure <a href="residualDiagnostic.html#fig:plotScaleLocation1">20.8</a> deviates from the expected pattern and indicates that the variability of the residuals depends on the (predicted) value of the dependent variable.</p>
 
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y_hat&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;abs_residuals&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb149-2" data-line-number="2"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;predicted price&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;|residuals|&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y_hat&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;abs_residuals&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;predicted price&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;|residuals|&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:plotScaleLocation1"></span>
 <img src="ema_files/figure-html/plotScaleLocation1-1.png" alt="The scale-location plot of residuals for the random-forest model apartments_rf_v5 for the apartments data. The square-roots of the absolute values of standardized residuals (y-axis) are plotted in function of the predicted values of the dependent variable (x-axis)." width="480" />
 <p class="caption">
@@ -589,8 +563,7 @@ Figure 20.8: The scale-location plot of residuals for the random-forest model <c
 </div>
 <div id="ProsConsResidualDiagnostic" class="section level2">
 <h2><span class="header-section-number">20.5</span> Pros and cons</h2>
-<p>Diagnostics of the residuals is a very important stage of model exploration.
-Properly performed diagnostics allows to identify many different types of problems such as:</p>
+<p>Diagnostics of the residuals is a very important stage of model exploration. Properly performed diagnostics allows to identify many different types of problems such as:</p>
 <ul>
 <li>Bias in predictions for instances with extremely high values of the target variable.</li>
 <li>The heterogeneous variance of the residuals, suggesting perhaps incorrect specification of the model.</li>
@@ -602,24 +575,25 @@ Properly performed diagnostics allows to identify many different types of proble
 <h2><span class="header-section-number">20.6</span> Code snippets for R</h2>
 <p>In this section, we present the key features of the <code>DALEX</code> package which is a wrapper for functions from <code>auditor</code> package <span class="citation">(Gosiewska and Biecek <a href="#ref-R-auditor">2018</a>)</span>. This package covers all methods presented in this chapter.</p>
 <p>First, we load explainers for the linear-regression model <code>apartments_lm_v5</code> and the random-forest model <code>apartments_rf_v5</code> created in Section <a href="dataSetsIntro.html#ExplainersApartmentsRCode">5.2.6</a> for the <code>apartments</code> data.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)</a>
-<a class="sourceLine" id="cb150-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;randomForest&quot;</span>)</a>
-<a class="sourceLine" id="cb150-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb150-4" data-line-number="4">explainer_apartments_lr &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="st"> </span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/f49ea&quot;</span>)</a>
-<a class="sourceLine" id="cb150-5" data-line-number="5">explainer_apartments_rf &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="st"> </span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/569b0&quot;</span>)</a></code></pre></div>
-<p>There are two functions that will be used for exploration of residuals.
-The <code>DALEX::model_performance()</code> function is useful for exploration of distribution of residuals while <code>DALEX::model_diagnostics()</code> function is useful for looking for relation between residuals and other variables.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;randomForest&quot;</span>)
+
+explainer_apartments_lr &lt;-<span class="st"> </span><span class="kw">loadFromLocalRepo</span>(<span class="dt">md5hash =</span> <span class="st">&quot;f49ea&quot;</span>, 
+                                             <span class="dt">repoDir =</span> <span class="st">&quot;./RData&quot;</span>, <span class="dt">value =</span> <span class="ot">TRUE</span>)
+explainer_apartments_rf &lt;-<span class="st"> </span><span class="kw">loadFromLocalRepo</span>(<span class="dt">md5hash =</span> <span class="st">&quot;569b0&quot;</span>, 
+                                             <span class="dt">repoDir =</span> <span class="st">&quot;./RData&quot;</span>, <span class="dt">value =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>There are two functions that will be used for exploration of residuals. The <code>DALEX::model_performance()</code> function is useful for exploration of distribution of residuals while <code>DALEX::model_diagnostics()</code> function is useful for looking for relation between residuals and other variables.</p>
 <p>Let’s start with distributions of residuals. This can be done with the <code>model_performance()</code> function. The residuals are stored in separate objects that can be used for construction of various plots and summaries.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1">mr_lr &lt;-<span class="st"> </span>DALEX<span class="op">::</span><span class="kw">model_performance</span>(explainer_apartments_lr)</a>
-<a class="sourceLine" id="cb151-2" data-line-number="2">mr_rf &lt;-<span class="st"> </span>DALEX<span class="op">::</span><span class="kw">model_performance</span>(explainer_apartments_rf)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mr_lr &lt;-<span class="st"> </span>DALEX<span class="op">::</span><span class="kw">model_performance</span>(explainer_apartments_lr)
+mr_rf &lt;-<span class="st"> </span>DALEX<span class="op">::</span><span class="kw">model_performance</span>(explainer_apartments_rf)</code></pre></div>
 <p>The generic <code>plot()</code> function shows different statistics based on specified <code>geom</code> argument. In particular, Figure <a href="residualDiagnostic.html#fig:plotResidualDensity1">20.2</a> can be constructed by using the following simple code:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="kw">plot</span>(mr_lr, mr_rf, <span class="dt">geom =</span> <span class="st">&quot;histogram&quot;</span>) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mr_lr, mr_rf, <span class="dt">geom =</span> <span class="st">&quot;histogram&quot;</span>) </code></pre></div>
 <p>Note that, by including the two objects containing residuals for the linear-regression model and the random-forest model in the function call, we automatically get an overlay of the plots of the histogram of residuals for the two models.</p>
 <p>The box-and-whisker plots of the residuals for the two models, shown in Figure <a href="residualDiagnostic.html#fig:plotResidualBoxplot1">20.3</a>, can be constructed by using the following simple call with <code>geom = &quot;boxplot&quot;</code>.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="kw">plot</span>(mr_lr, mr_rf, <span class="dt">geom =</span> <span class="st">&quot;boxplot&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mr_lr, mr_rf, <span class="dt">geom =</span> <span class="st">&quot;boxplot&quot;</span>)</code></pre></div>
 <p>Function <code>model_diagnostics()</code> calculates residuals for various scatter plots of residuals against some other variables</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1">md_lr &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(explainer_apartments_lr)</a>
-<a class="sourceLine" id="cb154-2" data-line-number="2">md_rf &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(explainer_apartments_rf)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">md_lr &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(explainer_apartments_lr)
+md_rf &lt;-<span class="st"> </span><span class="kw">model_diagnostics</span>(explainer_apartments_rf)</code></pre></div>
 <p>The generic <code>plot()</code> function produces a scatterplot of residuals (y-axis) in function of the observed (x-axis) values of the dependent variable, as in Figure <a href="residualDiagnostic.html#fig:plotResidual1">20.4</a>. By using arguments <code>variable</code> and <code>yvariable</code>, one specify which variables will be plotted on OX and OY axis. Apart of variables names, one can use following constants:</p>
 <ul>
 <li><code>y</code> for true target values,</li>
@@ -629,20 +603,20 @@ The <code>DALEX::model_performance()</code> function is useful for exploration o
 <li><code>abs_residuals</code> for absolute values of residual.</li>
 </ul>
 <p>For example, to reproduce Figure <a href="residualDiagnostic.html#fig:plotResidual1">20.4</a> one needs to plot target variable on the OX axis and residuals on OY.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;residuals&quot;</span>) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;residuals&quot;</span>) </code></pre></div>
 <p>To produce Figure <a href="residualDiagnostic.html#fig:plotPrediction1">20.5</a> we need to plot predicted target values on OY axis. This can be done with <code>yvariable = &quot;y_hat&quot;</code> argument.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;y_hat&quot;</span>) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;y_hat&quot;</span>) </code></pre></div>
 <p>The Figure <a href="residualDiagnostic.html#fig:plotResidual2">20.6</a> has indexes of observations on OX axis. This can be achieved with <code>variable = &quot;ids&quot;</code> argument.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;ids&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;residuals&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;ids&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;residuals&quot;</span>)</code></pre></div>
 <p>In the Figure <a href="residualDiagnostic.html#fig:plotScaleLocation1">20.8</a> on OY scale we plotted absolute residuals. This can be done with <code>yvariable = &quot;abs_residuals&quot;</code> argument.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y_hat&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;abs_residuals&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(md_rf, <span class="dt">variable =</span> <span class="st">&quot;y_hat&quot;</span>, <span class="dt">yvariable =</span> <span class="st">&quot;abs_residuals&quot;</span>)</code></pre></div>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-auditor">
-<p>Gosiewska, Alicja, and Przemyslaw Biecek. 2018. <em>Auditor: Model Audit - Verification, Validation, and Error Analysis</em>. <a href="https://CRAN.R-project.org/package=auditor">https://CRAN.R-project.org/package=auditor</a>.</p>
+<p>Gosiewska, Alicja, and Przemyslaw Biecek. 2018. <em>Auditor: Model Audit - Verification, Validation, and Error Analysis</em>. <a href="https://CRAN.R-project.org/package=auditor" class="uri">https://CRAN.R-project.org/package=auditor</a>.</p>
 </div>
 </div>
             </section>
@@ -706,7 +680,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

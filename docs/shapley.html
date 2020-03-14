@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9 Shapley Additive Explanations (SHAP) and Average Variable Attributions | Explanatory Model Analysis</title>
+  <title>9 Shapley Additive Explanations (SHAP) and Average Variable Attributions | 解释性模型分析</title>
   <meta name="description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9 Shapley Additive Explanations (SHAP) and Average Variable Attributions | Explanatory Model Analysis" />
+  <meta property="og:title" content="9 Shapley Additive Explanations (SHAP) and Average Variable Attributions | 解释性模型分析" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="pbiecek/ema" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9 Shapley Additive Explanations (SHAP) and Average Variable Attributions | Explanatory Model Analysis" />
+  <meta name="twitter:title" content="9 Shapley Additive Explanations (SHAP) and Average Variable Attributions | 解释性模型分析" />
   
   <meta name="twitter:description" content="This book introduces unified language for exploration, explanation and examination of predictive machine learning models." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Przemyslaw Biecek and Tomasz Burzykowski" />
 
 
-<meta name="date" content="2020-03-08" />
+<meta name="date" content="2020-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,66 +74,41 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -386,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Explanatory Model Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">解释性模型分析</a>
           </h1>
         </div>
 
@@ -398,7 +373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">9</span> Shapley Additive Explanations (SHAP) and Average Variable Attributions</h1>
 <p>In Chapter <a href="breakDown.html#breakDown">7</a>, we introduced Break-down (BD) plots, a method of assessment of local variable-importance based on the contribution of an explanatory variable to model’s prediction. We also indicated that, in the presence of interactions, the computed value of the contribution depends on the order of explanatory covariates that is used in calculations. One solution to the problem is to find an ordering in which the most important variables are placed at the beginning. Another solution, described in Chapter <a href="iBreakDown.html#iBreakDown">8</a>, is to identify interactions and explicitly present their contributions to the predictions.</p>
 <p>In this chapter, we introduce yet another approach to address the ordering issue. It is based on the idea of averaging the value of a variable’s contribution over all, or a large number of, possible orderings. The idea is closely linked to ,,Shapley values’’ <span class="citation">(Shapley <a href="#ref-shapleybook1952">1953</a>)</span>, developed originally for cooperative games.</p>
-<p>The approach was first introduced in ,,An Efficient Explanation of Individual Classifications Using Game Theory’’ <span class="citation">(Štrumbelj and Kononenko <a href="#ref-imeJLMR">2010</a>)</span> and <span class="citation">(Štrumbelj and Kononenko <a href="#ref-Strumbelj2014">2014</a>)</span>. It was widely adopted after the publication of the NIPS paper ,,A Unified Approach to Interpreting Model Predictions’’ <span class="citation">(Lundberg and Lee <a href="#ref-SHAP">2017</a>)</span> and Python’s library SHAP <span class="citation">(Lundberg <a href="#ref-shapPackage">2019</a>)</span>. The authors of SHAP (SHapley Additive exPlanations) introduced an efficient algorithm for tree-based models <span class="citation">(Lundberg, Erion, and Lee <a href="#ref-TreeSHAP">2018</a>)</span>. They also showed that SHAP values can be presented an unification of a collection of different commonly used techniques for model explanations <span class="citation">(Lundberg and Lee <a href="#ref-SHAP">2017</a>)</span>.</p>
+<p>The approach was first introduced in ,,An Efficient Explanation of Individual Classifications Using Game Theory’‘<span class="citation">(Štrumbelj and Kononenko <a href="#ref-imeJLMR">2010</a>)</span> and <span class="citation">(Štrumbelj and Kononenko <a href="#ref-Strumbelj2014">2014</a>)</span>. It was widely adopted after the publication of the NIPS paper ,,A Unified Approach to Interpreting Model Predictions’’ <span class="citation">(Lundberg and Lee <a href="#ref-SHAP">2017</a>)</span> and Python’s library SHAP <span class="citation">(Lundberg <a href="#ref-shapPackage">2019</a>)</span>. The authors of SHAP (SHapley Additive exPlanations) introduced an efficient algorithm for tree-based models <span class="citation">(Lundberg, Erion, and Lee <a href="#ref-TreeSHAP">2018</a>)</span>. They also showed that SHAP values can be presented an unification of a collection of different commonly used techniques for model explanations <span class="citation">(Lundberg and Lee <a href="#ref-SHAP">2017</a>)</span>.</p>
 <div id="SHAPIntuition" class="section level2">
 <h2><span class="header-section-number">9.1</span> Intuition</h2>
 <p>Figure <a href="shapley.html#fig:shap10orderings">9.1</a> presents BD plots for ten random orderings (indicated by the order of the rows in each plot) of explanatory variables for the prediction for <code>johny_d</code> (see Section <a href="dataSetsIntro.html#predictions-titanic">5.1.6</a>) for the random-forest model (see Section <a href="dataSetsIntro.html#model-titanic-rf">5.1.3</a>) for the Titanic dataset. The plots show clear differences in the contributions of various variables for different orderings. The most remarkable differences can be observed for variables <code>fare</code> and <code>class</code>, with contributions changing the sign depending on the ordering.</p>
@@ -409,8 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 9.1: Break-down plots for ten random orderings of explanatory variables for the prediction for <code>johny_d</code> for the random-forest model for the Titanic dataset. Each panel presents a single ordering, indicated by the order of the rows in the plot.
 </p>
 </div>
-<p>To remove the influence of the ordering of the variables, we can compute an average value of the contributions.
-Figure <a href="shapley.html#fig:shapOrdering">9.2</a> presents the average contributions, calculated over the ten orderings presented in Figure <a href="shapley.html#fig:shap10orderings">9.1</a>. Red and green bars present, respectively, the negative and positive averages. Violet box-plots summarize the distribution of the contributions for each explanatory variable across different orderings. The plot indicates that the most important variables, from the point of view of the prediction for <code>johny_d</code> are <code>age</code> and <code>gender</code>.</p>
+<p>To remove the influence of the ordering of the variables, we can compute an average value of the contributions. Figure <a href="shapley.html#fig:shapOrdering">9.2</a> presents the average contributions, calculated over the ten orderings presented in Figure <a href="shapley.html#fig:shap10orderings">9.1</a>. Red and green bars present, respectively, the negative and positive averages. Violet box-plots summarize the distribution of the contributions for each explanatory variable across different orderings. The plot indicates that the most important variables, from the point of view of the prediction for <code>johny_d</code> are <code>age</code> and <code>gender</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:shapOrdering"></span>
 <img src="figure/shap_ordering.png" alt="Average contributions for ten random orderings. Red and green bars present the averages. Box-plots summarize the distribution of contributions for each explanatory variable across the orderings." width="70%" />
 <p class="caption">
@@ -424,14 +398,14 @@ Figure 9.2: Average contributions for ten random orderings. Red and green bars p
 <p>Consider the following problem. A coalition of players cooperates, and obtains a certain overall gain from the cooperation. Players are not identical, and different players may have different importance. Cooperation is beneficial, because it may bring more benefit than individual actions. The problem to solve is how to distribute the generated surplus among the players? The Shapley value provides one possible fair answer to this question <span class="citation">(Shapley <a href="#ref-shapleybook1952">1953</a>)</span>.</p>
 <p>Now let’s translate this problem to the context of model predictions. Explanatory variables are the players, while model <span class="math inline">\(f()\)</span> plays the role of the coalition. The payoff from the coalition is the model prediction. The problem to solve is how to distribute the model prediction across particular variables?</p>
 <p>The idea of using Shapley values for evaluation of local variable-importance was introduced in ,,An Efficient Explanation of Individual Classifications Using Game Theory’’ <span class="citation">(Štrumbelj and Kononenko <a href="#ref-imeJLMR">2010</a>)</span>. We define them here in the notation introduced in Section <a href="breakDown.html#BDMethod">7.2</a>.</p>
-<p>Let us consider a permutation <span class="math inline">\(J\)</span> of the set of indices <span class="math inline">\(\{1,2,\ldots,p\}\)</span> corresponding to an ordering of <span class="math inline">\(p\)</span> explanatory variables included in model <span class="math inline">\(f()\)</span>. Denote by <span class="math inline">\(\pi(J,j)\)</span> the set of the indices of the variables that are positioned in <span class="math inline">\(J\)</span> before the <span class="math inline">\(j\)</span>-th variable. Note that, if the <span class="math inline">\(j\)</span>-th variable is placed as the first, then <span class="math inline">\(\pi(J,j) = \emptyset\)</span>. Consider the model prediction <span class="math inline">\(f(x_*)\)</span> for a particular instance of interest <span class="math inline">\(x_*\)</span>. The Shapley value is defined as follows:
+Let us consider a permutation <span class="math inline">\(J\)</span> of the set of indices <span class="math inline">\(\{1,2,\ldots,p\}\)</span> corresponding to an ordering of <span class="math inline">\(p\)</span> explanatory variables included in model <span class="math inline">\(f()\)</span>. Denote by <span class="math inline">\(\pi(J,j)\)</span> the set of the indices of the variables that are positioned in <span class="math inline">\(J\)</span> before the <span class="math inline">\(j\)</span>-th variable. Note that, if the <span class="math inline">\(j\)</span>-th variable is placed as the first, then <span class="math inline">\(\pi(J,j) = \emptyset\)</span>. Consider the model prediction <span class="math inline">\(f(x_*)\)</span> for a particular instance of interest <span class="math inline">\(x_*\)</span>. The Shapley value is defined as follows:
 <span class="math display" id="eq:SHAP">\[\begin{equation}
 \varphi(x_*,j) = \frac{1}{p!} \sum_{J} \Delta^{j|\pi(J,j)}(x_*),  
 \tag{9.1}
 \end{equation}\]</span>
-where the sum is taken over all <span class="math inline">\(p!\)</span> possible permutations (orderings of explanatory variables) and the variable-importance measure <span class="math inline">\(\Delta^{j|J}(x_*)\)</span> was defined in Section <a href="breakDown.html#BDMethod">7.2</a>. Essentially, <span class="math inline">\(\varphi(x_*,j)\)</span> is the average of the variable-importance measures across all possible orderings of explanatory variables.</p>
+<p>where the sum is taken over all <span class="math inline">\(p!\)</span> possible permutations (orderings of explanatory variables) and the variable-importance measure <span class="math inline">\(\Delta^{j|J}(x_*)\)</span> was defined in Section <a href="breakDown.html#BDMethod">7.2</a>. Essentially, <span class="math inline">\(\varphi(x_*,j)\)</span> is the average of the variable-importance measures across all possible orderings of explanatory variables.</p>
 <p>It is worth noting that the value of <span class="math inline">\(\Delta^{j|\pi(J,j)}(x_*)\)</span> is constant for all ordering <span class="math inline">\(J\)</span> that share with the same subset <span class="math inline">\(\pi(J,j)\)</span>. It follows that equation <a href="shapley.html#eq:SHAP">(9.1)</a> can be expressed in an alternative form:</p>
-<p><span class="math display" id="eq:SHAP1">\[\begin{eqnarray}
+<span class="math display" id="eq:SHAP1">\[\begin{eqnarray}
 \varphi(x_*,j) &amp;=&amp; \frac 1{p!}\sum_{s=0}^{p-1} \sum_{
 \substack{
 S \subseteq \{1,\dots,p\}\setminus \{j\} \\ |S|=s
@@ -443,7 +417,7 @@ S \subseteq \{1,\dots,p\}\setminus \{j\} \\ |S|=s
 }}  \left[{{p-1}\choose{s}}^{-1} \Delta^{j|S}(x_*)\right],
 \tag{9.2}
 \end{eqnarray}\]</span>
-where <span class="math inline">\(|S|\)</span> denotes the cardinal number (size) of set <span class="math inline">\(S\)</span> and the second sum is taken over all subsets <span class="math inline">\(S\)</span> of explanatory variables, excluding the <span class="math inline">\(j\)</span>-th one, of size <span class="math inline">\(s\)</span>.</p>
+<p>where <span class="math inline">\(|S|\)</span> denotes the cardinal number (size) of set <span class="math inline">\(S\)</span> and the second sum is taken over all subsets <span class="math inline">\(S\)</span> of explanatory variables, excluding the <span class="math inline">\(j\)</span>-th one, of size <span class="math inline">\(s\)</span>.</p>
 <p>Note that the number of all subsets of sizes from 0 to <span class="math inline">\(p-1\)</span> is <span class="math inline">\(2^{p}-1\)</span>, i.e., it is much smaller than number of all permutations <span class="math inline">\(p!\)</span>. Nevertheless, for a large <span class="math inline">\(p\)</span>, it may not be feasible to compute the Shapley values from Equations <a href="shapley.html#eq:SHAP">(9.1)</a> nor <a href="shapley.html#eq:SHAP1">(9.2)</a>. In that case, an estimate based on a sample of permutations may be considered. A Monte Carlo estimator was introduced in ,,Explaining prediction models and individual predictions with feature contributions’’ <span class="citation">(Štrumbelj and Kononenko <a href="#ref-Strumbelj2014">2014</a>)</span>. An efficient implementation of computations of Shapley values was introduced in package SHAP <span class="citation">(Lundberg and Lee <a href="#ref-SHAP">2017</a>)</span>.</p>
 <p>From the properties of Shapley values for cooperative games it follows that, in the context of predictive models, they enjoy the following properties:</p>
 <ul>
@@ -451,8 +425,7 @@ where <span class="math inline">\(|S|\)</span> denotes the cardinal number (size
 </ul>
 <p><span class="math display">\[
 \Delta^{j|S}(x_*) = \Delta^{k|S}(x_*),
-\]</span>
-then their Shapley values are equal:</p>
+\]</span> then their Shapley values are equal:</p>
 <p><span class="math display">\[
 \varphi(x_*,j) = \varphi(x_*,k).
 \]</span></p>
@@ -536,34 +509,33 @@ Figure 9.3: Variable contributions for the prediction for <code>johny_d</code> f
 </div>
 <div id="SHAPRcode" class="section level2">
 <h2><span class="header-section-number">9.5</span> Code snippets for R</h2>
-<p>In this section, we use an <code>DALEX::variable_attribution()</code> function which is a wrapper for <code>iBreakDown</code> R package <span class="citation">(Gosiewska and Biecek <a href="#ref-iBreakDownRPackage">2019</a><a href="#ref-iBreakDownRPackage">a</a>)</span>. The package covers all methods presented in this chapter. It is available on CRAN and GitHub.
-Note that there are also other R packages that offer similar functionality, like <code>shapper</code> <span class="citation">(Gosiewska and Biecek <a href="#ref-shapperPackage">2019</a><a href="#ref-shapperPackage">b</a>)</span>, which is a wrapper for the Python library <code>SHAP</code> <span class="citation">(Lundberg <a href="#ref-shapPackage">2019</a>)</span>, and <code>iml</code> <span class="citation">(Molnar, Bischl, and Casalicchio <a href="#ref-imlRPackage">2018</a>)</span>.</p>
+<p>In this section, we use an <code>DALEX::variable_attribution()</code> function which is a wrapper for <code>iBreakDown</code> R package <span class="citation">(Gosiewska and Biecek <a href="#ref-iBreakDownRPackage">2019</a><a href="#ref-iBreakDownRPackage">a</a>)</span>. The package covers all methods presented in this chapter. It is available on CRAN and GitHub. Note that there are also other R packages that offer similar functionality, like <code>shapper</code> <span class="citation">(Gosiewska and Biecek <a href="#ref-shapperPackage">2019</a><a href="#ref-shapperPackage">b</a>)</span>, which is a wrapper for the Python library <code>SHAP</code> <span class="citation">(Lundberg <a href="#ref-shapPackage">2019</a>)</span>, and <code>iml</code> <span class="citation">(Molnar, Bischl, and Casalicchio <a href="#ref-imlRPackage">2018</a>)</span>.</p>
 <p>For illustration purposes, we use the <code>titanic_rf_v6</code> random-forest model for the Titanic data developed in Section <a href="dataSetsIntro.html#model-titanic-rf">5.1.3</a>. Recall that it is developed to predict the probability of survival from sinking of Titanic. Instance-level explanations are calculated for a single observation: <code>henry</code> - an 42-year-old passenger that travelled in the 1st class.</p>
 <p><code>DALEX</code> explainers for the model and the <code>jonhy_d</code> data are retrieved via <code>archivist</code> hooks as listed in Section <a href="dataSetsIntro.html#ListOfModelsTitanic">5.1.8</a>.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;randomForest&quot;</span>)</a>
-<a class="sourceLine" id="cb64-2" data-line-number="2">explain_rf_v6 &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/6ed54&quot;</span>)</a>
-<a class="sourceLine" id="cb64-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb64-4" data-line-number="4"><span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)</a>
-<a class="sourceLine" id="cb64-5" data-line-number="5">henry &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/e3596&quot;</span>)</a>
-<a class="sourceLine" id="cb64-6" data-line-number="6">henry</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;randomForest&quot;</span>)
+explain_rf_v6 &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/6ed54&quot;</span>)
+
+<span class="kw">library</span>(<span class="st">&quot;DALEX&quot;</span>)
+henry &lt;-<span class="st"> </span>archivist<span class="op">::</span><span class="kw">aread</span>(<span class="st">&quot;pbiecek/models/e3596&quot;</span>)
+henry</code></pre></div>
 <pre><code>##   class gender age sibsp parch fare  embarked
 ## 1   1st   male  47     0     0   25 Cherbourg</code></pre>
 <p>We obtain the model prediction for this instance with the help of the `predict()’ function.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">predict</span>(explain_rf_v6, henry)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(explain_rf_v6, henry)</code></pre></div>
 <pre><code>## [1] 0.246</code></pre>
 <p>With the help of function <code>variable_attribution()</code> we can re-create Figure <a href="shapley.html#fig:shappJohny02">9.3</a>. The function is applied to the explainer, created with the <code>explain()</code> function from the <code>DALEX</code> package, and a data frame for the instance of interest. Additionally, in the <code>B=25</code> argument we indicate that we want to select 25 random orderings of explanatory variables for which the Shapley values are to be computed. The resulting object is a data frame with variable contributions computed for every ordering. Applying the generic function <code>plot()</code> to the object constructs the plot that includes the Shapley values and the corresponding box-plots.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">shap_henry &lt;-<span class="st"> </span><span class="kw">variable_attribution</span>(explain_rf_v6, </a>
-<a class="sourceLine" id="cb68-2" data-line-number="2">                                   henry, </a>
-<a class="sourceLine" id="cb68-3" data-line-number="3">                                   <span class="dt">type =</span> <span class="st">&quot;shap&quot;</span>,</a>
-<a class="sourceLine" id="cb68-4" data-line-number="4">                                   <span class="dt">B =</span> <span class="dv">25</span>)</a>
-<a class="sourceLine" id="cb68-5" data-line-number="5"><span class="kw">plot</span>(shap_henry) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">shap_henry &lt;-<span class="st"> </span><span class="kw">variable_attribution</span>(explain_rf_v6, 
+                                   henry, 
+                                   <span class="dt">type =</span> <span class="st">&quot;shap&quot;</span>,
+                                   <span class="dt">B =</span> <span class="dv">25</span>)
+<span class="kw">plot</span>(shap_henry) </code></pre></div>
 <p><img src="ema_files/figure-html/unnamed-chunk-38-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>To obtain a plot with only Shapley values, we can use the <code>show_boxplots=FALSE</code> argument in the <code>plot()</code> function call.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="kw">plot</span>(shap_henry, <span class="dt">show_boxplots =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(shap_henry, <span class="dt">show_boxplots =</span> <span class="ot">FALSE</span>) </code></pre></div>
 <p><img src="ema_files/figure-html/unnamed-chunk-39-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>When we compare this plot with the <code>johny_d</code> in Figure <a href="shapley.html#fig:shappJohny02">9.3</a> the largest difference is related to effect of <code>age</code>. Young <code>johny_d</code> has larger than average chances of survival, much larger than 47 years old <code>henry</code>.</p>
 <p>The object obtained as a result of the application of function <code>shap()</code> allows to compute other summary statistics beyond the average.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">shap_henry</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">shap_henry</code></pre></div>
 <pre><code>##                                             min           q1       median
 ## Random Forest: age = 47             -0.14872225 -0.115577707 -0.077651998
 ## Random Forest: class = 1st           0.12112732  0.142754644  0.176491618
@@ -572,62 +544,54 @@ Note that there are also other R packages that offer similar functionality, like
 ## Random Forest: gender = male        -0.15592478 -0.130189397 -0.125022202
 ## Random Forest: parch = 0            -0.02795650 -0.011817399 -0.005084730
 ## Random Forest: sibsp = 0            -0.03593203 -0.011618034 -0.006115541
-##                                             mean            q3
-## Random Forest: age = 47             -0.076695025 -0.0294435886
-## Random Forest: class = 1st           0.170520888  0.1925099683
-## Random Forest: embarked = Cherbourg  0.062216294  0.0964676031
-## Random Forest: fare = 25            -0.004429615  0.0039927503
-## Random Forest: gender = male        -0.125052324 -0.1155987766
-## Random Forest: parch = 0            -0.007256366 -0.0008337109
-## Random Forest: sibsp = 0            -0.008613321  0.0067818305
-##                                              max
-## Random Forest: age = 47             -0.021961033
-## Random Forest: class = 1st           0.246304486
-## Random Forest: embarked = Cherbourg  0.109760761
-## Random Forest: fare = 25             0.033626643
-## Random Forest: gender = male        -0.101295877
-## Random Forest: parch = 0             0.002820118
-## Random Forest: sibsp = 0             0.007650204</code></pre>
+##                                             mean            q3          max
+## Random Forest: age = 47             -0.076695025 -0.0294435886 -0.021961033
+## Random Forest: class = 1st           0.170520888  0.1925099683  0.246304486
+## Random Forest: embarked = Cherbourg  0.062216294  0.0964676031  0.109760761
+## Random Forest: fare = 25            -0.004429615  0.0039927503  0.033626643
+## Random Forest: gender = male        -0.125052324 -0.1155987766 -0.101295877
+## Random Forest: parch = 0            -0.007256366 -0.0008337109  0.002820118
+## Random Forest: sibsp = 0            -0.008613321  0.0067818305  0.007650204</code></pre>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-LWRP">
-<p>Binder, Alexander, Grégoire Montavon, Sebastian Bach, Klaus-Robert Müller, and Wojciech Samek. 2016. “Layer-Wise Relevance Propagation for Neural Networks with Local Renormalization Layers.” <em>CoRR</em> abs/1604.00825. <a href="http://arxiv.org/abs/1604.00825">http://arxiv.org/abs/1604.00825</a>.</p>
+<p>Binder, Alexander, Grégoire Montavon, Sebastian Bach, Klaus-Robert Müller, and Wojciech Samek. 2016. “Layer-Wise Relevance Propagation for Neural Networks with Local Renormalization Layers.” <em>CoRR</em> abs/1604.00825. <a href="http://arxiv.org/abs/1604.00825" class="uri">http://arxiv.org/abs/1604.00825</a>.</p>
 </div>
 <div id="ref-iBreakDownRPackage">
-<p>Gosiewska, Alicja, and Przemyslaw Biecek. 2019a. “iBreakDown: Uncertainty of Model Explanations for Non-additive Predictive Models.” <a href="https://arxiv.org/abs/1903.11420v1">https://arxiv.org/abs/1903.11420v1</a>.</p>
+<p>Gosiewska, Alicja, and Przemyslaw Biecek. 2019a. “iBreakDown: Uncertainty of Model Explanations for Non-additive Predictive Models.” <a href="https://arxiv.org/abs/1903.11420v1" class="uri">https://arxiv.org/abs/1903.11420v1</a>.</p>
 </div>
 <div id="ref-shapperPackage">
-<p>Gosiewska, Alicja, and Przemyslaw Biecek. 2019b. <em>shapper: Wrapper of Python Library ’shap’</em>. <a href="https://github.com/ModelOriented/shapper">https://github.com/ModelOriented/shapper</a>.</p>
+<p>Gosiewska, Alicja, and Przemyslaw Biecek. 2019b. <em>shapper: Wrapper of Python Library ’shap’</em>. <a href="https://github.com/ModelOriented/shapper" class="uri">https://github.com/ModelOriented/shapper</a>.</p>
 </div>
 <div id="ref-shapPackage">
-<p>Lundberg, Scott. 2019. <em>SHAP (SHapley Additive exPlanations)</em>. <a href="https://github.com/slundberg/shap">https://github.com/slundberg/shap</a>.</p>
-</div>
-<div id="ref-TreeSHAP">
-<p>Lundberg, Scott M., Gabriel G. Erion, and Su-In Lee. 2018. “Consistent Individualized Feature Attribution for Tree Ensembles.” <em>CoRR</em> abs/1802.03888. <a href="http://arxiv.org/abs/1802.03888">http://arxiv.org/abs/1802.03888</a>.</p>
+<p>Lundberg, Scott. 2019. <em>SHAP (SHapley Additive exPlanations)</em>. <a href="https://github.com/slundberg/shap" class="uri">https://github.com/slundberg/shap</a>.</p>
 </div>
 <div id="ref-SHAP">
-<p>Lundberg, Scott M, and Su-In Lee. 2017. “A Unified Approach to Interpreting Model Predictions.” In <em>Advances in Neural Information Processing Systems 30</em>, edited by I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, 4765–74. Curran Associates, Inc. <a href="http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf">http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf</a>.</p>
+<p>Lundberg, Scott M, and Su-In Lee. 2017. “A Unified Approach to Interpreting Model Predictions.” In <em>Advances in Neural Information Processing Systems 30</em>, edited by I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, 4765–74. Curran Associates, Inc. <a href="http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf" class="uri">http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf</a>.</p>
+</div>
+<div id="ref-TreeSHAP">
+<p>Lundberg, Scott M., Gabriel G. Erion, and Su-In Lee. 2018. “Consistent Individualized Feature Attribution for Tree Ensembles.” <em>CoRR</em> abs/1802.03888. <a href="http://arxiv.org/abs/1802.03888" class="uri">http://arxiv.org/abs/1802.03888</a>.</p>
 </div>
 <div id="ref-imlRPackage">
-<p>Molnar, Christoph, Bernd Bischl, and Giuseppe Casalicchio. 2018. “iml: An R package for Interpretable Machine Learning.” <em>Joss</em> 3 (26). Journal of Open Source Software: 786. <a href="https://doi.org/10.21105/joss.00786">https://doi.org/10.21105/joss.00786</a>.</p>
+<p>Molnar, Christoph, Bernd Bischl, and Giuseppe Casalicchio. 2018. “iml: An R package for Interpretable Machine Learning.” <em>Joss</em> 3 (26). Journal of Open Source Software: 786. doi:<a href="https://doi.org/10.21105/joss.00786">10.21105/joss.00786</a>.</p>
 </div>
 <div id="ref-lime">
-<p>Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. 2016. “Why Should I Trust You?: Explaining the Predictions of Any Classifier.” In, 1135–44. ACM Press. <a href="https://doi.org/10.1145/2939672.2939778">https://doi.org/10.1145/2939672.2939778</a>.</p>
+<p>Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. 2016. “Why Should I Trust You?: Explaining the Predictions of Any Classifier.” In, 1135–44. ACM Press. doi:<a href="https://doi.org/10.1145/2939672.2939778">10.1145/2939672.2939778</a>.</p>
 </div>
 <div id="ref-shapleybook1952">
 <p>Shapley, Lloyd S. 1953. “A Value for n-Person Games.” In <em>Contributions to the Theory of Games Ii</em>, edited by Harold W. Kuhn and Albert W. Tucker, 307–17. Princeton: Princeton University Press.</p>
 </div>
 <div id="ref-DeepLIFT">
-<p>Shrikumar, Avanti, Peyton Greenside, and Anshul Kundaje. 2017. “Learning Important Features Through Propagating Activation Differences.” <em>CoRR</em> abs/1704.02685. <a href="http://arxiv.org/abs/1704.02685">http://arxiv.org/abs/1704.02685</a>.</p>
+<p>Shrikumar, Avanti, Peyton Greenside, and Anshul Kundaje. 2017. “Learning Important Features Through Propagating Activation Differences.” <em>CoRR</em> abs/1704.02685. <a href="http://arxiv.org/abs/1704.02685" class="uri">http://arxiv.org/abs/1704.02685</a>.</p>
 </div>
 <div id="ref-imeJLMR">
-<p>Štrumbelj, Erik, and Igor Kononenko. 2010. “An Efficient Explanation of Individual Classifications Using Game Theory.” <em>Journal of Machine Learning Research</em> 11 (March). JMLR.org: 1–18. <a href="http://dl.acm.org/citation.cfm?id=1756006.1756007">http://dl.acm.org/citation.cfm?id=1756006.1756007</a>.</p>
+<p>Štrumbelj, Erik, and Igor Kononenko. 2010. “An Efficient Explanation of Individual Classifications Using Game Theory.” <em>Journal of Machine Learning Research</em> 11 (March). JMLR.org: 1–18. <a href="http://dl.acm.org/citation.cfm?id=1756006.1756007" class="uri">http://dl.acm.org/citation.cfm?id=1756006.1756007</a>.</p>
 </div>
 <div id="ref-Strumbelj2014">
-<p>Štrumbelj, Erik, and Igor Kononenko. 2014. “Explaining prediction models and individual predictions with feature contributions.” <em>Knowledge and Information Systems</em> 41 (3): 647–65. <a href="https://doi.org/10.1007/s10115-013-0679-x">https://doi.org/10.1007/s10115-013-0679-x</a>.</p>
+<p>Štrumbelj, Erik, and Igor Kononenko. 2014. “Explaining prediction models and individual predictions with feature contributions.” <em>Knowledge and Information Systems</em> 41 (3): 647–65. doi:<a href="https://doi.org/10.1007/s10115-013-0679-x">10.1007/s10115-013-0679-x</a>.</p>
 </div>
 </div>
             </section>
@@ -691,7 +655,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
